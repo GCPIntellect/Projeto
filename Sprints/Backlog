@@ -1,11 +1,13 @@
 Software com IA desenvolvido utilizando python com funcionalidades para sugestões de resolução de problemas, abertura de chamado e criação de backlog dos chamados e problemas.
 
-1ª Sprint - Foi decidido após as reuniões o desenvolvimento de uma IA usando uma API já existente com uso da línguagem python. Base do código adiada devido a problemas pessoais do desenvolvedor responsável.
+1ª Sprint - Foi decidido após as reuniões o desenvolvimento de uma IA usando uma API já existente com uso da línguagem python. Base do código adiada devido a problemas pessoais do desenvolvedor responsável;
 
-2ª Sprint - Após o retorno do desenvolvedor, foi-se implementado a IA junto ao software de base nos dados, dados que foram levantados junto aos funcionários no decorrer da semana.
+2ª Sprint - Após o retorno do desenvolvedor, foi-se implementado a IA junto ao software de base nos dados, dados que foram levantados junto aos funcionários no decorrer da semana;
 
-3ª Sprint - Testes foram iniciados rm um ambiente fechado, onde apenas os desenvolvedores tinham acesso, a IA teve resultados aceitáveis com poucos erros, cerca de 1 erro a cada 20 respostas, devido a uma base forte de código não foi necessário debugging.
+3ª Sprint - Testes foram iniciados rm um ambiente fechado, onde apenas os desenvolvedores tinham acesso, a IA teve resultados aceitáveis com poucos erros, cerca de 1 erro a cada 20 respostas, devido a uma base forte de código não foi necessário debugging;
 
-4ª Sprint - Em busca de erros a IA foi disponibilizada ao público para teste em um sistema A/B, os usuários descobriram erro ao utilizar a IA na hora do backlog, a IA estava registrando as utilizações de acordo com o horário do sistema operacional, debugging foi fácil alinhando o horário com o sistema da empresa. Fora isso o teste foi aceito com uma margem de 80% dos usuários que o utilizou.
+4ª Sprint - Em busca de erros a IA foi disponibilizada ao público para teste em um sistema A/B, os usuários descobriram erro ao utilizar a IA na hora do backlog, a IA estava registrando as utilizações de acordo com o horário do sistema operacional, debugging foi fácil alinhando o horário com o sistema da empresa. Fora isso o teste foi aceito com uma margem de 80% dos usuários que o utilizou;
 
-5ª Sprint - A IA foi implementada fora de teste A/B, a produtividade dos usuários foi melhorada em aproximadamente 30%, nossas avaliações subiram de 4,2 estrelas para 4,5 estrelas. Não foi necessário debugging
+5ª Sprint - A IA foi implementada fora de teste A/B, a produtividade dos usuários foi melhorada em aproximadamente 30%, nossas avaliações subiram de 4,2 estrelas para 4,5 estrelas. Não foi necessário debugging;
+
+

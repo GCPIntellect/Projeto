@@ -1,17 +1,28 @@
-Software com IA desenvolvido utilizando python com funcionalidades para sugestões de resolução de problemas, abertura de chamado e criação de backlog dos chamados e problemas.
+Backlog - Requisitos do Sistema
 
-1ª Sprint - Foi decidido após as reuniões o desenvolvimento de uma IA usando uma API já existente com uso da línguagem python. Base do código adiada devido a problemas pessoais do desenvolvedor responsável;
+Prioridade Alta
 
-2ª Sprint - Após o retorno do desenvolvedor, foi-se implementado a IA junto ao software de base nos dados, dados que foram levantados junto aos funcionários no decorrer da semana;
+Qual será o objetivo da IA?
+Qual API Utilizar ou Criar uma própria?
+Implementar a IA e ter um modelo funcional
+Levantamento de dados com funcionários
+Colocar ela em teste em ambiente fechado
+Teste com indivíduos fora da empresa
+Implementação da IA no sistema
+Criação de Casos de Uso, Classe, Sequencia e Implementação
 
-3ª Sprint - Testes foram iniciados em um ambiente fechado, onde apenas os desenvolvedores tinham acesso, a IA teve resultados aceitáveis com poucos erros, cerca de 1 erro a cada 20 respostas, devido a uma base forte de código não foi necessário debugging;
+Prioridade Média
 
-4ª Sprint - O modelo da IA foi otimizado para oferecer respostas mais precisas e eficientes, reduzido tempo de resposta em 10% e aprimorado o processamento dos dados;
+Treinar a IA com os dados levantados
+Ajustar IA enquanto continua os testes
+Coleta de resultados
 
-7ª Sprint - Foi melhorado a análise textual da IA e sugestões do tipo de problema encontrado, melhorando a experiência geral de uso em 15% com base no resultado anterior;
 
-6ª Sprint - Em busca de erros a IA foi disponibilizada ao público para teste em um sistema A/B, os usuários descobriram erro ao utilizar a IA na hora do backlog, a IA estava registrando as utilizações de acordo com o horário do sistema operacional, debugging foi fácil alinhando o horário com o sistema da empresa. Fora isso o teste foi aceito com uma margem de 80% dos usuários que o utilizou;
+Prioridade Baixa
 
-7ª Sprint - A IA foi implementada fora de teste A/B, a produtividade dos usuários foi melhorada em aproximadamente 30%, nossas avaliações subiram de 4,2 estrelas para 4,5 estrelas. Não foi necessário debugging;
+Calcular taxa de erro
+Debbuging
+Avaliação de resultados
+Mostrar melhora do setor em %
+Debugging se necessário
 
-8ª Sprint - Criação de uma interface de análise de desempenho para administradores visualizarem relatórios detalhados sobre o impacto da IA no dia a dia da empresa. Com base nos dados a serem coletados, novas melhorias serão planejadas para futuras versões.

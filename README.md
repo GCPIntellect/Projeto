@@ -1,115 +1,79 @@
-GCP AI
+**GCP AI**
 
-📋 Descrição
+![image](https://github.com/user-attachments/assets/5856f836-c896-46df-bd69-0e43da9290f7)
 
-A GCP Intellect é uma empresa especializada no desenvolvimento de soluções baseadas em inteligência artificial, com foco em sistemas de chat para auxiliar no atendimento de chamados. Nosso projeto busca otimizar o dia a dia das equipes, proporcionando respostas rápidas e eficazes, reduzindo o tempo ocioso e melhorando o fluxo de trabalho.
-
-
-![image](https://github.com/user-attachments/assets/bfca7f2e-bf8d-4f44-8e3a-5cb9d762abca)
+📋 Descrição A GCP Intellect é uma empresa especializada no desenvolvimento de soluções baseadas em inteligência artificial, com foco em sistemas de chat para auxiliar no atendimento de chamados. Nosso projeto visa otimizar o dia a dia das equipes, proporcionando respostas rápidas e eficazes, reduzindo o tempo ocioso e melhorando o fluxo de trabalho.
 
 
-✨ Funcionalidades
+-**✨ Funcionalidades** 
+-✔️ Auxílio na otimização do tempo. 
+-✔️ Solução de problemas de forma dinâmica. 
+-✔️ Suporte 24h de acordo com a prioridade. 
+-✔️ Suporte para empresas de médio e grande porte.
 
-•	Auxiliar na otimização do tempo.
+🚀 Começando Estas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
 
-•	Solução de problemas de forma dinâmica.
+📋 Pré-requisitos Para utilizar o sistema, é necessário um equipamento com conexão à internet e uma chave de acesso disponibilizada pela empresa contratante dos serviços.
 
-•	Suporte 24hrs de acordo com prioridade.
+🔧 Instalação Como se trata de uma IA baseada em nuvem, não é necessário baixar nenhum tipo de software. Basta uma conexão à internet para acessar todas as ferramentas disponíveis.
 
-•	Suporte para empresas de médio e grande porte.
+🛠️ Como usar > Em breve...
 
-
-
-🚀 Começando
-
-Estas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
-
-📋 Pré-requisitos
-
-Equipamentos necessarios serão uma maquina com conexão a internet e chave de acesso disponibilizada pela empresa contratante dos serviços. 
-
-
-🔧 Instalação
-
-Pelo fato de ser uma IA não será necessario baixar nenhum tipo de software, apenas uma conexão a internet voçê acessara todas as feramentas necessarias. 
-
-
-
-🎮 Como usar
-
-
-
-📦 Estrutura do projeto
-
-
+📦 Estrutura do projeto > Em desenvolvimento...
 
 🛠️ Tecnologias utilizadas
 
-API (Em analise...)
+API (Em análise...)
 
-Phyton.
+**BACKLOG**
+https://github.com/GCPIntellect/Projeto/blob/main/Documenta%C3%A7%C3%A3o/Backlog.md
 
+**Planejamento da Sprint**
+https://github.com/GCPIntellect/Projeto/blob/main/Documenta%C3%A7%C3%A3o/SprintPlanning.xlsx
 
-🔄 Fluxo de trabalho de desenvolvimento
+**Casos de Uso(Modelo,sequencia e implementação)**
+https://github.com/GCPIntellect/Projeto/blob/main/Documenta%C3%A7%C3%A3o/SprintPlanning.xlsx
 
+**Python**
 
-📌 Versionamento
+🔄 Fluxo de trabalho de desenvolvimento > Em progresso...
 
-carregando...
+📌 Versionamento > Carregando...
 
+✒️ **Autores**
 
-✒️ Autores
+🧑‍💻 Caio Damaceno Pinheiro Cavagnolli – P.O. (Project Owner)
 
-Caio Damaceno Pinheiro Cavagnolli - P.O. (Project Owner)
+Conhecimento em C++, C# e Python.
 
--Conhecimento de linguagem de programação, C++,C# e Python.
+Fluência nativa em português e avançada em inglês.
 
--Fluência nativa em português e avançada em inglês.
+Flexibilidade, adaptabilidade e resiliência.
 
--Flexibilidade.
+Habilidade para trabalho em equipe.
 
--Adaptabilidade.
+🧑‍💻 Gustavo Brinate de Azevedo Pereira – Scrum Master
 
--Resiliência.
+Conhecimento em C++, HTML e Python.
 
--Trabalho em equipe.
+Língua materna português (BR) e avançado em inglês.
 
+Minucioso, atencioso e flexível.
 
-Gustavo brinate de Azevedo Pereira (Scrum Master)
+Excelente trabalho em equipe.
 
--conhecimento de linguagem de programação, C++,html e Python. 
+🧑‍💻 Pedro Henrique Perrenchelle Cordeiro – Desenvolvedor
 
--língua materna português (br) e avançado em inglês. 
+Proficiência em inglês.
 
--flexibilidade. 
+Excel avançado.
 
--minucioso.
+Gestão de pessoas e projetos.
 
--atencioso. 
+Pensamento crítico e resolução de problemas.
 
--trabalho em equipe.
+📄 Licença > Carregando...
 
-Pedro Henrique Perrenchelle Cordeiro (Desenvolvedor)
+🎁 Agradecimentos Agradecemos a todos que contribuíram para o desenvolvimento deste projeto de diversas maneiras.
 
--Proficiência em inglês.
-
--Excel avançado.
-
--Gestão de pessoas.
-
--Gestão de projetos.
-
--Pensamento crítico.
-
--Resolução de problemas.
-
-
-
-📄 Licença
-carregando...
-
-🎁 Agradecimentos
-
-Agradecimentos a quem contribuiu para o projeto de todas as maneiras.
-
-
+Agora seu README está mais organizado, corrigido e estruturado para facilitar a leitura. Caso queira mais refinamentos, é só me avisar! 😃🚀

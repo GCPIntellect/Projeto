@@ -1,4 +1,4 @@
-**GCP AI**
+# **GCP AI**
 
 ![image](https://github.com/user-attachments/assets/5856f836-c896-46df-bd69-0e43da9290f7)
 
@@ -6,15 +6,15 @@
 
 
 
--**✨ Funcionalidades** 
+# **✨ Funcionalidades** 
 
--✔️ Auxílio na otimização do tempo. 
+- ✔️ Auxílio na otimização do tempo. 
 
--✔️ Solução de problemas de forma dinâmica. 
+- ✔️ Solução de problemas de forma dinâmica. 
 
--✔️ Suporte 24h de acordo com a prioridade.
+- ✔️ Suporte 24h de acordo com a prioridade.
 
--✔️ Suporte para empresas de médio e grande porte.
+- ✔️ Suporte para empresas de médio e grande porte.
 
 
 🚀 Começando Estas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
@@ -38,19 +38,19 @@
 API (Em análise...)
 
 
-**BACKLOG**
+# **BACKLOG**
 
 https://github.com/GCPIntellect/Projeto/blob/main/Documenta%C3%A7%C3%A3o/Backlog.md
 
-**Planejamento da Sprint**
+# **Planejamento da Sprint**
 
 https://github.com/GCPIntellect/Projeto/blob/main/Documenta%C3%A7%C3%A3o/SprintPlanning.xlsx
 
-**Casos de Uso(Modelo,sequencia e implementação)**
+# **Casos de Uso(Modelo,sequencia e implementação)**
 
 https://github.com/GCPIntellect/Projeto/blob/main/Documenta%C3%A7%C3%A3o/SprintPlanning.xlsx
 
-**Python**
+# **Python**
 
 
 🔄 Fluxo de trabalho de desenvolvimento > Em progresso...
@@ -59,7 +59,7 @@ https://github.com/GCPIntellect/Projeto/blob/main/Documenta%C3%A7%C3%A3o/SprintP
 📌 Versionamento > Carregando...
 
 
-✒️ **Autores**
+# ✒️ **Autores**
 
 
 🧑‍💻 Caio Damaceno Pinheiro Cavagnolli – P.O. (Project Owner)

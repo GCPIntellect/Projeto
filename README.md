@@ -1,6 +1,7 @@
 # **GCP AI**
 
-![image](https://github.com/user-attachments/assets/5856f836-c896-46df-bd69-0e43da9290f7)
+![image](https://github.com/user-attachments/assets/8017db07-1aa4-4d3e-97cc-0db380a9a7cf)
+
 
 📋 Descrição A GCP Intellect é uma empresa especializada no desenvolvimento de soluções baseadas em inteligência artificial, com foco em sistemas de chat para auxiliar no atendimento de chamados. Nosso projeto visa otimizar o dia a dia das equipes, proporcionando respostas rápidas e eficazes, reduzindo o tempo ocioso e melhorando o fluxo de trabalho.
 

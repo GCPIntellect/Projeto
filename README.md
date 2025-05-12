@@ -85,20 +85,3 @@ Língua materna português (BR) e avançado em inglês.
 Minucioso, atencioso e flexível.
 
 Excelente trabalho em equipe.
-
-
-🧑‍💻 Pedro Henrique Perrenchelle Cordeiro – Desenvolvedor
-
-
-Proficiência em inglês.
-
-Excel avançado.
-
-Gestão de pessoas e projetos.
-
-Pensamento crítico e resolução de problemas.
-
-📄 Licença > Carregando...
-
-🎁 Agradecimentos Agradecemos a todos que contribuíram para o desenvolvimento deste projeto de diversas maneiras.
-

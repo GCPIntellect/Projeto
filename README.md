@@ -1,87 +1,93 @@
-# **GCP AI**
+# 🤖 GCP AI - Solução de Atendimento com Inteligência Artificial
 
 ![logo_redimensionada_300x300](https://github.com/user-attachments/assets/a3783638-5c5f-4bf7-80fa-a31d3d591560)
 
 
-
-📋 Descrição A GCP Intellect é uma empresa especializada no desenvolvimento de soluções baseadas em inteligência artificial, com foco em sistemas de chat para auxiliar no atendimento de chamados. Nosso projeto visa otimizar o dia a dia das equipes, proporcionando respostas rápidas e eficazes, reduzindo o tempo ocioso e melhorando o fluxo de trabalho.
-
-
-
-# **✨ Funcionalidades** 
-
-- ✔️ Auxílio na otimização do tempo. 
-
-- ✔️ Solução de problemas de forma dinâmica. 
-
-- ✔️ Suporte 24h de acordo com a prioridade.
-
-- ✔️ Suporte para empresas de médio e grande porte.
+# 📌 Descrição
+ GCP Intellect é uma empresa de tecnologia especializada em soluções de inteligência artificial, com foco em chatbots e automação de atendimento. Desenvolvemos sistemas personalizados para otimizar fluxos de trabalho, reduzir o tempo de resposta e melhorar a eficiência operacional de empresas de médio e grande porte.
 
 
-🚀 Começando Estas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
+# ✨ Funcionalidades
+
+*  ⏱️ Otimização de tempo e tarefas.
+
+* 💡 Solução de problemas de forma dinâmica e proativa.
+
+* 🕒 Suporte 24 horas, com priorização por nível de urgência.
+
+* 🏢 Suporte ideal para empresas de médio e grande porte.
 
 
-📋 Pré-requisitos Para utilizar o sistema, é necessário um equipamento com conexão à internet e uma chave de acesso disponibilizada pela empresa contratante dos serviços.
+# 🚀 Primeiros Passos
+
+ ### 📋 Pré-requisitos
+
+* Equipamento com conexão à internet.
+
+* Chave de acesso fornecida pela GCP Intellect (para empresas contratantes).
 
 
-🔧 Instalação Como se trata de uma IA baseada em nuvem, não é necessário baixar nenhum tipo de software. Basta uma conexão à internet para acessar todas as ferramentas disponíveis.
+# 🔧 Instalação
+* Não é necessária instalação local. A solução é 100% baseada em nuvem – basta acessar via navegador com conexão à internet.
 
 
-🛠️ Como usar > Em breve...
+# 🛠️ Como Usar
+
+# 🔄 Em desenvolvimento...
+* (Em breve será disponibilizado um guia completo de uso do sistema.)
 
 
-📦 Estrutura do projeto > Em desenvolvimento...
+# 📦 Estrutura do Projeto
+
+### 🧩 Em construção...
+* (Uma visão detalhada da arquitetura será adicionada.)
 
 
-🛠️ Tecnologias utilizadas
+# ⚙️ Tecnologias Utilizadas
+* C#
+
+* APIs (em análise)
 
 
-API (Em análise...)
+
+# 📌 Documentação
 
 
-# **BACKLOG**
-
+### 📋 Backlog
 https://github.com/GCPIntellect/Projeto/blob/main/Documenta%C3%A7%C3%A3o/Backlog.md
 
-# **Planejamento da Sprint**
 
-https://github.com/GCPIntellect/Projeto/blob/main/Documenta%C3%A7%C3%A3o/SprintPlanning.xlsx
-
-# **Casos de Uso(Modelo,sequencia e implementação)**
-
-https://github.com/GCPIntellect/Projeto/blob/main/Documenta%C3%A7%C3%A3o/SprintPlanning.xlsx
-
-# **Python**
+### 📅 Planejamento da Sprint
+https://github.com/GCPIntellect/Projeto/blob/main/Documenta%C3%A7%C3%A3o/Reuni%C3%A3o%20das%20Sprints.md
 
 
-🔄 Fluxo de trabalho de desenvolvimento > Em progresso...
+
+### 🧩 Casos de Uso (Modelo, Sequência e Implementação) 
+https://github.com/GCPIntellect/Projeto/blob/main/Documenta%C3%A7%C3%A3o/Caso%20e%20Uso_Imagem.PNG
+https://github.com/GCPIntellect/Projeto/blob/main/Documenta%C3%A7%C3%A3o/Caso%20de%20Uso%20Sistema.asta
 
 
-📌 Versionamento > Carregando...
+# 🔄 Fluxo de Trabalho
+[* Em progresso...](https://github.com/GCPIntellect/Projeto/blob/main/Documenta%C3%A7%C3%A3o/Burndown_Gr%C3%A1fico.md)
+
+ 
+# 🗂️ Versionamento
+* Em breve...(0.0.1)
 
 
-# ✒️ **Autores**
+# ✒️ Autores
 
 
-🧑‍💻 Caio Damaceno Pinheiro Cavagnolli – P.O. (Project Owner)
+### 👤 Caio Damaceno Pinheiro Cavagnolli — Product Owner (P.O.)
+* Linguagens: C++, C#, Python
 
-Conhecimento em C++, C# e Python.
+* Idiomas: Português (nativo), Inglês (avançado)
 
-Fluência nativa em português e avançada em inglês.
+* Soft Skills: Flexibilidade, adaptabilidade, resiliência, trabalho em equipe
 
-Flexibilidade, adaptabilidade e resiliência.
+### 👤 Gustavo Brinate de Azevedo Pereira — Scrum Master
+* Linguagens: C++, HTML, Python
 
-Habilidade para trabalho em equipe.
+* Idiomas: Português (nativo), Inglês (avançado)
 
-
-🧑‍💻 Gustavo Brinate de Azevedo Pereira – Scrum Master
-
-
-Conhecimento em C++, HTML e Python.
-
-Língua materna português (BR) e avançado em inglês.
-
-Minucioso, atencioso e flexível.
-
-Excelente trabalho em equipe.
+* Soft Skills: Atenção a detalhes, flexibilidade, colaboração

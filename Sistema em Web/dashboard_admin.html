@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar de Navegação para Administrador -->
+        <aside class="sidebar" role="navigation">
+            <div class="sidebar-header">
+                <h2><i data-feather="box"></i> SysChamados</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard_admin.html" class="active"><i data-feather="home"></i> Dashboard</a></li>
+                    <li><a href="gerenciar_usuarios.html"><i data-feather="users"></i> Gerenciar Usuários</a></li>
+                    <li><a href="relatorios.html"><i data-feather="bar-chart-2"></i> Relatórios</a></li>
+                    <li><a href="configuracoes.html"><i data-feather="settings"></i> Configurações</a></li>
+                </ul>
+            </nav>
+            <footer class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="avatar">AD</div>
+                    <div class="user-info">
+                        <p>Admin</p>
+                        <span>Administrador</span>
+                    </div>
+                </div>
+            </footer>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content" role="main">
+            <button class="menu-toggle" aria-label="Abrir menu"><i data-feather="menu"></i></button>
+            <header class="main-header">
+                <h1>Dashboard Geral</h1>
+                <button class="btn btn-primary" style="width: auto; padding: 0.8rem 1.2rem;">Abrir Chamado</button>
+            </header>
+
+            <section class="card" id="chamados-recentes">
+                <h2>Todos os Chamados</h2>
+                <div class="table-container">
+                    <table class="styled-table" aria-label="Tabela de chamados">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Assunto</th>
+                                <th>Solicitante</th>
+                                <th>Status</th>
+                                <th>Data</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#1205</td>
+                                <td>Problema com impressora Fiscal</td>
+                                <td>Carlos (Supervisor)</td>
+                                <td><span class="status status-aberto">Aberto</span></td>
+                                <td>16/09/2025</td>
+                                <td class="action-buttons">
+                                    <a href="chamado.html" title="Ver detalhes"><i data-feather="eye"></i></a>
+                                    <a href="#" title="Editar"><i data-feather="edit-2"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#1204</td>
+                                <td>Sistema ERP não abre</td>
+                                <td>Ana (Supervisora)</td>
+                                <td><span class="status status-andamento">Em Andamento</span></td>
+                                <td>15/09/2025</td>
+                                <td class="action-buttons">
+                                    <a href="chamado.html" title="Ver detalhes"><i data-feather="eye"></i></a>
+                                    <a href="#" title="Editar"><i data-feather="edit-2"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#1203</td>
+                                <td>E-mail não envia anexos</td>
+                                <td>Carlos (Supervisor)</td>
+                                <td><span class="status status-concluido">Concluído</span></td>
+                                <td>14/09/2025</td>
+                                <td class="action-buttons">
+                                    <a href="chamado.html" title="Ver detalhes"><i data-feather="eye"></i></a>
+                                    <a href="#" title="Editar"><i data-feather="edit-2"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Botão Flutuante da IA -->
+    <button class="fab-ai" id="open-chat" aria-label="Abrir chat com IA">
+        <i data-feather="cpu"></i>
+    </button>
+    
+    <!-- Overlay do Chatbot IA -->
+    <div class="chat-overlay" id="chat-overlay" role="dialog" aria-modal="true">
+        <div class="chat-container">
+            <header class="chat-header">
+                <h3><i data-feather="cpu"></i> Assistente Virtual</h3>
+                <button id="close-chat" aria-label="Fechar chat"><i data-feather="x"></i></button>
+            </header>
+            <section class="chat-messages" aria-live="polite">
+                <div class="message bot">Olá! Sou seu assistente de IA. Como posso ajudar a resolver seu problema hoje?</div>
+            </section>
+            <footer class="chat-input">
+                <input type="text" placeholder="Digite seu problema aqui..." aria-label="Mensagem para IA">
+                <button aria-label="Enviar mensagem"><i data-feather="send"></i></button>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+      feather.replace();
+      // Script simples para o Chat e Sidebar
+      const openChatBtn = document.getElementById('open-chat');
+      const closeChatBtn = document.getElementById('close-chat');
+      const chatOverlay = document.getElementById('chat-overlay');
+      const menuToggle = document.querySelector('.menu-toggle');
+      const sidebar = document.querySelector('.sidebar');
+
+      openChatBtn.addEventListener('click', () => {
+        chatOverlay.style.display = 'flex';
+      });
+
+      closeChatBtn.addEventListener('click', () => {
+        chatOverlay.style.display = 'none';
+      });
+      
+      menuToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
+    </script>
+</body>
+</html>

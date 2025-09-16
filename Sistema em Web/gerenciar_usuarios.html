@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Usuários - Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar de Navegação para Administrador -->
+        <aside class="sidebar" role="navigation">
+            <div class="sidebar-header">
+                <h2><i data-feather="box"></i> SysChamados</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard_admin.html"><i data-feather="home"></i> Dashboard</a></li>
+                    <li><a href="gerenciar_usuarios.html" class="active"><i data-feather="users"></i> Gerenciar Usuários</a></li>
+                    <li><a href="relatorios.html"><i data-feather="bar-chart-2"></i> Relatórios</a></li>
+                    <li><a href="configuracoes.html"><i data-feather="settings"></i> Configurações</a></li>
+                </ul>
+            </nav>
+            <footer class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="avatar">AD</div>
+                    <div class="user-info">
+                        <p>Admin</p>
+                        <span>Administrador</span>
+                    </div>
+                </div>
+            </footer>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content" role="main">
+            <button class="menu-toggle" aria-label="Abrir menu"><i data-feather="menu"></i></button>
+            <header class="main-header">
+                <h1>Gerenciador de Usuários</h1>
+                <button class="btn btn-primary" style="width: auto; padding: 0.8rem 1.2rem;">Adicionar Usuário</button>
+            </header>
+
+            <section class="card" id="lista-usuarios">
+                <div class="table-container">
+                    <table class="styled-table" aria-label="Tabela de usuários">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>E-mail</th>
+                                <th>Nível de Acesso</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Carlos</td>
+                                <td>carlos@empresa.com</td>
+                                <td>Supervisor</td>
+                                <td class="action-buttons">
+                                    <a href="#" title="Editar"><i data-feather="edit-2"></i></a>
+                                    <button title="Excluir"><i data-feather="trash-2"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Mariana</td>
+                                <td>mariana@empresa.com</td>
+                                <td>Técnico</td>
+                                <td class="action-buttons">
+                                    <a href="#" title="Editar"><i data-feather="edit-2"></i></a>
+                                    <button title="Excluir"><i data-feather="trash-2"></i></button>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td>Ana</td>
+                                <td>ana@empresa.com</td>
+                                <td>Supervisor</td>
+                                <td class="action-buttons">
+                                    <a href="#" title="Editar"><i data-feather="edit-2"></i></a>
+                                    <button title="Excluir"><i data-feather="trash-2"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script>
+      feather.replace();
+      // Script para Sidebar Mobile
+      const menuToggle = document.querySelector('.menu-toggle');
+      const sidebar = document.querySelector('.sidebar');
+      menuToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
+    </script>
+</body>
+</html>

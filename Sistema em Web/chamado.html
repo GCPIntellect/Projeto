@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chamado #1205</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- A sidebar aqui seria dinâmica, mostrando a do usuário logado. Exemplo com a de admin -->
+        <aside class="sidebar" role="navigation">
+            <div class="sidebar-header">
+                <h2><i data-feather="box"></i> SysChamados</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard_admin.html"><i data-feather="home"></i> Dashboard</a></li>
+                    <li><a href="gerenciar_usuarios.html"><i data-feather="users"></i> Gerenciar Usuários</a></li>
+                    <li><a href="relatorios.html"><i data-feather="bar-chart-2"></i> Relatórios</a></li>
+                    <li><a href="configuracoes.html"><i data-feather="settings"></i> Configurações</a></li>
+                </ul>
+            </nav>
+            <footer class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="avatar">AD</div>
+                    <div class="user-info">
+                        <p>Admin</p>
+                        <span>Administrador</span>
+                    </div>
+                </div>
+            </footer>
+        </aside>
+
+        <!-- Conteúdo do Chamado -->
+        <main class="main-content" role="main">
+            <button class="menu-toggle" aria-label="Abrir menu"><i data-feather="menu"></i></button>
+            <header class="chamado-header">
+                <h1>Problema com impressora Fiscal <span class="status status-aberto">Aberto</span></h1>
+                <div class="chamado-meta">
+                    <span>ID: #1205</span>
+                    <span>Aberto por: Carlos (Supervisor)</span>
+                    <span>Data: 16/09/2025</span>
+                </div>
+            </header>
+
+            <section class="chamado-conversa">
+                <article class="conversa-item">
+                    <div class="avatar">CA</div>
+                    <div class="conversa-conteudo">
+                        <header class="conversa-conteudo-header">
+                            <strong>Carlos (Supervisor)</strong>
+                            <span>16/09/2025 às 09:30</span>
+                        </header>
+                        <p>Bom dia, a impressora fiscal do setor de vendas parou de funcionar. Ela liga, mas não imprime as notas. Já reiniciei o computador e a impressora, mas o problema persiste. Precisamos de ajuda urgente.</p>
+                    </div>
+                </article>
+
+                <article class="conversa-item">
+                    <div class="avatar">TE</div>
+                    <div class="conversa-conteudo">
+                        <header class="conversa-conteudo-header">
+                            <strong>Mariana (Técnico)</strong>
+                            <span>16/09/2025 às 09:45</span>
+                        </header>
+                        <p>Olá, Carlos. Recebi seu chamado. Você pode verificar se há alguma luz piscando na impressora? Estou a caminho para verificar o problema pessoalmente.</p>
+                    </div>
+                </article>
+            </section>
+            
+            <section class="card nova-mensagem" style="margin-top: 2rem;">
+                <h2>Adicionar uma atualização</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="mensagem">Sua mensagem</label>
+                        <textarea id="mensagem" placeholder="Digite sua resposta ou atualização aqui..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: auto;">Enviar Atualização</button>
+                </form>
+            </section>
+        </main>
+    </div>
+    
+    <script>
+      feather.replace();
+      // Script para Sidebar Mobile
+      const menuToggle = document.querySelector('.menu-toggle');
+      const sidebar = document.querySelector('.sidebar');
+      menuToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
+    </script>
+</body>
+</html>

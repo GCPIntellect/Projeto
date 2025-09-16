@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistema de Chamados com IA</title>
+    <!-- Link para a folha de estilos externa -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Fonte do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="login-body">
+    <main class="login-container" role="main">
+        <header class="login-header">
+            <h1>Sistema de Chamados</h1>
+            <p>Faça login para continuar.</p>
+        </header>
+        
+        <form class="login-form" id="loginForm">
+            <section class="form-group" role="group" aria-labelledby="email-label">
+                <label id="email-label" for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="Use 'admin@', 'tecnico@' ou 'supervisor@'" required>
+            </section>
+            
+            <section class="form-group" role="group" aria-labelledby="senha-label">
+                <label id="senha-label" for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" required value="1234"> <!-- Senha de teste -->
+            </section>
+
+            <p id="login-error">E-mail ou senha inválidos.</p>
+
+            <button type="submit" class="btn btn-primary">Entrar</button>
+        </form>
+
+        <footer class="form-footer">
+            <p>Não tem uma conta? <a href="#">Cadastre-se</a></p>
+        </footer>
+    </main>
+
+    <script>
+        // Este script simula a lógica de login que seria feita no back-end.
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio real do formulário
+            
+            const emailInput = document.getElementById('email');
+            const email = emailInput.value.toLowerCase();
+            const errorMessage = document.getElementById('login-error');
+            
+            // Lógica de simulação: verifica se o email contém a palavra-chave do perfil
+            if (email.includes('admin')) {
+                window.location.href = 'dashboard-admin.html';
+            } else if (email.includes('tecnico')) {
+                window.location.href = 'dashboard-tecnico.html';
+            } else if (email.includes('supervisor')) {
+                window.location.href = 'dashboard-supervisor.html';
+            } else {
+                errorMessage.style.display = 'block';
+                emailInput.focus();
+            }
+        });
+    </script>
+</body>
+</html>
+

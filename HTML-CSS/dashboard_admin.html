@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Admin</title>
+    <title>Dashboard - GCPIntellect</title>
+    <meta name="description" content="Sistema de chamados da Empresa GCPIntellect"> 
+    <link rel="icon" href="https://raw.githubusercontent.com/GCPIntellect/Projeto/refs/heads/main/Documenta%C3%A7%C3%A3o/img/Imagem%20Logo.png">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
     <div class="app-container">
-        <!-- Sidebar de Navegação para Administrador -->
         <aside class="sidebar" role="navigation">
             <div class="sidebar-header">
-                <h2><i data-feather="box"></i> SysChamados</h2>
+                <h2><i data-feather="box"></i> GCPIntellect</h2>
             </div>
             <nav class="sidebar-nav">
                 <ul>
@@ -34,12 +37,11 @@
             </footer>
         </aside>
 
-        <!-- Conteúdo Principal -->
         <main class="main-content" role="main">
             <button class="menu-toggle" aria-label="Abrir menu"><i data-feather="menu"></i></button>
             <header class="main-header">
-                <h1>Dashboard Geral</h1>
-                <button class="btn btn-primary" style="width: auto; padding: 0.8rem 1.2rem;">Abrir Chamado</button>
+                <h1>Dashboard</h1>
+                <a href="abrir_chamado.html" class="btn btn-primary main-header-action" role="button">Abrir Chamado</a>
             </header>
 
             <section class="card" id="chamados-recentes">
@@ -62,7 +64,7 @@
                                 <td>Problema com impressora Fiscal</td>
                                 <td>Carlos (Supervisor)</td>
                                 <td><span class="status status-aberto">Aberto</span></td>
-                                <td>16/09/2025</td>
+                                <td>06/10/2025</td>
                                 <td class="action-buttons">
                                     <a href="chamado.html" title="Ver detalhes"><i data-feather="eye"></i></a>
                                     <a href="#" title="Editar"><i data-feather="edit-2"></i></a>
@@ -73,7 +75,7 @@
                                 <td>Sistema ERP não abre</td>
                                 <td>Ana (Supervisora)</td>
                                 <td><span class="status status-andamento">Em Andamento</span></td>
-                                <td>15/09/2025</td>
+                                <td>05/10/2025</td>
                                 <td class="action-buttons">
                                     <a href="chamado.html" title="Ver detalhes"><i data-feather="eye"></i></a>
                                     <a href="#" title="Editar"><i data-feather="edit-2"></i></a>
@@ -84,7 +86,7 @@
                                 <td>E-mail não envia anexos</td>
                                 <td>Carlos (Supervisor)</td>
                                 <td><span class="status status-concluido">Concluído</span></td>
-                                <td>14/09/2025</td>
+                                <td>04/10/2025</td>
                                 <td class="action-buttons">
                                     <a href="chamado.html" title="Ver detalhes"><i data-feather="eye"></i></a>
                                     <a href="#" title="Editar"><i data-feather="edit-2"></i></a>
@@ -97,12 +99,10 @@
         </main>
     </div>
 
-    <!-- Botão Flutuante da IA -->
     <button class="fab-ai" id="open-chat" aria-label="Abrir chat com IA">
         <i data-feather="cpu"></i>
     </button>
     
-    <!-- Overlay do Chatbot IA -->
     <div class="chat-overlay" id="chat-overlay" role="dialog" aria-modal="true">
         <div class="chat-container">
             <header class="chat-header">

@@ -64,6 +64,10 @@ html, body {
     margin-bottom: 1.5rem;
 }
 
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
@@ -71,7 +75,10 @@ html, body {
     font-weight: 500;
 }
 
-.form-group input {
+/* --- ESTILOS UNIFICADOS PARA INPUT, SELECT E TEXTAREA --- */
+.form-group input,
+.form-group select,
+.form-group textarea {
     width: 100%;
     padding: 0.8rem 1rem;
     background-color: var(--cor-fundo-escuro-3);
@@ -79,20 +86,33 @@ html, body {
     border-radius: 8px;
     color: var(--cor-texto-claro);
     font-size: 1rem;
+    font-family: var(--font-principal);
     transition: all 0.2s ease-in-out;
 }
 
-.form-group input:focus {
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
     outline: none;
     border-color: var(--cor-primaria);
     box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.3);
 }
 
+.form-group input[readonly] {
+    background-color: #2a2a2a;
+    cursor: not-allowed;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
 .btn {
     display: inline-block;
-    width: 100%;
-    padding: 0.9rem;
-    border: none;
+    width: auto; /* Alterado para não ocupar 100% por padrão */
+    padding: 0.9rem 1.5rem;
+    border: 1px solid transparent;
     border-radius: 8px;
     font-size: 1rem;
     font-weight: 600;
@@ -105,10 +125,22 @@ html, body {
 .btn-primary {
     background-color: var(--cor-primaria);
     color: white;
+    border-color: var(--cor-primaria);
 }
 
 .btn-primary:hover {
     opacity: 0.9;
+}
+
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--cor-texto-claro);
+    border-color: var(--cor-borda);
+}
+.btn-secondary:hover {
+    background-color: var(--cor-fundo-escuro-3);
+    border-color: var(--cor-texto-secundario);
 }
 
 .auth-link {
@@ -226,6 +258,11 @@ html, body {
     margin-bottom: 2rem;
 }
 
+/* CÓDIGO ADICIONADO: Estilo específico para o botão no cabeçalho */
+.main-header-action {
+    padding: 0.8rem 1.2rem;
+}
+
 /* --- Componentes Reutilizáveis (Cards, Tabelas, Botões) --- */
 .card {
     background-color: var(--cor-fundo-escuro-2);
@@ -235,6 +272,50 @@ html, body {
     margin-bottom: 1.5rem;
 }
 
+/* --- ESTILOS PARA FORMULÁRIOS --- */
+.form-section-title {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--cor-texto-claro);
+    border-bottom: 1px solid var(--cor-borda);
+    padding-bottom: 0.8rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.form-upload-input {
+    display: none; /* Esconde o input de arquivo feio */
+}
+
+.form-upload-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 2rem;
+    border: 2px dashed var(--cor-borda);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.form-upload-label:hover {
+    border-color: var(--cor-primaria);
+    background-color: var(--cor-fundo-escuro-3);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* --- Estilos de Tabela --- */
 .table-container {
     overflow-x: auto;
 }
@@ -518,7 +599,18 @@ html, body {
         border: none;
         color: var(--cor-texto-claro);
         cursor: pointer;
-        margin-bottom: 1rem; /* Adicionado para separar do header */
+        margin-bottom: 1rem;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr; /* Coluna única em telas pequenas */
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+    .form-actions .btn {
+        width: 100%;
     }
 }
 

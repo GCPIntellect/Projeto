@@ -1,0 +1,6 @@
+@GCPIntellect.API_HostAddress = http://localhost:5147
+
+GET {{GCPIntellect.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

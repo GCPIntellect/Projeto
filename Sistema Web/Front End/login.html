@@ -3,35 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GCPIntellect</title>
+    <title>GCPIntellect - Login</title>
     <meta name="description" content="Sistema de chamados da Empresa GCPIntellect"> 
     <link rel="icon" href="https://raw.githubusercontent.com/GCPIntellect/Projeto/refs/heads/main/Documenta%C3%A7%C3%A3o/img/Imagem%20Logo.png">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .error-text { color: #d9534f; margin-top: 10px; text-align: center; font-weight: 500; }
+    </style>
 </head>
 <body>
     <main class="auth-container" role="main">
         <section class="auth-card">
             <h1>Bem-vindo de volta!</h1>
             <p>Faça login para acessar o sistema</p>
-            <form action="dashboard_admin.html"> 
+            
+            <form id="login-form">
                 <div class="form-group">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+                    <label for="login">Login</label>
+                    <input type="text" id="login" name="login" placeholder="Login" required>
                 </div>
                 <div class="form-group">
-                    <label for="password">Senha</label>
-                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="••••••••" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Entrar</button>
             </form>
+
+            <div id="error-message" class="error-text"></div>
+
             <div class="auth-link">
                 <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
             </div>
         </section>
     </main>
+
+<script>
+    document.getElementById('login-form').addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        const loginInput = document.getElementById('login').value;
+        const senhaInput = document.getElementById('senha').value;
+        const errorMessageDiv = document.getElementById('error-message');
+        errorMessageDiv.textContent = '';
+
+        // IMPORTANTE: Verifique se este endereço e porta estão corretos!
+        const apiUrl = 'http://localhost:5147/api/auth/login'; 
+
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    login: loginInput,
+                    senha: senhaInput
+                })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                localStorage.setItem('jwt_token', data.token);
+                
+                alert("Login bem-sucedido! Redirecionando...");
+                window.location.href = 'dashboard_admin.html';
+            } else {
+                errorMessageDiv.textContent = 'Usuário ou senha inválidos.';
+            }
+        } catch (error) {
+            errorMessageDiv.textContent = 'Erro de conexão com o servidor. Verifique se a API está rodando.';
+            console.error('Erro de fetch:', error);
+        }
+    });
+</script>
+
 </body>
 </html>

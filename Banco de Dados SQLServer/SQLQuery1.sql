@@ -1,42 +1,24 @@
 /*
  ===================================================================================
- SCRIPT COMPLETO DE CRIAÇÃO DO BANCO DE DADOS E ESTRUTURA
+ SCRIPT COMPLETO DE CRIAÇÃO DO BANCO DE DADOS E ESTRUTURA (VERSÃO COM NOTIFICAÇÕES)
  Banco de Dados: GCPIntellectDB
  Servidor: gcpintellectserver001
  ===================================================================================
 
  SUMÁRIO DA ESTRUTURA DO BANCO DE DADOS
 
- -- 1. TABELAS AUXILIARES 
-    -- Propósito: Servir como "dicionários" para padronizar os dados do sistema.
-    -- Entidades: Categoria, Tipo, StatusChamado, Prioridade
-
+ -- 1. TABELAS AUXILIARES (LOOKUP)
  -- 2. TABELAS DE USUÁRIOS E AUTENTICAÇÃO
-    -- Propósito: Lidar com quem pode acessar o sistema e quais são suas permissões.
-    -- Entidades: Usuario
-
  -- 3. TABELAS PRINCIPAIS
-    -- Propósito: O coração do sistema de tickets.
-    -- Entidades: Chamado
-
  -- 4. TABELAS DE RELACIONAMENTO E SUPORTE AO CHAMADO
-    -- Propósito: Adicionar funcionalidades e detalhes aos chamados.
-    -- Entidades: Anexo, ChamadoTecnico, ChamadoMensagem
-
  -- 5. TABELAS DO MÓDULO DE IA
-    -- Propósito: Entidades que dão vida à inteligência artificial integrada.
-    -- Entidades: BaseConhecimento, PalavraChave, BaseConhecimento_PalavraChave, ConsultaIA
-
  -- 6. TABELAS DO MÓDULO DE RELATÓRIOS
-    -- Propósito: Estrutura profissional para a geração e gerenciamento de relatórios.
-    -- Entidades: RelatorioDefinicao, RelatorioExecucao
-
- -- 7. INSERTS INICIAIS (DADOS BÁSICOS PARA O SISTEMA FUNCIONAR)
-    -- Propósito: Popular as tabelas com dados essenciais e criar o primeiro administrador.
+ -- 7. NOVO: TABELAS DO MÓDULO DE NOTIFICAÇÕES
+ -- 8. INSERTS INICIAIS (DADOS BÁSICOS PARA O SISTEMA FUNCIONAR)
 */
 -- ===================================================================================
 
--- Lembrar-se de conectar sua ferramenta de banco de dados DIRETAMENTE ao 'GCPIntellectDB'.
+-- Lembre-se de conectar sua ferramenta de banco de dados DIRETAMENTE ao 'GCPIntellectDB'.
 
 -- ===================================================================================
 -- 1. TABELAS AUXILIARES 
@@ -86,6 +68,13 @@ CREATE TABLE Usuario (
     Ativo BIT NOT NULL DEFAULT 1,
     CONSTRAINT CK_Usuario_TipoAcesso CHECK (TipoAcesso IN ('Administrador', 'Tecnico', 'Colaborador'))
 );
+GO
+
+-- ADAPTAÇÃO: Adiciona a coluna Telefone se ela não existir.
+IF NOT EXISTS (SELECT * FROM sys.columns WHERE Name = N'Telefone' AND Object_ID = Object_ID(N'dbo.Usuario'))
+BEGIN
+    ALTER TABLE Usuario ADD Telefone VARCHAR(20) NULL;
+END
 GO
 
 -- ===================================================================================
@@ -232,9 +221,33 @@ CREATE TABLE RelatorioExecucao (
 );
 GO
 
+-- ===================================================================================
+-- 7. TABELA DO MÓDULO DE NOTIFICAÇÕES (NOVO)
+-- ===================================================================================
+
+IF OBJECT_ID('dbo.NotificacaoFila', 'U') IS NULL
+CREATE TABLE NotificacaoFila (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    IdChamado INT NOT NULL,
+    TipoNotificacao VARCHAR(5) NOT NULL,
+    Destinatario NVARCHAR(255) NOT NULL,
+    Assunto NVARCHAR(300) NULL,
+    Conteudo NVARCHAR(MAX) NOT NULL,
+    Status VARCHAR(15) NOT NULL DEFAULT 'Pendente',
+    DataCriacao DATETIME2(7) NOT NULL DEFAULT GETDATE(),
+    DataEnvio DATETIME2(7) NULL,
+    Tentativas INT NOT NULL DEFAULT 0,
+    MensagemErro NVARCHAR(MAX) NULL,
+    CONSTRAINT FK_Notificacao_Chamado FOREIGN KEY (IdChamado) REFERENCES Chamado(Id),
+    CONSTRAINT CK_Notificacao_Tipo CHECK (TipoNotificacao IN ('EMAIL', 'SMS')),
+    CONSTRAINT CK_Notificacao_Status CHECK (Status IN ('Pendente', 'Enviado', 'Erro'))
+);
+GO
+
+
 /*
  ===================================================================================
- 7. INSERTS INICIAIS (DADOS BÁSICOS PARA O SISTEMA FUNCIONAR)
+ 8. INSERTS INICIAIS (DADOS BÁSICOS PARA O SISTEMA FUNCIONAR) - VERSÃO CORRIGIDA
  ===================================================================================
 */
 IF NOT EXISTS (SELECT 1 FROM Tipo WHERE Nome = 'Requisição') INSERT INTO Tipo (Nome) VALUES ('Requisição');
@@ -254,6 +267,7 @@ IF NOT EXISTS (SELECT 1 FROM Prioridade WHERE Nome = 'Alto') INSERT INTO Priorid
 IF NOT EXISTS (SELECT 1 FROM Prioridade WHERE Nome = 'Crítico') INSERT INTO Prioridade (Nome) VALUES ('Crítico');
 GO
 
+-- Bloco de Categoria CORRIGIDO
 IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'Reset de Senha') INSERT INTO Categoria (Nome) VALUES ('Reset de Senha');
 IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'Desbloqueio de Usuário') INSERT INTO Categoria (Nome) VALUES ('Desbloqueio de Usuário');
 IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'Criação de Novo Usuário') INSERT INTO Categoria (Nome) VALUES ('Criação de Novo Usuário');
@@ -274,15 +288,17 @@ IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'Problema com Wi-Fi') INSERT
 GO
 
 IF NOT EXISTS (SELECT 1 FROM Usuario WHERE Login = 'admin')
-INSERT INTO Usuario (Nome, Login, Email, SenhaHash, TipoAcesso, Ativo)
+INSERT INTO Usuario (Nome, Login, Email, SenhaHash, TipoAcesso, Ativo, Telefone)
 VALUES (
     'Administrador do Sistema',
     'admin',
     'admin@seudominio.com',
     0x03AC674216F3E15C761EE1A5E255F067953623C8B388B4459E13F978D7C846F4, -- HASH SHA2_256 da senha 'admin123'
     'Administrador',
-    1
+    1,
+    '+5519999999999' -- Telefone de exemplo para o admin
 );
 GO
 
 PRINT 'Banco de dados, tabelas e dados iniciais criados/verificados com sucesso!';
+PRINT 'Módulo de Notificações foi adicionado/verificado.';

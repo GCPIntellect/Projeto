@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\PIM 4\\Projeto\\Sistema Web\\Back End\\GCPIntellect.API\\GCPIntellect.API.csproj": {}
+    "c:\\Users\\User\\Desktop\\PIM 4\\Projeto\\Sistema Web\\Back End\\GCPIntellect.API\\GCPIntellect.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\PIM 4\\Projeto\\Sistema Web\\Back End\\GCPIntellect.API\\GCPIntellect.API.csproj": {
+    "c:\\Users\\User\\Desktop\\PIM 4\\Projeto\\Sistema Web\\Back End\\GCPIntellect.API\\GCPIntellect.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\PIM 4\\Projeto\\Sistema Web\\Back End\\GCPIntellect.API\\GCPIntellect.API.csproj",
+        "projectUniqueName": "c:\\Users\\User\\Desktop\\PIM 4\\Projeto\\Sistema Web\\Back End\\GCPIntellect.API\\GCPIntellect.API.csproj",
         "projectName": "GCPIntellect.API",
-        "projectPath": "C:\\Users\\User\\Desktop\\PIM 4\\Projeto\\Sistema Web\\Back End\\GCPIntellect.API\\GCPIntellect.API.csproj",
+        "projectPath": "c:\\Users\\User\\Desktop\\PIM 4\\Projeto\\Sistema Web\\Back End\\GCPIntellect.API\\GCPIntellect.API.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\PIM 4\\Projeto\\Sistema Web\\Back End\\GCPIntellect.API\\obj\\",
+        "outputPath": "c:\\Users\\User\\Desktop\\PIM 4\\Projeto\\Sistema Web\\Back End\\GCPIntellect.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -51,6 +51,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "Google.Cloud.AIPlatform.V1": {
+              "target": "Package",
+              "version": "[3.52.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[9.0.10, )"

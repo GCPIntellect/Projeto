@@ -1,15 +1,11 @@
-// ===================================================================
-// ARQUIVO: Program.cs (VERSÃO FINAL E CORRETA)
-// ===================================================================
-
-// --- Importações necessárias (using) ---
 using GCPIntellect.API.Data;
+using GCPIntellect.API.Services; // <-- 1. ADICIONADO: using para encontrar o GeminiService
 using Microsoft.EntityFrameworkCore;
 
 // --- 1. Configuração dos Serviços ---
 var builder = WebApplication.CreateBuilder(args);
 
-// Adiciona o serviço de CORS para permitir a comunicação com o Front-end
+// Adiciona o serviço de CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAllOrigins",
@@ -21,18 +17,21 @@ builder.Services.AddCors(options =>
         });
 });
 
-// Pega a string de conexão do arquivo appsettings.json
+// Pega a string de conexão
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-// Registra o DbContext para a conexão com o banco de dados SQL Server
+// Registra o DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-// Adiciona os serviços do Swagger para documentação da API
+// Registra o GeminiService (para Injeção de Dependência)
+builder.Services.AddScoped<GeminiService>(); // <-- 2. ADICIONADO: Registra o serviço da IA
+
+// Adiciona os serviços do Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Adiciona o serviço dos Controllers (para encontrar nossas classes de API)
+// Adiciona o serviço dos Controllers
 builder.Services.AddControllers();
 
 
@@ -41,25 +40,18 @@ var app = builder.Build();
 
 
 // --- 3. Configuração do Pipeline de Requisições HTTP ---
-// Define o que a aplicação faz quando recebe uma requisição. A ORDEM IMPORTA.
-
-// Em ambiente de desenvolvimento, habilita a interface do Swagger
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-// Redireciona requisições HTTP para HTTPS
-app.UseHttpsRedirection();
+app.UseHttpsRedirection(); // Cuidado com HTTPS em desenvolvimento local se não tiver certificado confiável
 
-// Aplica a política de CORS que definimos
 app.UseCors("AllowAllOrigins");
 
-// Habilita a autorização (usaremos com JWT no futuro)
 app.UseAuthorization();
 
-// Mapeia as rotas para os nossos Controllers
 app.MapControllers();
 
 

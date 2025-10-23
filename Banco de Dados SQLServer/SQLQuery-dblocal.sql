@@ -1,34 +1,34 @@
 /*
  ===================================================================================
- SCRIPT COMPLETO DE CRIA√á√ÉO DO BANCO DE DADOS E ESTRUTURA (VERS√ÉO COM NOTIFICA√á√ïES)
+ SCRIPT COMPLETO DE CRIA«√O DO BANCO DE DADOS E ESTRUTURA (VERS√O COM NOTIFICA«’ES)
  Banco de Dados: GCPIntellectDB
  Servidor: gcpintellectserver001
  ===================================================================================
 
- SUM√ÅRIO DA ESTRUTURA DO BANCO DE DADOS
+ SUM¡RIO DA ESTRUTURA DO BANCO DE DADOS
 
  -- 1. TABELAS AUXILIARES (LOOKUP)
- -- 2. TABELAS DE USU√ÅRIOS E AUTENTICA√á√ÉO
+ -- 2. TABELAS DE USU¡RIOS E AUTENTICA«√O
  -- 3. TABELAS PRINCIPAIS
  -- 4. TABELAS DE RELACIONAMENTO E SUPORTE AO CHAMADO
- -- 5. TABELAS DO M√ìDULO DE IA
- -- 6. TABELAS DO M√ìDULO DE RELAT√ìRIOS
- -- 7. NOVO: TABELAS DO M√ìDULO DE NOTIFICA√á√ïES
- -- 8. INSERTS INICIAIS (DADOS B√ÅSICOS PARA O SISTEMA FUNCIONAR)
+ -- 5. TABELAS DO M”DULO DE IA
+ -- 6. TABELAS DO M”DULO DE RELAT”RIOS
+ -- 7. NOVO: TABELAS DO M”DULO DE NOTIFICA«’ES
+ -- 8. INSERTS INICIAIS (DADOS B¡SICOS PARA O SISTEMA FUNCIONAR)
 */
 -- ===================================================================================
 
 -- Lembre-se de conectar sua ferramenta de banco de dados DIRETAMENTE ao 'GCPIntellectDB'.
 
-Cria o banco de dados SE ELE N√ÉO EXISTIR.
+-- Cria o banco de dados SE ELE N√O EXISTIR.
 IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'GCPIntellectDB')
 BEGIN
     CREATE DATABASE GCPIntellectDB;
 END
 GO
 
-Muda o contexto para o banco de dados rec√©m-criado.
--- Todos os comandos a partir daqui ser√£o executados dentro do GCPIntellectDB.
+-- Muda o contexto para o banco de dados recÈm-criado.
+-- Todos os comandos a partir daqui ser„o executados dentro do GCPIntellectDB.
 USE GCPIntellectDB;
 GO
 
@@ -69,7 +69,7 @@ ALTER COLUMN IdChamado INT NULL;
 GO
 
 -- ===================================================================================
--- 2. TABELAS DE USU√ÅRIOS E AUTENTICA√á√ÉO
+-- 2. TABELAS DE USU¡RIOS E AUTENTICA«√O
 -- ===================================================================================
 
 IF OBJECT_ID('dbo.Usuario', 'U') IS NULL
@@ -86,7 +86,7 @@ CREATE TABLE Usuario (
 );
 GO
 
--- ADAPTA√á√ÉO: Adiciona a coluna Telefone se ela n√£o existir.
+-- ADAPTA«√O: Adiciona a coluna Telefone se ela n„o existir.
 IF NOT EXISTS (SELECT * FROM sys.columns WHERE Name = N'Telefone' AND Object_ID = Object_ID(N'dbo.Usuario'))
 BEGIN
     ALTER TABLE Usuario ADD Telefone VARCHAR(20) NULL;
@@ -157,7 +157,7 @@ CREATE TABLE ChamadoMensagem (
 GO
 
 -- ===================================================================================
--- 5. TABELAS DO M√ìDULO DE IA
+-- 5. TABELAS DO M”DULO DE IA
 -- ===================================================================================
 
 IF OBJECT_ID('dbo.BaseConhecimento', 'U') IS NULL
@@ -209,7 +209,7 @@ CREATE TABLE ConsultaIA (
 GO
 
 -- ===================================================================================
--- 6. TABELAS DO M√ìDULO DE RELAT√ìRIOS (OTIMIZADO)
+-- 6. TABELAS DO M”DULO DE RELAT”RIOS (OTIMIZADO)
 -- ===================================================================================
 
 IF OBJECT_ID('dbo.RelatorioDefinicao', 'U') IS NULL
@@ -238,7 +238,7 @@ CREATE TABLE RelatorioExecucao (
 GO
 
 -- ===================================================================================
--- 7. TABELA DO M√ìDULO DE NOTIFICA√á√ïES (NOVO)
+-- 7. TABELA DO M”DULO DE NOTIFICA«’ES (NOVO)
 -- ===================================================================================
 
 IF OBJECT_ID('dbo.NotificacaoFila', 'U') IS NULL
@@ -263,10 +263,10 @@ GO
 
 /*
  ===================================================================================
- 8. INSERTS INICIAIS (DADOS B√ÅSICOS PARA O SISTEMA FUNCIONAR) - VERS√ÉO CORRIGIDA
+ 8. INSERTS INICIAIS (DADOS B¡SICOS PARA O SISTEMA FUNCIONAR) - VERS√O CORRIGIDA
  ===================================================================================
 */
-IF NOT EXISTS (SELECT 1 FROM Tipo WHERE Nome = 'Requisi√ß√£o') INSERT INTO Tipo (Nome) VALUES ('Requisi√ß√£o');
+IF NOT EXISTS (SELECT 1 FROM Tipo WHERE Nome = 'RequisiÁ„o') INSERT INTO Tipo (Nome) VALUES ('RequisiÁ„o');
 IF NOT EXISTS (SELECT 1 FROM Tipo WHERE Nome = 'Incidente') INSERT INTO Tipo (Nome) VALUES ('Incidente');
 GO
 
@@ -278,31 +278,31 @@ IF NOT EXISTS (SELECT 1 FROM StatusChamado WHERE Nome = 'Fechado') INSERT INTO S
 GO
 
 IF NOT EXISTS (SELECT 1 FROM Prioridade WHERE Nome = 'Baixo') INSERT INTO Prioridade (Nome) VALUES ('Baixo');
-IF NOT EXISTS (SELECT 1 FROM Prioridade WHERE Nome = 'M√©dio') INSERT INTO Prioridade (Nome) VALUES ('M√©dio');
+IF NOT EXISTS (SELECT 1 FROM Prioridade WHERE Nome = 'MÈdio') INSERT INTO Prioridade (Nome) VALUES ('MÈdio');
 IF NOT EXISTS (SELECT 1 FROM Prioridade WHERE Nome = 'Alto') INSERT INTO Prioridade (Nome) VALUES ('Alto');
-IF NOT EXISTS (SELECT 1 FROM Prioridade WHERE Nome = 'Cr√≠tico') INSERT INTO Prioridade (Nome) VALUES ('Cr√≠tico');
+IF NOT EXISTS (SELECT 1 FROM Prioridade WHERE Nome = 'CrÌtico') INSERT INTO Prioridade (Nome) VALUES ('CrÌtico');
 GO
 
 -- Bloco de Categoria CORRIGIDO
 IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'Reset de Senha') INSERT INTO Categoria (Nome) VALUES ('Reset de Senha');
-IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'Desbloqueio de Usu√°rio') INSERT INTO Categoria (Nome) VALUES ('Desbloqueio de Usu√°rio');
-IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'Cria√ß√£o de Novo Usu√°rio') INSERT INTO Categoria (Nome) VALUES ('Cria√ß√£o de Novo Usu√°rio');
-IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'Solicita√ß√£o de Acesso a Sistema') INSERT INTO Categoria (Nome) VALUES ('Solicita√ß√£o de Acesso a Sistema');
-IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'Solicita√ß√£o de Acesso a Pasta de Rede') INSERT INTO Categoria (Nome) VALUES ('Solicita√ß√£o de Acesso a Pasta de Rede');
+IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'Desbloqueio de Usu·rio') INSERT INTO Categoria (Nome) VALUES ('Desbloqueio de Usu·rio');
+IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'CriaÁ„o de Novo Usu·rio') INSERT INTO Categoria (Nome) VALUES ('CriaÁ„o de Novo Usu·rio');
+IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'SolicitaÁ„o de Acesso a Sistema') INSERT INTO Categoria (Nome) VALUES ('SolicitaÁ„o de Acesso a Sistema');
+IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'SolicitaÁ„o de Acesso a Pasta de Rede') INSERT INTO Categoria (Nome) VALUES ('SolicitaÁ„o de Acesso a Pasta de Rede');
 IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'Problema com Impressora') INSERT INTO Categoria (Nome) VALUES ('Problema com Impressora');
 IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'Problema com Mouse ou Teclado') INSERT INTO Categoria (Nome) VALUES ('Problema com Mouse ou Teclado');
 IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'Problema com Monitor') INSERT INTO Categoria (Nome) VALUES ('Problema com Monitor');
-IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'Solicita√ß√£o de Celular Corporativo') INSERT INTO Categoria (Nome) VALUES ('Solicita√ß√£o de Celular Corporativo');
-IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'Solicita√ß√£o de Notebook ou Desktop') INSERT INTO Categoria (Nome) VALUES ('Solicita√ß√£o de Notebook ou Desktop');
+IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'SolicitaÁ„o de Celular Corporativo') INSERT INTO Categoria (Nome) VALUES ('SolicitaÁ„o de Celular Corporativo');
+IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'SolicitaÁ„o de Notebook ou Desktop') INSERT INTO Categoria (Nome) VALUES ('SolicitaÁ„o de Notebook ou Desktop');
 IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'Erro em Sistema Interno (ERP)') INSERT INTO Categoria (Nome) VALUES ('Erro em Sistema Interno (ERP)');
-IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'D√∫vida sobre Pacote Office (Word, Excel)') INSERT INTO Categoria (Nome) VALUES ('D√∫vida sobre Pacote Office (Word, Excel)');
-IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'Instala√ß√£o de Software Aprovado') INSERT INTO Categoria (Nome) VALUES ('Instala√ß√£o de Software Aprovado');
-IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'Atualiza√ß√£o de Antiv√≠rus') INSERT INTO Categoria (Nome) VALUES ('Atualiza√ß√£o de Antiv√≠rus');
-IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'Internet Lenta ou Indispon√≠vel') INSERT INTO Categoria (Nome) VALUES ('Internet Lenta ou Indispon√≠vel');
-IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'N√£o consigo conectar na VPN') INSERT INTO Categoria (Nome) VALUES ('N√£o consigo conectar na VPN');
+IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'D˙vida sobre Pacote Office (Word, Excel)') INSERT INTO Categoria (Nome) VALUES ('D˙vida sobre Pacote Office (Word, Excel)');
+IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'InstalaÁ„o de Software Aprovado') INSERT INTO Categoria (Nome) VALUES ('InstalaÁ„o de Software Aprovado');
+IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'AtualizaÁ„o de AntivÌrus') INSERT INTO Categoria (Nome) VALUES ('AtualizaÁ„o de AntivÌrus');
+IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'Internet Lenta ou IndisponÌvel') INSERT INTO Categoria (Nome) VALUES ('Internet Lenta ou IndisponÌvel');
+IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'N„o consigo conectar na VPN') INSERT INTO Categoria (Nome) VALUES ('N„o consigo conectar na VPN');
 IF NOT EXISTS (SELECT 1 FROM Categoria WHERE Nome = 'Problema com Wi-Fi') INSERT INTO Categoria (Nome) VALUES ('Problema com Wi-Fi');
 GO
 
 
 PRINT 'Banco de dados, tabelas e dados iniciais criados/verificados com sucesso!';
-PRINT 'M√≥dulo de Notifica√ß√µes foi adicionado/verificado.';
+PRINT 'MÛdulo de NotificaÁıes foi adicionado/verificado.';

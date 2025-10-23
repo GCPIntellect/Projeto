@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("290fa224-7fd7-455a-91b7-fe452d565c36")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("GCPIntellect.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e608a643aa91c39080f549d528698fc400545735")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca5bedf00747dfd4ce3ecb647b72d000ea0e6a98")]
 [assembly: System.Reflection.AssemblyProductAttribute("GCPIntellect.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GCPIntellect.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

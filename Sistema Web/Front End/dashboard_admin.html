@@ -21,8 +21,11 @@
             <nav class="sidebar-nav">
                 <ul>
                     <li><a href="dashboard_admin.html" class="active"><i data-feather="home"></i> Dashboard</a></li>
+                    
+                    <li><a href="#" id="sidebar-consultar-ia"><i data-feather="cpu"></i> Consultar IA</a></li>
+                    
                     <li><a href="gerenciar_usuarios.html"><i data-feather="users"></i> Gerenciar Usuários</a></li>
-                    <li><a href="relatorios.html"><i data-feather="bar-chart-2"></i> Relatórios</a></li>
+                    <li><a href="relatorio_admin.html"><i data-feather="bar-chart-2"></i> Relatório</a></li>
                     <li><a href="configuracoes.html"><i data-feather="settings"></i> Configurações</a></li>
                 </ul>
             </nav>
@@ -30,8 +33,8 @@
                 <div class="user-profile">
                     <div class="avatar">AD</div>
                     <div class="user-info">
-                        <p>Admin</p>
-                        <span>Administrador</span>
+                        <p id="nome-usuario">Carregando...</p>
+                        <span id="perfil-usuario">Administrador</span>
                     </div>
                 </div>
             </footer>
@@ -41,7 +44,7 @@
             <button class="menu-toggle" aria-label="Abrir menu"><i data-feather="menu"></i></button>
             <header class="main-header">
                 <h1>Dashboard</h1>
-                <a href="abrir_chamado.html" class="btn btn-primary main-header-action" role="button">Abrir Chamado</a>
+                <a href="abrir_chamado_admin.html" class="btn btn-primary main-header-action" role="button">Abrir Chamado</a>
             </header>
 
             <section class="card" id="chamados-recentes">
@@ -52,56 +55,19 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Assunto</th>
-                                <th>Solicitante</th>
+                                <th class="col-solicitante">Solicitante</th>
                                 <th>Status</th>
+                                <th>Prioridade</th>
                                 <th>Data</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>#1205</td>
-                                <td>Problema com impressora Fiscal</td>
-                                <td>Carlos (Supervisor)</td>
-                                <td><span class="status status-aberto">Aberto</span></td>
-                                <td>06/10/2025</td>
-                                <td class="action-buttons">
-                                    <a href="chamado.html" title="Ver detalhes"><i data-feather="eye"></i></a>
-                                    <a href="#" title="Editar"><i data-feather="edit-2"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#1204</td>
-                                <td>Sistema ERP não abre</td>
-                                <td>Ana (Supervisora)</td>
-                                <td><span class="status status-andamento">Em Andamento</span></td>
-                                <td>05/10/2025</td>
-                                <td class="action-buttons">
-                                    <a href="chamado.html" title="Ver detalhes"><i data-feather="eye"></i></a>
-                                    <a href="#" title="Editar"><i data-feather="edit-2"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#1203</td>
-                                <td>E-mail não envia anexos</td>
-                                <td>Carlos (Supervisor)</td>
-                                <td><span class="status status-concluido">Concluído</span></td>
-                                <td>04/10/2025</td>
-                                <td class="action-buttons">
-                                    <a href="chamado.html" title="Ver detalhes"><i data-feather="eye"></i></a>
-                                    <a href="#" title="Editar"><i data-feather="edit-2"></i></a>
-                                </td>
-                            </tr>
-                        </tbody>
+                        <tbody id="tabela-chamados-corpo"></tbody>
                     </table>
                 </div>
             </section>
         </main>
     </div>
-
-    <button class="fab-ai" id="open-chat" aria-label="Abrir chat com IA">
-        <i data-feather="cpu"></i>
-    </button>
     
     <div class="chat-overlay" id="chat-overlay" role="dialog" aria-modal="true">
         <div class="chat-container">
@@ -113,32 +79,30 @@
                 <div class="message bot">Olá! Sou seu assistente de IA. Como posso ajudar a resolver seu problema hoje?</div>
             </section>
             <footer class="chat-input">
-                <input type="text" placeholder="Digite seu problema aqui..." aria-label="Mensagem para IA">
-                <button aria-label="Enviar mensagem"><i data-feather="send"></i></button>
+                <input type="text" id="chat-input-text" placeholder="Digite seu problema aqui..." aria-label="Mensagem para IA">
+                <button id="chat-send-btn" aria-label="Enviar mensagem"><i data-feather="send"></i></button>
             </footer>
         </div>
     </div>
-
+    
     <script>
-      feather.replace();
-      // Script simples para o Chat e Sidebar
-      const openChatBtn = document.getElementById('open-chat');
-      const closeChatBtn = document.getElementById('close-chat');
-      const chatOverlay = document.getElementById('chat-overlay');
-      const menuToggle = document.querySelector('.menu-toggle');
-      const sidebar = document.querySelector('.sidebar');
+        document.addEventListener('DOMContentLoaded', () => {
+            // ... (todo o código do dashboard.js que já tínhamos)
 
-      openChatBtn.addEventListener('click', () => {
-        chatOverlay.style.display = 'flex';
-      });
+            // NOVO: Adiciona a funcionalidade ao novo botão do menu
+            const sidebarConsultarIaBtn = document.getElementById('sidebar-consultar-ia');
+            if (sidebarConsultarIaBtn) {
+                sidebarConsultarIaBtn.addEventListener('click', (event) => {
+                    event.preventDefault(); // Impede o link de navegar
+                    const chatOverlay = document.getElementById('chat-overlay');
+                    if (chatOverlay) {
+                        chatOverlay.style.display = 'flex';
+                    }
+                });
+            }
 
-      closeChatBtn.addEventListener('click', () => {
-        chatOverlay.style.display = 'none';
-      });
-      
-      menuToggle.addEventListener('click', () => {
-        sidebar.classList.toggle('open');
-      });
+            // ... (resto da inicialização do dashboard.js)
+        });
     </script>
-</body>
+    </body>
 </html>

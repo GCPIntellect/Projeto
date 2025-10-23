@@ -3,6 +3,7 @@ using GCPIntellect.API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.ComponentModel.DataAnnotations;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
@@ -12,100 +13,124 @@ using System.Threading.Tasks;
 
 namespace GCPIntellect.API.Controllers
 {
-    // Classe auxiliar (DTO) para receber os dados do login de forma segura.
-    public class LoginModel
-    {
-        public string? Login { get; set; }
-        public string? Senha { get; set; }
-    }
+    // DTO para receber dados do login
+    public class LoginModel { public string? Login { get; set; } public string? Senha { get; set; } }
+
+    // DTO para receber dados da solicitação de reset
+    public class ResetRequestModel { public string? LoginOuEmail { get; set; } }
 
     [ApiController]
-    [Route("api/[controller]")] // Rota será /api/auth
+    [Route("api/[controller]")] // Rota base será /api/auth
     public class AuthController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
         private readonly IConfiguration _configuration;
 
-        // Injetamos IConfiguration para ler as configurações do appsettings.json
         public AuthController(ApplicationDbContext context, IConfiguration configuration)
         {
             _context = context;
             _configuration = configuration;
         }
 
-        [HttpPost("login")] // Rota final será POST /api/auth/login
+        // --- ENDPOINT DE LOGIN ---
+        [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
         {
-            // Adicionamos uma validação de entrada para garantir que os dados não são nulos ou vazios
             if (string.IsNullOrEmpty(loginModel.Login) || string.IsNullOrEmpty(loginModel.Senha))
             {
                 return BadRequest("Login e Senha são obrigatórios.");
             }
-
-            // 1. Busca o usuário no banco pelo login e verifica se está ativo
+            
             var usuario = await _context.Usuarios
                 .FirstOrDefaultAsync(u => u.Login == loginModel.Login && u.Ativo == true);
 
-            if (usuario == null)
+            if (usuario == null || !VerificarSenhaHash(loginModel.Senha, usuario.SenhaHash))
             {
                 return Unauthorized("Usuário ou senha inválidos.");
             }
 
-            // 2. LÓGICA DE VERIFICAÇÃO DE SENHA HASH
-            if (!VerificarSenhaHash(loginModel.Senha, usuario.SenhaHash))
-            {
-                return Unauthorized("Usuário ou senha inválidos.");
-            }
-
-            // 3. LÓGICA DE GERAÇÃO DE TOKEN JWT
             var tokenString = GerarTokenJwt(usuario);
-
-            // Retorna o token para o front-end
             return Ok(new { token = tokenString });
         }
 
-        private bool VerificarSenhaHash(string senha, byte[] senhaHashArmazenada)
+        // --- ENDPOINT DE SOLICITAÇÃO DE RESET DE SENHA (NOVO) ---
+        [HttpPost("solicitar-reset")]
+        public async Task<IActionResult> SolicitarResetSenha([FromBody] ResetRequestModel request)
+        {
+            if (string.IsNullOrEmpty(request.LoginOuEmail))
+            {
+                return BadRequest();
+            }
+
+            // 1. Encontra o usuário que está pedindo o reset
+            var usuarioSolicitante = await _context.Usuarios
+                .FirstOrDefaultAsync(u => u.Login == request.LoginOuEmail || u.Email == request.LoginOuEmail);
+
+            if (usuarioSolicitante == null)
+            {
+                // Mesmo se o usuário não existir, retornamos sucesso para não dar dicas a invasores.
+                return Ok(new { message = "Se uma conta com este identificador existir, uma notificação foi enviada ao administrador." });
+            }
+
+            // 2. Encontra todos os administradores ativos para notificá-los
+            var administradores = await _context.Usuarios
+                .Where(u => u.TipoAcesso == "Administrador" && u.Ativo == true)
+                .ToListAsync();
+
+            // 3. Cria uma tarefa de notificação por e-mail para cada administrador
+            foreach (var admin in administradores)
+            {
+                if (!string.IsNullOrEmpty(admin.Email))
+                {
+                    var novaNotificacao = new NotificacaoFila
+                    {
+                        IdChamado = null, // Não está ligado a um chamado
+                        TipoNotificacao = "EMAIL",
+                        Destinatario = admin.Email,
+                        Assunto = "Solicitação de Redefinição de Senha",
+                        Conteudo = $"O usuário '{usuarioSolicitante.Nome}' (Login: {usuarioSolicitante.Login}) solicitou uma redefinição de senha. Por favor, acesse o painel de gerenciamento de usuários para definir uma nova senha temporária para ele.",
+                        Status = "Pendente"
+                    };
+                    _context.NotificacaoFilas.Add(novaNotificacao);
+                }
+            }
+
+            await _context.SaveChangesAsync();
+            
+            return Ok(new { message = "Se uma conta com este identificador existir, uma notificação foi enviada ao administrador." });
+        }
+
+
+        // --- FUNÇÕES AUXILIARES ---
+          private bool VerificarSenhaHash(string senha, byte[] senhaHashArmazenada)
         {
             using (var sha256 = SHA256.Create())
             {
-                // Gera o hash da senha que o usuário digitou
-                var hashDaSenhaDigitada = sha256.ComputeHash(Encoding.UTF8.GetBytes(senha));
-
-                // Compara os dois hashes. SequenceEqual é a forma correta de comparar arrays de bytes.
+                var hashDaSenhaDigitada = sha256.ComputeHash(Encoding.UTF8.GetBytes(senha.Trim()));
                 return hashDaSenhaDigitada.SequenceEqual(senhaHashArmazenada);
             }
         }
 
         private string GerarTokenJwt(Usuario usuario)
         {
-            // Pega a seção de configurações do JWT
             var jwtSettings = _configuration.GetSection("JwtSettings");
             var secret = jwtSettings["Secret"];
-            var issuer = jwtSettings["Issuer"];
-            var audience = jwtSettings["Audience"];
-
-            // Verificação para garantir que as configurações existem, evitando erros
-            if (string.IsNullOrEmpty(secret) || string.IsNullOrEmpty(issuer) || string.IsNullOrEmpty(audience))
-            {
-                throw new InvalidOperationException("Configurações do JWT (Secret, Issuer, Audience) não foram encontradas no appsettings.json.");
-            }
+            if (string.IsNullOrEmpty(secret)) throw new InvalidOperationException("JWT Secret não encontrado.");
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var expires = DateTime.Now.AddHours(8);
 
-            // "Claims" são as informações que queremos guardar dentro do token
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, usuario.Login ?? string.Empty),
                 new Claim(ClaimTypes.NameIdentifier, usuario.Id.ToString()),
                 new Claim(ClaimTypes.Role, usuario.TipoAcesso ?? string.Empty),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                new Claim(JwtRegisteredClaimNames.Sub, usuario.Login ?? string.Empty)
             };
 
             var token = new JwtSecurityToken(
-                issuer: issuer,
-                audience: audience,
+                issuer: jwtSettings["Issuer"],
+                audience: jwtSettings["Audience"],
                 claims: claims,
                 expires: expires,
                 signingCredentials: creds

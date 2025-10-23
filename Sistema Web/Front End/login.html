@@ -35,12 +35,13 @@
             <div id="error-message" class="error-text"></div>
 
             <div class="auth-link">
-                <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
+                <a href="#" id="forgot-password-link">Esqueceu sua senha?</a>
             </div>
         </section>
     </main>
 
 <script>
+    // Script original para o formulário de login
     document.getElementById('login-form').addEventListener('submit', async function(event) {
         event.preventDefault();
 
@@ -74,6 +75,34 @@
         } catch (error) {
             errorMessageDiv.textContent = 'Erro de conexão com o servidor. Verifique se a API está rodando.';
             console.error('Erro de fetch:', error);
+        }
+    });
+
+    // NOVO SCRIPT: Lógica para o link "Esqueceu sua senha?"
+    document.getElementById('forgot-password-link').addEventListener('click', async function(event) {
+        event.preventDefault(); // Impede o link de navegar
+
+        const loginOuEmail = prompt("Para solicitar a redefinição da senha, por favor, digite seu Login ou E-mail:");
+
+        if (!loginOuEmail || loginOuEmail.trim() === '') {
+            return; // O usuário cancelou ou não digitou nada
+        }
+
+        const apiUrl = 'http://localhost:5147/api/auth/solicitar-reset'; 
+        
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ loginOuEmail: loginOuEmail })
+            });
+
+            // Exibe uma mensagem genérica para o usuário por segurança
+            alert("Se uma conta correspondente for encontrada, um aviso para redefinição de senha foi enviado ao administrador do sistema.");
+
+        } catch (error) {
+            alert("Ocorreu um erro ao tentar se comunicar com o servidor. Tente novamente mais tarde.");
+            console.error('Erro de fetch na solicitação de reset:', error);
         }
     });
 </script>

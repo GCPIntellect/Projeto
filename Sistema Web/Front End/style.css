@@ -1,41 +1,59 @@
-/* --- Configurações Globais e Variáveis de Cor --- */
+/* ==========================================================================
+   CONFIGURAÇÕES GLOBAIS E VARIÁVEIS (ROOT)
+   ========================================================================== */
 :root {
+    /* Paleta de Cores */
     --cor-primaria: #0d6efd;
-    --cor-fundo-escuro-1: #222021;
-    --cor-fundo-escuro-2: #282525;
-    --cor-fundo-escuro-3: #3B3A3B;
-    --cor-texto-claro: #EAEAEA;
-    --cor-texto-secundario: #A9A9A9;
-    --cor-borda: #374151;
     --cor-sucesso: #10b981;
     --cor-alerta: #f59e0b;
     --cor-erro: #ef4444;
 
+    /* Tons de Fundo (Escuro) */
+    --cor-fundo-escuro-1: #222021; /* Fundo principal */
+    --cor-fundo-escuro-2: #282525; /* Fundo de cards e sidebar */
+    --cor-fundo-escuro-3: #3B3A3B; /* Fundo de inputs e hover */
+
+    /* Tons de Texto e Bordas */
+    --cor-texto-claro: #EAEAEA;
+    --cor-texto-secundario: #A9A9A9;
+    --cor-borda: #374151;
+
+    /* Tipografia */
     --font-principal: 'Inter', sans-serif;
 }
 
-/* --- Reset Básico e Estilos do Body --- */
+/* ==========================================================================
+   RESET E ESTILOS DE BASE
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html, body {
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
     height: 100%;
     font-family: var(--font-principal);
     background-color: var(--cor-fundo-escuro-1);
     color: var(--cor-texto-claro);
+    line-height: 1.6;
 }
 
-/* --- Estilos para as Páginas de Login e Cadastro --- */
+/* ==========================================================================
+   COMPONENTES DE AUTENTICAÇÃO (LOGIN / CADASTRO)
+   ========================================================================== */
 .auth-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
-    background-color: var(--cor-fundo-escuro-1);
+    min-height: 100vh;
+    padding: 1rem;
 }
 
 .auth-card {
@@ -44,7 +62,7 @@ html, body {
     border-radius: 12px;
     border: 1px solid var(--cor-borda);
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
 }
 
@@ -60,12 +78,44 @@ html, body {
     margin-bottom: 2rem;
 }
 
-.form-group {
-    margin-bottom: 1.5rem;
+.auth-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
 }
 
-.form-group:last-child {
-    margin-bottom: 0;
+.auth-link a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-link a:hover {
+    text-decoration: underline;
+}
+
+/* Feedback para o usuário */
+.error-text {
+    color: var(--cor-erro);
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: 500;
+    min-height: 24px;
+}
+.success-text {
+    color: var(--cor-sucesso);
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: 500;
+    min-height: 24px;
+}
+
+/* ==========================================================================
+   COMPONENTES GERAIS E DE FORMULÁRIO
+   ========================================================================== */
+
+.form-group {
+    margin-bottom: 1.5rem;
 }
 
 .form-group label {
@@ -75,7 +125,6 @@ html, body {
     font-weight: 500;
 }
 
-/* --- ESTILOS UNIFICADOS PARA INPUT, SELECT E TEXTAREA --- */
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -108,9 +157,10 @@ html, body {
     min-height: 120px;
 }
 
+/* --- Botões --- */
 .btn {
     display: inline-block;
-    width: auto; /* Alterado para não ocupar 100% por padrão */
+    width: auto;
     padding: 0.9rem 1.5rem;
     border: 1px solid transparent;
     border-radius: 8px;
@@ -125,40 +175,40 @@ html, body {
 .btn-primary {
     background-color: var(--cor-primaria);
     color: white;
-    border-color: var(--cor-primaria);
 }
 
 .btn-primary:hover {
     opacity: 0.9;
 }
 
-
 .btn-secondary {
     background-color: transparent;
     color: var(--cor-texto-claro);
     border-color: var(--cor-borda);
 }
+
 .btn-secondary:hover {
     background-color: var(--cor-fundo-escuro-3);
-    border-color: var(--cor-texto-secundario);
 }
 
-.auth-link {
-    text-align: center;
+/* CORREÇÃO: Estilo específico para o botão principal em formulários de autenticação */
+.auth-card form .btn {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
     margin-top: 1.5rem;
 }
 
-.auth-link a {
-    color: var(--cor-primaria);
-    text-decoration: none;
-    font-weight: 500;
-}
 
-.auth-link a:hover {
-    text-decoration: underline;
-}
+/* ==========================================================================
+   LAYOUT PRINCIPAL DA APLICAÇÃO (DASHBOARD)
+   ========================================================================== */
 
-/* --- Layout Principal do Sistema (Dashboard e outras páginas) --- */
 .app-container {
     display: flex;
     height: 100vh;
@@ -258,61 +308,20 @@ html, body {
     margin-bottom: 2rem;
 }
 
-/* CÓDIGO ADICIONADO: Estilo específico para o botão no cabeçalho */
-.main-header-action {
+/* Estilo específico para o botão no cabeçalho */
+.main-header .btn-primary {
     padding: 0.8rem 1.2rem;
 }
 
-/* --- Componentes Reutilizáveis (Cards, Tabelas, Botões) --- */
+/* ==========================================================================
+   COMPONENTES REUTILIZÁVEIS (CARDS, TABELAS)
+   ========================================================================== */
 .card {
     background-color: var(--cor-fundo-escuro-2);
     border: 1px solid var(--cor-borda);
     border-radius: 12px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
-}
-
-/* --- ESTILOS PARA FORMULÁRIOS --- */
-.form-section-title {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    color: var(--cor-texto-claro);
-    border-bottom: 1px solid var(--cor-borda);
-    padding-bottom: 0.8rem;
-}
-
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-}
-
-.form-upload-input {
-    display: none; /* Esconde o input de arquivo feio */
-}
-
-.form-upload-label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-    padding: 2rem;
-    border: 2px dashed var(--cor-borda);
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.form-upload-label:hover {
-    border-color: var(--cor-primaria);
-    background-color: var(--cor-fundo-escuro-3);
-}
-
-.form-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-    margin-top: 1.5rem;
 }
 
 /* --- Estilos de Tabela --- */
@@ -340,6 +349,10 @@ html, body {
 
 .styled-table tbody tr {
     border-bottom: 1px solid var(--cor-borda);
+    transition: background-color 0.2s ease;
+}
+.styled-table tbody tr:hover {
+    background-color: var(--cor-fundo-escuro-3);
 }
 
 .styled-table tbody tr:last-child {
@@ -361,7 +374,10 @@ html, body {
 
 .status-aberto { background-color: rgba(13, 110, 253, 0.2); color: #3b82f6; }
 .status-andamento { background-color: rgba(245, 158, 11, 0.2); color: #f59e0b; }
-.status-concluido { background-color: rgba(16, 185, 129, 0.2); color: #10b981; }
+.status-concluido, .status-resolvido { background-color: rgba(16, 185, 129, 0.2); color: #10b981; }
+.status-fechado, .status-cancelado { background-color: rgba(107, 114, 128, 0.2); color: #A9A9A9; }
+.status-critico { background-color: rgba(239, 68, 68, 0.2); color: var(--cor-erro); }
+
 
 .action-buttons a, .action-buttons button {
     text-decoration: none;
@@ -371,204 +387,15 @@ html, body {
     border: none;
     cursor: pointer;
     font-size: 1.2rem;
+    padding: 0;
 }
 .action-buttons a:hover, .action-buttons button:hover {
     color: var(--cor-primaria);
 }
 
-
-/* --- IA Chatbot Overlay --- */
-.chat-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: none; /* Alterado por JS para 'flex' */
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.chat-container {
-    width: 90%;
-    max-width: 600px;
-    height: 80vh;
-    background-color: var(--cor-fundo-escuro-2);
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3);
-}
-
-.chat-header {
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid var(--cor-borda);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.chat-header h3 {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-#close-chat {
-    background: none;
-    border: none;
-    color: var(--cor-texto-secundario);
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.chat-messages {
-    flex-grow: 1;
-    padding: 1.5rem;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.message {
-    padding: 0.8rem 1rem;
-    border-radius: 12px;
-    max-width: 80%;
-    line-height: 1.5;
-}
-
-.message.bot {
-    background-color: var(--cor-fundo-escuro-3);
-    align-self: flex-start;
-    border-bottom-left-radius: 0;
-}
-
-.message.user {
-    background-color: var(--cor-primaria);
-    color: white;
-    align-self: flex-end;
-    border-bottom-right-radius: 0;
-}
-
-.chat-input {
-    padding: 1.5rem;
-    border-top: 1px solid var(--cor-borda);
-    display: flex;
-    gap: 1rem;
-}
-
-.chat-input input {
-    flex-grow: 1;
-    background-color: var(--cor-fundo-escuro-3);
-    border: 1px solid var(--cor-borda);
-    border-radius: 8px;
-    padding: 0.8rem 1rem;
-    color: var(--cor-texto-claro);
-    font-size: 1rem;
-}
-.chat-input input:focus {
-    outline: none;
-    border-color: var(--cor-primaria);
-}
-
-.chat-input button {
-    padding: 0.8rem 1.2rem;
-    background-color: var(--cor-primaria);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-/* --- Botão Flutuante (FAB) para IA --- */
-.fab-ai {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    width: 60px;
-    height: 60px;
-    background-color: var(--cor-primaria);
-    color: white;
-    border-radius: 50%;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    z-index: 999;
-}
-
-/* --- Detalhes do Chamado --- */
-.chamado-header {
-    margin-bottom: 2rem;
-}
-.chamado-header h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-}
-.chamado-meta {
-    display: flex;
-    gap: 1.5rem;
-    color: var(--cor-texto-secundario);
-}
-.chamado-conversa {
-    margin-top: 2rem;
-}
-.conversa-item {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-.conversa-item .avatar {
-    width: 40px;
-    height: 40px;
-    background-color: var(--cor-fundo-escuro-3);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    flex-shrink: 0;
-}
-.conversa-item .conversa-conteudo {
-    flex-grow: 1;
-}
-.conversa-conteudo-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.5rem;
-}
-.conversa-conteudo-header span {
-    font-size: 0.9rem;
-    color: var(--cor-texto-secundario);
-}
-.conversa-conteudo p {
-    background-color: var(--cor-fundo-escuro-2);
-    padding: 1rem;
-    border-radius: 8px;
-    border: 1px solid var(--cor-borda);
-    line-height: 1.6;
-}
-.nova-mensagem textarea {
-    width: 100%;
-    min-height: 120px;
-    padding: 1rem;
-    background-color: var(--cor-fundo-escuro-3);
-    border: 1px solid var(--cor-borda);
-    border-radius: 8px;
-    color: var(--cor-texto-claro);
-    font-size: 1rem;
-    resize: vertical;
-}
-
-/* --- Responsividade --- */
+/* ==========================================================================
+   RESPONSIVIDADE
+   ========================================================================== */
 @media (max-width: 768px) {
     .sidebar {
         position: fixed;
@@ -594,23 +421,19 @@ html, body {
     
     .menu-toggle { /* Botão para abrir/fechar sidebar em mobile */
         display: block;
+        position: absolute;
+        top: 1.5rem;
+        left: 1.5rem;
         font-size: 1.5rem;
         background: none;
         border: none;
         color: var(--cor-texto-claro);
         cursor: pointer;
-        margin-bottom: 1rem;
+        z-index: 101;
     }
-
-    .form-grid {
-        grid-template-columns: 1fr; /* Coluna única em telas pequenas */
-    }
-
+    
     .form-actions {
         flex-direction: column;
-    }
-    .form-actions .btn {
-        width: 100%;
     }
 }
 

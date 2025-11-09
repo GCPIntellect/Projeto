@@ -1,0 +1,12 @@
+C:\Users\gusta\OneDrive\Área de Trabalho\PIMDESKTOP\Sistema_Desktop_P4\Sistema_Desktop_P4\obj\Debug\Sistema_Desktop_P4.csproj.AssemblyReference.cache
+C:\Users\gusta\OneDrive\Área de Trabalho\PIMDESKTOP\Sistema_Desktop_P4\Sistema_Desktop_P4\obj\Debug\Sistema_Desktop_P4.FrmPrincipal.resources
+C:\Users\gusta\OneDrive\Área de Trabalho\PIMDESKTOP\Sistema_Desktop_P4\Sistema_Desktop_P4\obj\Debug\Sistema_Desktop_P4.login.resources
+C:\Users\gusta\OneDrive\Área de Trabalho\PIMDESKTOP\Sistema_Desktop_P4\Sistema_Desktop_P4\obj\Debug\Sistema_Desktop_P4.Properties.Resources.resources
+C:\Users\gusta\OneDrive\Área de Trabalho\PIMDESKTOP\Sistema_Desktop_P4\Sistema_Desktop_P4\obj\Debug\Sistema_Desktop_P4.csproj.GenerateResource.cache
+C:\Users\gusta\OneDrive\Área de Trabalho\PIMDESKTOP\Sistema_Desktop_P4\Sistema_Desktop_P4\obj\Debug\Sistema_Desktop_P4.csproj.CoreCompileInputs.cache
+C:\Users\gusta\OneDrive\Área de Trabalho\PIMDESKTOP\Sistema_Desktop_P4\Sistema_Desktop_P4\bin\Debug\Sistema_Desktop_P4.exe.config
+C:\Users\gusta\OneDrive\Área de Trabalho\PIMDESKTOP\Sistema_Desktop_P4\Sistema_Desktop_P4\bin\Debug\Sistema_Desktop_P4.exe
+C:\Users\gusta\OneDrive\Área de Trabalho\PIMDESKTOP\Sistema_Desktop_P4\Sistema_Desktop_P4\bin\Debug\Sistema_Desktop_P4.pdb
+C:\Users\gusta\OneDrive\Área de Trabalho\PIMDESKTOP\Sistema_Desktop_P4\Sistema_Desktop_P4\obj\Debug\Sistema_Desktop_P4.exe
+C:\Users\gusta\OneDrive\Área de Trabalho\PIMDESKTOP\Sistema_Desktop_P4\Sistema_Desktop_P4\obj\Debug\Sistema_Desktop_P4.pdb
+C:\Users\gusta\OneDrive\Área de Trabalho\PIMDESKTOP\Sistema_Desktop_P4\Sistema_Desktop_P4\obj\Debug\Sistema_Desktop_P4.exe.config

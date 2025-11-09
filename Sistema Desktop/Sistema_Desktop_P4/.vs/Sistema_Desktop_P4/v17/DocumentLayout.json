@@ -1,0 +1,330 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|c:\\users\\gusta\\onedrive\\\u00E1rea de trabalho\\pimdesktop\\sistema_desktop_p4\\sistema_desktop_p4\\frmeditarusuario.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|solutionrelative:sistema_desktop_p4\\frmeditarusuario.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\sistema_desktop_p4\\frmeditarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|solutionrelative:sistema_desktop_p4\\frmeditarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\sistema_desktop_p4\\frmadministracao.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|solutionrelative:sistema_desktop_p4\\frmadministracao.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\sistema_desktop_p4\\frmdetalheschamado.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|solutionrelative:sistema_desktop_p4\\frmdetalheschamado.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\sistema_desktop_p4\\frmabrirchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|solutionrelative:sistema_desktop_p4\\frmabrirchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\sistema_desktop_p4\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|solutionrelative:sistema_desktop_p4\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\sistema_desktop_p4\\frmabrirchamado.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|solutionrelative:sistema_desktop_p4\\frmabrirchamado.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\sistema_desktop_p4\\infrastructure\\sessionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|solutionrelative:sistema_desktop_p4\\infrastructure\\sessionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\sistema_desktop_p4\\domain\\nivelacesso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|solutionrelative:sistema_desktop_p4\\domain\\nivelacesso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\sistema_desktop_p4\\frmprincipal.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|solutionrelative:sistema_desktop_p4\\frmprincipal.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\sistema_desktop_p4\\frmabrirchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|solutionrelative:sistema_desktop_p4\\frmabrirchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\sistema_desktop_p4\\frmconsultarchamados.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|solutionrelative:sistema_desktop_p4\\frmconsultarchamados.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\sistema_desktop_p4\\frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|solutionrelative:sistema_desktop_p4\\frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\sistema_desktop_p4\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|solutionrelative:sistema_desktop_p4\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\sistema_desktop_p4\\frmconsultarchamados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|solutionrelative:sistema_desktop_p4\\frmconsultarchamados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\sistema_desktop_p4\\infrastructure\\thememanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|solutionrelative:sistema_desktop_p4\\infrastructure\\thememanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\sistema_desktop_p4\\frmadministracao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|solutionrelative:sistema_desktop_p4\\frmadministracao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\sistema_desktop_p4\\frmeditarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|solutionrelative:sistema_desktop_p4\\frmeditarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\sistema_desktop_p4\\frmdetalheschamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903B01AB-6E2F-4C26-A5C1-09A8C52FF02F}|Sistema_Desktop_P4\\Sistema_Desktop_P4.csproj|solutionrelative:sistema_desktop_p4\\frmdetalheschamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FrmEditarUsuario.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmEditarUsuario.cs",
+              "RelativeDocumentMoniker": "Sistema_Desktop_P4\\FrmEditarUsuario.cs",
+              "ToolTip": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmEditarUsuario.cs [Design]",
+              "RelativeToolTip": "Sistema_Desktop_P4\\FrmEditarUsuario.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T11:51:04.844Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FrmAdministracao.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmAdministracao.Designer.cs",
+              "RelativeDocumentMoniker": "Sistema_Desktop_P4\\FrmAdministracao.Designer.cs",
+              "ToolTip": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmAdministracao.Designer.cs",
+              "RelativeToolTip": "Sistema_Desktop_P4\\FrmAdministracao.Designer.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAYwPkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T22:49:11.556Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FrmDetalhesChamado.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmDetalhesChamado.Designer.cs",
+              "RelativeDocumentMoniker": "Sistema_Desktop_P4\\FrmDetalhesChamado.Designer.cs",
+              "ToolTip": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmDetalhesChamado.Designer.cs",
+              "RelativeToolTip": "Sistema_Desktop_P4\\FrmDetalhesChamado.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T22:52:31.93Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FrmEditarUsuario.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmEditarUsuario.Designer.cs",
+              "RelativeDocumentMoniker": "Sistema_Desktop_P4\\FrmEditarUsuario.Designer.cs",
+              "ToolTip": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmEditarUsuario.Designer.cs",
+              "RelativeToolTip": "Sistema_Desktop_P4\\FrmEditarUsuario.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAALIAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T22:50:14.719Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FrmAbrirChamado.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmAbrirChamado.cs",
+              "RelativeDocumentMoniker": "Sistema_Desktop_P4\\FrmAbrirChamado.cs",
+              "ToolTip": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmAbrirChamado.cs [Design]",
+              "RelativeToolTip": "Sistema_Desktop_P4\\FrmAbrirChamado.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T23:40:38.343Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "login.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\login.cs",
+              "RelativeDocumentMoniker": "Sistema_Desktop_P4\\login.cs",
+              "ToolTip": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\login.cs [Design]",
+              "RelativeToolTip": "Sistema_Desktop_P4\\login.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T23:41:01.873Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FrmAbrirChamado.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmAbrirChamado.Designer.cs",
+              "RelativeDocumentMoniker": "Sistema_Desktop_P4\\FrmAbrirChamado.Designer.cs",
+              "ToolTip": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmAbrirChamado.Designer.cs",
+              "RelativeToolTip": "Sistema_Desktop_P4\\FrmAbrirChamado.Designer.cs",
+              "ViewState": "AgIAAMAAAAAAAAAAAAAYwBkAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T13:05:18.282Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "NivelAcesso.cs",
+              "DocumentMoniker": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\Domain\\NivelAcesso.cs",
+              "RelativeDocumentMoniker": "Sistema_Desktop_P4\\Domain\\NivelAcesso.cs",
+              "ToolTip": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\Domain\\NivelAcesso.cs",
+              "RelativeToolTip": "Sistema_Desktop_P4\\Domain\\NivelAcesso.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T22:45:28.169Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Infrastructure\\SessionManager.cs",
+              "DocumentMoniker": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\Infrastructure\\SessionManager.cs",
+              "RelativeDocumentMoniker": "Sistema_Desktop_P4\\Infrastructure\\SessionManager.cs",
+              "ToolTip": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\Infrastructure\\SessionManager.cs",
+              "RelativeToolTip": "Sistema_Desktop_P4\\Infrastructure\\SessionManager.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAvwEEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T13:05:27.957Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FrmPrincipal.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmPrincipal.Designer.cs",
+              "RelativeDocumentMoniker": "Sistema_Desktop_P4\\FrmPrincipal.Designer.cs",
+              "ToolTip": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmPrincipal.Designer.cs",
+              "RelativeToolTip": "Sistema_Desktop_P4\\FrmPrincipal.Designer.cs",
+              "ViewState": "AgIAALwBAAAAAAAAAAASwD0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T22:51:01.671Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "FrmAdministracao.cs",
+              "DocumentMoniker": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmAdministracao.cs",
+              "RelativeDocumentMoniker": "Sistema_Desktop_P4\\FrmAdministracao.cs",
+              "ToolTip": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmAdministracao.cs",
+              "RelativeToolTip": "Sistema_Desktop_P4\\FrmAdministracao.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T22:49:44.006Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "FrmEditarUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmEditarUsuario.cs",
+              "RelativeDocumentMoniker": "Sistema_Desktop_P4\\FrmEditarUsuario.cs",
+              "ToolTip": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmEditarUsuario.cs",
+              "RelativeToolTip": "Sistema_Desktop_P4\\FrmEditarUsuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T22:50:36.129Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "FrmDetalhesChamado.cs",
+              "DocumentMoniker": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmDetalhesChamado.cs",
+              "RelativeDocumentMoniker": "Sistema_Desktop_P4\\FrmDetalhesChamado.cs",
+              "ToolTip": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmDetalhesChamado.cs",
+              "RelativeToolTip": "Sistema_Desktop_P4\\FrmDetalhesChamado.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T22:53:01.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ThemeManager.cs",
+              "DocumentMoniker": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\Infrastructure\\ThemeManager.cs",
+              "RelativeDocumentMoniker": "Sistema_Desktop_P4\\Infrastructure\\ThemeManager.cs",
+              "ToolTip": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\Infrastructure\\ThemeManager.cs",
+              "RelativeToolTip": "Sistema_Desktop_P4\\Infrastructure\\ThemeManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAN4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T22:40:09.236Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "FrmConsultarChamados.cs",
+              "DocumentMoniker": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmConsultarChamados.cs",
+              "RelativeDocumentMoniker": "Sistema_Desktop_P4\\FrmConsultarChamados.cs",
+              "ToolTip": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmConsultarChamados.cs",
+              "RelativeToolTip": "Sistema_Desktop_P4\\FrmConsultarChamados.cs",
+              "ViewState": "AgIAALoAAAAAAAAAAMBUwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T13:07:20.537Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "FrmAbrirChamado.cs",
+              "DocumentMoniker": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmAbrirChamado.cs",
+              "RelativeDocumentMoniker": "Sistema_Desktop_P4\\FrmAbrirChamado.cs",
+              "ToolTip": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmAbrirChamado.cs",
+              "RelativeToolTip": "Sistema_Desktop_P4\\FrmAbrirChamado.cs",
+              "ViewState": "AgIAALQAAAAAAAAAAAAEwM4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T13:05:00.284Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "login.cs",
+              "DocumentMoniker": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\login.cs",
+              "RelativeDocumentMoniker": "Sistema_Desktop_P4\\login.cs",
+              "ToolTip": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\login.cs",
+              "RelativeToolTip": "Sistema_Desktop_P4\\login.cs",
+              "ViewState": "AgIAAIQAAAAAAAAAAEBVwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T13:05:46.691Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "FrmPrincipal.cs",
+              "DocumentMoniker": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmPrincipal.cs",
+              "RelativeDocumentMoniker": "Sistema_Desktop_P4\\FrmPrincipal.cs",
+              "ToolTip": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmPrincipal.cs",
+              "RelativeToolTip": "Sistema_Desktop_P4\\FrmPrincipal.cs",
+              "ViewState": "AgIAAEcBAAAAAAAAAIBZwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T13:06:10.608Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FrmConsultarChamados.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmConsultarChamados.Designer.cs",
+              "RelativeDocumentMoniker": "Sistema_Desktop_P4\\FrmConsultarChamados.Designer.cs",
+              "ToolTip": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\PIMDESKTOP\\Sistema_Desktop_P4\\Sistema_Desktop_P4\\FrmConsultarChamados.Designer.cs",
+              "RelativeToolTip": "Sistema_Desktop_P4\\FrmConsultarChamados.Designer.cs",
+              "ViewState": "AgIAAF4AAAAAAAAAAEBVwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T13:07:00.501Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

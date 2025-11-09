@@ -1,0 +1,92 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Sistema_Desktop_P4.Infrastructure;
+
+namespace Sistema_Desktop_P4
+{
+    public partial class login : Form
+    {
+        public login()
+        {
+            InitializeComponent();
+
+            // Aplica o tema escuro
+            ThemeManager.AplicarTema(this);
+            ThemeManager.EstilizarBotaoPrimario(this.btnAcessar);
+
+            // Atribuições de eventos (garante que os nomes batem com o Designer)
+            this.txtSenha.TextChanged += txtSenha_TextChanged;
+            this.btnAcessar.Click += btnAcessar_Click;
+
+            // Usabilidade: ENTER aciona o botão Acessar
+            this.AcceptButton = this.btnAcessar;
+
+            // Inicializa visibilidade dos labels conforme o conteúdo atual dos TextBoxes
+            this.labelUser.Visible = string.IsNullOrEmpty(this.txtUsuario.Text);
+            this.labelSenha.Visible = string.IsNullOrEmpty(this.txtSenha.Text);
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            // Esconde labelUser assim que o usuário começar a digitar.
+            labelUser.Visible = string.IsNullOrEmpty(txtUsuario.Text);
+        }
+
+        private void txtSenha_TextChanged(object sender, EventArgs e)
+        {
+            // Esconde labelSenha quando o usuario começar a digitar.
+            labelSenha.Visible = string.IsNullOrEmpty(txtSenha.Text);
+        }
+
+        private void Login_Load_1(object sender, EventArgs e)
+        {
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnAcessar_Click(object sender, EventArgs e)
+        {
+            // 1. Coleta os dados digitados
+            string usuario = txtUsuario.Text;
+            string senha = txtSenha.Text;
+
+            // 2. Lógica de Autenticação Simples (em produção, chamar API)
+            if (usuario == "adm" && senha == "1234")
+            {
+                // Salva informações da sessão
+                SessionManager.NomeUsuario = "Administrador";
+                SessionManager.UsuarioId = 1;
+                SessionManager.AccessToken = "token_simulado_" + DateTime.Now.Ticks; // Em produção, vem da API
+
+                MessageBox.Show("Login realizado com sucesso!", "Bem-vindo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Abre o formulário principal
+                this.Hide();
+                using (var frmPrincipal = new FrmPrincipal())
+                {
+                    frmPrincipal.ShowDialog();
+                }
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Usuário ou senha incorretos. Tente novamente.", "Erro de Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSenha.Clear();
+                txtUsuario.Focus();
+            }
+        }
+    }
+}

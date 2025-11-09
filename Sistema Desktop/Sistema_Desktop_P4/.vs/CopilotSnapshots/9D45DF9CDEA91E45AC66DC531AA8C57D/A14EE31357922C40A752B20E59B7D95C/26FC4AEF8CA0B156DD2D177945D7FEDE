@@ -1,0 +1,84 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Sistema_Desktop_P4
+{
+    public partial class FrmConsultarChamados : Form
+    {
+        public FrmConsultarChamados()
+        {
+            InitializeComponent();
+        }
+
+        private void FrmConsultarChamados_Load(object sender, EventArgs e)
+        {
+            CarregarChamados();
+        }
+
+        private async void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            CarregarChamados();
+        }
+
+        private async void CarregarChamados()
+        {
+            try
+            {
+                btnAtualizar.Enabled = false;
+                this.Cursor = Cursors.WaitCursor;
+
+                // TODO: Aqui você chamaria o presenter para buscar chamados da API
+                // Exemplo:
+                // var presenter = new ConsultarChamadosPresenter(new ApiChamadoService());
+                // var chamados = await presenter.ObterChamados();
+                // dataGridViewChamados.DataSource = chamados;
+
+                // Simulação de dados (remova quando integrar com API)
+                await Task.Delay(500);
+                var chamadosSimulados = new List<ChamadoDto>
+                {
+                    new ChamadoDto { Id = 1, Titulo = "Problema no sistema", Descricao = "Sistema não abre", Status = "Aberto", DataAbertura = DateTime.Now.AddDays(-2) },
+                    new ChamadoDto { Id = 2, Titulo = "Erro ao salvar", Descricao = "Não consigo salvar dados", Status = "Em Andamento", DataAbertura = DateTime.Now.AddDays(-1) },
+                    new ChamadoDto { Id = 3, Titulo = "Lentidão", Descricao = "Sistema muito lento", Status = "Fechado", DataAbertura = DateTime.Now.AddDays(-5) }
+                };
+
+                dataGridViewChamados.DataSource = chamadosSimulados;
+                
+                // Ajusta largura das colunas
+                if (dataGridViewChamados.Columns.Count > 0)
+                {
+                    dataGridViewChamados.Columns["Id"].Width = 50;
+                    dataGridViewChamados.Columns["Titulo"].Width = 200;
+                    dataGridViewChamados.Columns["Status"].Width = 100;
+                    dataGridViewChamados.Columns["DataAbertura"].Width = 120;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao carregar chamados: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                btnAtualizar.Enabled = true;
+                this.Cursor = Cursors.Default;
+            }
+        }
+    }
+
+    // Classe DTO para simulação (mova para um arquivo separado em produção)
+    public class ChamadoDto
+    {
+        public int Id { get; set; }
+        public string Titulo { get; set; }
+        public string Descricao { get; set; }
+        public string Status { get; set; }
+        public DateTime DataAbertura { get; set; }
+    }
+}

@@ -1,0 +1,40 @@
+﻿using System;
+
+namespace Sistema_Desktop_P4.Infrastructure
+{
+    /// <summary>
+    /// Gerencia a sessão do usuário, incluindo token JWT e informações básicas.
+    /// </summary>
+    public static class SessionManager
+    {
+        /// <summary>
+        /// Token JWT de acesso obtido após login bem-sucedido.
+        /// </summary>
+        public static string AccessToken { get; set; }
+
+        /// <summary>
+        /// Nome do usuário logado.
+        /// </summary>
+        public static string NomeUsuario { get; set; }
+
+        /// <summary>
+        /// ID do usuário logado.
+        /// </summary>
+        public static int? UsuarioId { get; set; }
+
+        /// <summary>
+        /// Limpa todas as informações da sessão (logout).
+        /// </summary>
+        public static void LimparSessao()
+        {
+            AccessToken = null;
+            NomeUsuario = null;
+            UsuarioId = null;
+        }
+
+        /// <summary>
+        /// Verifica se existe uma sessão ativa (token presente).
+        /// </summary>
+        public static bool SessaoAtiva => !string.IsNullOrEmpty(AccessToken);
+    }
+}

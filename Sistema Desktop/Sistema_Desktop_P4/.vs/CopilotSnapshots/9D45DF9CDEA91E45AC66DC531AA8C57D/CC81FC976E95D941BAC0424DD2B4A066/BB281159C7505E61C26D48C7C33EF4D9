@@ -1,0 +1,91 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Sistema_Desktop_P4
+{
+    // A palavra 'partial' é essencial.
+    public partial class FrmPrincipal : Form
+    {
+        private string _nomeUsuarioLogado = "Usuário Logado";
+
+        // CONSTRUTOR
+        public FrmPrincipal()
+        {
+            InitializeComponent();
+
+            this.IsMdiContainer = true;
+            this.WindowState = FormWindowState.Maximized;
+
+            // VINCULAÇÕES DE EVENTOS - ESSENCIAL PARA O CÓDIGO DE TRÁS
+            this.menuAbrirChamado.Click += this.menuAbrirChamado_Click;
+            this.menuChamadosConsultar.Click += this.menuConsultarChamados_Click;
+            this.menuSessaoLogout.Click += this.menuSessaoLogout_Click;
+            this.menuSessaoSair.Click += this.menuSessaoSair_Click;
+
+            // CarregarStatusDaSessao(); // Se você já criou o método
+        }
+
+        /* ----------------------------------------------------
+           MÉTODO AUXILIAR PARA NAVEGAÇÃO (RESOLVE CS0103)
+           ---------------------------------------------------- */
+
+        /// <summary>
+        /// Abre um formulário como uma janela filha (MDI) dentro do FrmPrincipal, prevenindo duplicatas.
+        /// </summary>
+        private void AbrirFormularioFilho(Form formFilho)
+        {
+            foreach (Form form in this.MdiChildren)
+            {
+                if (form.GetType() == formFilho.GetType())
+                {
+                    form.Activate();
+                    return;
+                }
+            }
+            formFilho.MdiParent = this;
+            formFilho.WindowState = FormWindowState.Maximized;
+            formFilho.Show();
+        }
+
+        /* ----------------------------------------------------
+           EVENTOS DE NAVEGAÇÃO (Implementação)
+           ---------------------------------------------------- */
+
+        private void menuAbrirChamado_Click(object sender, EventArgs e)
+        {
+            // Cria a instância da tela de Abrir Chamado (ACÓPLAMENTO FORTE)
+            FrmAbrirChamado frmAbrir = new FrmAbrirChamado();
+            AbrirFormularioFilho(frmAbrir);
+        }
+
+        private void menuConsultarChamados_Click(object sender, EventArgs e)
+        {
+            // Cria a instância da tela de Consulta (ACÓPLAMENTO FORTE)
+            FrmConsultarChamados frmConsultar = new FrmConsultarChamados();
+            AbrirFormularioFilho(frmConsultar);
+        }
+
+        private void menuSessaoLogout_Click(object sender, EventArgs e)
+        {
+            // Lógica de Logout
+            Application.Restart();
+        }
+
+        private void menuSessaoSair_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja realmente sair do sistema?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        // Coloque outros métodos aqui.
+    }
+}

@@ -1,0 +1,172 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Sistema_Desktop_P4.Infrastructure;
+using Sistema_Desktop_P4.Domain;
+
+namespace Sistema_Desktop_P4
+{
+    public partial class FrmConsultarChamados : Form
+    {
+        public FrmConsultarChamados()
+        {
+            InitializeComponent();
+            
+            // Aplica o tema escuro
+            ThemeManager.AplicarTema(this);
+            ThemeManager.EstilizarBotaoPrimario(this.btnAtualizar);
+
+            // Atualiza título baseado no nível de acesso
+            AtualizarTituloFormulario();
+        }
+
+        private void FrmConsultarChamados_Load(object sender, EventArgs e)
+        {
+            CarregarChamados();
+        }
+
+        private async void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            CarregarChamados();
+        }
+
+        private void AtualizarTituloFormulario()
+        {
+            if (SessionManager.EhColaborador)
+            {
+                this.Text = "Meus Chamados";
+                this.lblTitulo.Text = "Meus Chamados";
+            }
+            else if (SessionManager.EhTecnico)
+            {
+                this.Text = "Chamados - Visão Técnica";
+                this.lblTitulo.Text = "Gerenciar Chamados";
+            }
+            else if (SessionManager.EhAdministrador)
+            {
+                this.Text = "Todos os Chamados - Administração";
+                this.lblTitulo.Text = "Administração de Chamados";
+            }
+        }
+
+        private async void CarregarChamados()
+        {
+            try
+            {
+                btnAtualizar.Enabled = false;
+                this.Cursor = Cursors.WaitCursor;
+
+                // TODO: Aqui você chamaria o presenter para buscar chamados da API
+                // O filtro seria diferente baseado no nível de acesso
+
+                // Simulação de dados baseada no nível de acesso
+                await Task.Delay(500);
+                var chamadosSimulados = new List<ChamadoDto>();
+
+                if (SessionManager.EhColaborador)
+                {
+                    // Colaborador vê apenas seus próprios chamados
+                    chamadosSimulados = new List<ChamadoDto>
+                    {
+                        new ChamadoDto
+                        {
+                            Id = 3,
+                            Titulo = "Meu computador está lento",
+                            Descricao = "Preciso de suporte",
+                            Status = "Aberto",
+                            Prioridade = "Média",
+                            DataAbertura = DateTime.Now.AddDays(-1),
+                            Usuario = SessionManager.NomeUsuario
+                        },
+                        new ChamadoDto
+                        {
+                            Id = 7,
+                            Titulo = "Problema com impressora",
+                            Descricao = "Não consigo imprimir",
+                            Status = "Em Andamento",
+                            Prioridade = "Alta",
+                            DataAbertura = DateTime.Now.AddHours(-3),
+                            Usuario = SessionManager.NomeUsuario
+                        }
+                    };
+                }
+                else if (SessionManager.EhTecnico)
+                {
+                    // Técnico vê todos os chamados não fechados
+                    chamadosSimulados = new List<ChamadoDto>
+                    {
+                        new ChamadoDto { Id = 1, Titulo = "Sistema não abre", Descricao = "Erro ao iniciar", Status = "Aberto", Prioridade = "Alta", DataAbertura = DateTime.Now.AddDays(-2), Usuario = "João Silva" },
+                        new ChamadoDto { Id = 2, Titulo = "Erro ao salvar dados", Descricao = "Não consigo salvar", Status = "Em Andamento", Prioridade = "Urgente", DataAbertura = DateTime.Now.AddDays(-1), Usuario = "Maria Santos" },
+                        new ChamadoDto { Id = 3, Titulo = "Computador lento", Descricao = "Preciso de suporte", Status = "Aberto", Prioridade = "Média", DataAbertura = DateTime.Now.AddDays(-1), Usuario = "Pedro Costa" },
+                        new ChamadoDto { Id = 4, Titulo = "Tela azul frequente", Descricao = "Windows travando", Status = "Em Andamento", Prioridade = "Alta", DataAbertura = DateTime.Now.AddHours(-5), Usuario = "Ana Oliveira" }
+                    };
+                }
+                else // Administrador
+                {
+                    // Administrador vê TODOS os chamados, incluindo fechados
+                    chamadosSimulados = new List<ChamadoDto>
+                    {
+                        new ChamadoDto { Id = 1, Titulo = "Sistema não abre", Descricao = "Erro ao iniciar", Status = "Aberto", Prioridade = "Alta", DataAbertura = DateTime.Now.AddDays(-2), Usuario = "João Silva" },
+                        new ChamadoDto { Id = 2, Titulo = "Erro ao salvar dados", Descricao = "Não consigo salvar", Status = "Em Andamento", Prioridade = "Urgente", DataAbertura = DateTime.Now.AddDays(-1), Usuario = "Maria Santos" },
+                        new ChamadoDto { Id = 3, Titulo = "Computador lento", Descricao = "Preciso de suporte", Status = "Aberto", Prioridade = "Média", DataAbertura = DateTime.Now.AddDays(-1), Usuario = "Pedro Costa" },
+                        new ChamadoDto { Id = 4, Titulo = "Tela azul frequente", Descricao = "Windows travando", Status = "Fechado", Prioridade = "Alta", DataAbertura = DateTime.Now.AddDays(-5), Usuario = "Ana Oliveira" },
+                        new ChamadoDto { Id = 5, Titulo = "Instalar software", Descricao = "Preciso do Adobe", Status = "Fechado", Prioridade = "Baixa", DataAbertura = DateTime.Now.AddDays(-10), Usuario = "Carlos Lima" }
+                    };
+                }
+
+                dataGridViewChamados.DataSource = chamadosSimulados;
+                
+                // Ajusta largura das colunas
+                if (dataGridViewChamados.Columns.Count > 0)
+                {
+                    dataGridViewChamados.Columns["Id"].Width = 50;
+                    dataGridViewChamados.Columns["Titulo"].Width = 200;
+                    dataGridViewChamados.Columns["Status"].Width = 100;
+                    dataGridViewChamados.Columns["Prioridade"].Width = 80;
+                    dataGridViewChamados.Columns["DataAbertura"].Width = 120;
+                    dataGridViewChamados.Columns["Usuario"].Width = 150;
+                    if (dataGridViewChamados.Columns.Contains("Descricao"))
+                        dataGridViewChamados.Columns["Descricao"].Visible = false;
+                }
+
+                // Mensagem informativa baseada no nível
+                string infoMsg = "";
+                if (SessionManager.EhColaborador)
+                    infoMsg = $"Mostrando apenas seus chamados ({chamadosSimulados.Count} encontrado(s))";
+                else if (SessionManager.EhTecnico)
+                    infoMsg = $"Mostrando chamados abertos e em andamento ({chamadosSimulados.Count} encontrado(s))";
+                else
+                    infoMsg = $"Mostrando todos os chamados do sistema ({chamadosSimulados.Count} encontrado(s))";
+
+                this.Text = infoMsg;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao carregar chamados: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                btnAtualizar.Enabled = true;
+                this.Cursor = Cursors.Default;
+            }
+        }
+    }
+
+    // Classe DTO para simulação (mova para um arquivo separado em produção)
+    public class ChamadoDto
+    {
+        public int Id { get; set; }
+        public string Titulo { get; set; }
+        public string Descricao { get; set; }
+        public string Status { get; set; }
+        public string Prioridade { get; set; }
+        public DateTime DataAbertura { get; set; }
+        public string Usuario { get; set; }
+    }
+}

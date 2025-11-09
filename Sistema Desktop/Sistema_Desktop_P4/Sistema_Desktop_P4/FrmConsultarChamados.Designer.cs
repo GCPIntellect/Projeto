@@ -1,0 +1,98 @@
+namespace Sistema_Desktop_P4
+{
+    partial class FrmConsultarChamados
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.dataGridViewChamados = new System.Windows.Forms.DataGridView();
+            this.btnAtualizar = new System.Windows.Forms.Button();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChamados)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dataGridViewChamados
+            // 
+            this.dataGridViewChamados.AllowUserToAddRows = false;
+            this.dataGridViewChamados.AllowUserToDeleteRows = false;
+            this.dataGridViewChamados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewChamados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewChamados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewChamados.Location = new System.Drawing.Point(12, 60);
+            this.dataGridViewChamados.Name = "dataGridViewChamados";
+            this.dataGridViewChamados.ReadOnly = true;
+            this.dataGridViewChamados.RowHeadersWidth = 51;
+            this.dataGridViewChamados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewChamados.Size = new System.Drawing.Size(776, 350);
+            this.dataGridViewChamados.TabIndex = 0;
+            // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAtualizar.Location = new System.Drawing.Point(688, 420);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(100, 30);
+            this.btnAtualizar.TabIndex = 1;
+            this.btnAtualizar.Text = "Atualizar";
+            this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(12, 20);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(209, 25);
+            this.lblTitulo.TabIndex = 2;
+            this.lblTitulo.Text = "Consultar Chamados";
+            // 
+            // FrmConsultarChamados
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 462);
+            this.Controls.Add(this.lblTitulo);
+            this.Controls.Add(this.btnAtualizar);
+            this.Controls.Add(this.dataGridViewChamados);
+            this.Name = "FrmConsultarChamados";
+            this.Text = "Consultar Chamados";
+            this.Load += new System.EventHandler(this.FrmConsultarChamados_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChamados)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.DataGridView dataGridViewChamados;
+        private System.Windows.Forms.Button btnAtualizar;
+        private System.Windows.Forms.Label lblTitulo;
+    }
+}

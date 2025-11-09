@@ -1,0 +1,206 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Sistema_Desktop_P4.Infrastructure;
+
+namespace Sistema_Desktop_P4
+{
+    public partial class FrmAbrirChamado : Form
+    {
+        private string caminhoArquivoAnexo = null;
+
+        public FrmAbrirChamado()
+        {
+            InitializeComponent();
+            
+            // Aplica o tema escuro
+            ThemeManager.AplicarTema(this);
+            ThemeManager.EstilizarBotaoPrimario(this.btnEnviar);
+            ThemeManager.EstilizarBotaoSecundario(this.btnCancelar);
+            ThemeManager.EstilizarBotaoSecundario(this.btnProcurarAnexo);
+            ThemeManager.EstilizarBotaoSecundario(this.btnRemoverAnexo);
+
+            // Define valores padrão
+            cmbPrioridade.SelectedIndex = 1; // Média
+            cmbCategoria.SelectedIndex = 0; // Suporte Técnico
+        }
+
+        private void btnProcurarAnexo_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Title = "Selecionar Arquivo para Anexar";
+                openFileDialog.Filter = "Todos os Arquivos (*.*)|*.*|" +
+                                       "Imagens (*.jpg;*.png;*.gif)|*.jpg;*.png;*.gif|" +
+                                       "Documentos (*.pdf;*.doc;*.docx)|*.pdf;*.doc;*.docx|" +
+                                       "Textos (*.txt;*.log)|*.txt;*.log";
+                openFileDialog.FilterIndex = 1;
+                openFileDialog.Multiselect = false;
+                openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        // Valida tamanho do arquivo (máximo 10MB)
+                        FileInfo fileInfo = new FileInfo(openFileDialog.FileName);
+                        long tamanhoEmMB = fileInfo.Length / (1024 * 1024);
+
+                        if (tamanhoEmMB > 10)
+                        {
+                            MessageBox.Show("O arquivo selecionado é muito grande. O tamanho máximo permitido é 10MB.",
+                                          "Arquivo Muito Grande", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        caminhoArquivoAnexo = openFileDialog.FileName;
+                        txtAnexo.Text = Path.GetFileName(caminhoArquivoAnexo);
+                        btnRemoverAnexo.Enabled = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao selecionar arquivo: {ex.Message}",
+                                      "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void btnRemoverAnexo_Click(object sender, EventArgs e)
+        {
+            caminhoArquivoAnexo = null;
+            txtAnexo.Text = "Nenhum arquivo selecionado";
+            btnRemoverAnexo.Enabled = false;
+        }
+
+        private async void btnEnviar_Click(object sender, EventArgs e)
+        {
+            // Validações
+            if (string.IsNullOrWhiteSpace(txtTitulo.Text))
+            {
+                MessageBox.Show("O título é obrigatório.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTitulo.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtDescricao.Text))
+            {
+                MessageBox.Show("A descrição é obrigatória.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDescricao.Focus();
+                return;
+            }
+
+            if (cmbPrioridade.SelectedIndex == -1)
+            {
+                MessageBox.Show("Selecione a prioridade do chamado.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cmbPrioridade.Focus();
+                return;
+            }
+
+            if (cmbCategoria.SelectedIndex == -1)
+            {
+                MessageBox.Show("Selecione a categoria do chamado.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cmbCategoria.Focus();
+                return;
+            }
+
+            try
+            {
+                // Desabilita botões durante o envio
+                btnEnviar.Enabled = false;
+                btnCancelar.Enabled = false;
+                btnProcurarAnexo.Enabled = false;
+                btnRemoverAnexo.Enabled = false;
+                this.Cursor = Cursors.WaitCursor;
+
+                // Prepara os dados do chamado
+                var chamado = new
+                {
+                    Titulo = txtTitulo.Text.Trim(),
+                    Descricao = txtDescricao.Text.Trim(),
+                    Prioridade = cmbPrioridade.SelectedItem.ToString(),
+                    Categoria = cmbCategoria.SelectedItem.ToString(),
+                    ArquivoAnexo = caminhoArquivoAnexo,
+                    NomeArquivo = !string.IsNullOrEmpty(caminhoArquivoAnexo) ? Path.GetFileName(caminhoArquivoAnexo) : null
+                };
+
+                // TODO: Aqui você chamaria o AbrirChamadoPresenter com os novos campos
+                // Exemplo:
+                // var presenter = new AbrirChamadoPresenter(new ApiChamadoService());
+                // string resultado = await presenter.AbrirChamadoCompleto(chamado);
+                // MessageBox.Show(resultado, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Simulação de envio (remova quando integrar com API)
+                await Task.Delay(1500); // Simula latência de rede
+                
+                string mensagem = $"Chamado criado com sucesso!\n\n" +
+                                $"Título: {chamado.Titulo}\n" +
+                                $"Prioridade: {chamado.Prioridade}\n" +
+                                $"Categoria: {chamado.Categoria}";
+                
+                if (!string.IsNullOrEmpty(chamado.NomeArquivo))
+                {
+                    mensagem += $"\nArquivo anexado: {chamado.NomeArquivo}";
+                }
+
+                MessageBox.Show(mensagem, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Limpa os campos
+                LimparFormulario();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao abrir chamado: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Reabilita botões
+                btnEnviar.Enabled = true;
+                btnCancelar.Enabled = true;
+                btnProcurarAnexo.Enabled = true;
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (TemDadosPreenchidos())
+            {
+                var resultado = MessageBox.Show(
+                    "Existem dados não salvos. Deseja realmente cancelar?",
+                    "Confirmação",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (resultado == DialogResult.No)
+                    return;
+            }
+
+            this.Close();
+        }
+
+        private void LimparFormulario()
+        {
+            txtTitulo.Clear();
+            txtDescricao.Clear();
+            cmbPrioridade.SelectedIndex = 1; // Média
+            cmbCategoria.SelectedIndex = 0; // Suporte Técnico
+            btnRemoverAnexo_Click(null, null); // Removes anexo
+            txtTitulo.Focus();
+        }
+
+        private bool TemDadosPreenchidos()
+        {
+            return !string.IsNullOrWhiteSpace(txtTitulo.Text) ||
+                   !string.IsNullOrWhiteSpace(txtDescricao.Text) ||
+                   !string.IsNullOrEmpty(caminhoArquivoAnexo);
+        }
+    }
+}

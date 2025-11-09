@@ -1,0 +1,160 @@
+﻿using System.Windows.Forms;
+
+namespace Sistema_Desktop_P4
+{
+    partial class FrmPrincipal
+    {
+        /// <summary>
+        /// Variável de designer necessária.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Limpar os recursos que estão sendo usados.
+        /// </summary>
+        /// <param name="disposing">true se for necessário descartar os recursos gerenciados; caso contrário, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Código gerado pelo Windows Form Designer
+
+        /// <summary>
+        /// Método necessário para suporte ao Designer - não modifique 
+        /// o conteúdo deste método com o editor de código.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.chamadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAbrirChamado = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuChamadosConsultar = new System.Windows.Forms.ToolStripMenuItem();
+            this.sessãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuSessaoLogout = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuSessaoSair = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                this.chamadosToolStripMenuItem,
+                this.sessãoToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // chamadosToolStripMenuItem
+            // 
+            this.chamadosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                this.menuAbrirChamado,
+                this.menuChamadosConsultar});
+            this.chamadosToolStripMenuItem.Name = "chamadosToolStripMenuItem";
+            this.chamadosToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
+            this.chamadosToolStripMenuItem.Text = "Chamados";
+            // 
+            // menuAbrirChamado
+            // 
+            this.menuAbrirChamado.Name = "menuAbrirChamado";
+            this.menuAbrirChamado.Size = new System.Drawing.Size(224, 26);
+            this.menuAbrirChamado.Text = "Abrir Chamado";
+            // Adiciona o evento Click:
+            this.menuAbrirChamado.Click += new System.EventHandler(this.menuAbrirChamado_Click);
+            // 
+            // menuChamadosConsultar
+            // 
+            this.menuChamadosConsultar.Name = "menuChamadosConsultar";
+            this.menuChamadosConsultar.Size = new System.Drawing.Size(224, 26);
+            this.menuChamadosConsultar.Text = "Consultar Chamados";
+            // Adiciona o evento Click:
+            this.menuChamadosConsultar.Click += new System.EventHandler(this.menuConsultarChamados_Click);
+            // 
+            // sessãoToolStripMenuItem
+            // 
+            this.sessãoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                this.menuSessaoLogout,
+                this.menuSessaoSair});
+            this.sessãoToolStripMenuItem.Name = "sessãoToolStripMenuItem";
+            this.sessãoToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
+            this.sessãoToolStripMenuItem.Text = "Sessão";
+            // 
+            // menuSessaoLogout
+            // 
+            this.menuSessaoLogout.Name = "menuSessaoLogout";
+            this.menuSessaoLogout.Size = new System.Drawing.Size(224, 26);
+            this.menuSessaoLogout.Text = "Fazer Logout";
+            // Adiciona o evento Click:
+            this.menuSessaoLogout.Click += new System.EventHandler(this.menuSessaoLogout_Click);
+            // 
+            // menuSessaoSair
+            // 
+            this.menuSessaoSair.Name = "menuSessaoSair";
+            this.menuSessaoSair.Size = new System.Drawing.Size(224, 26);
+            this.menuSessaoSair.Text = "Sair do Sistema";
+            // Adiciona o evento Click:
+            this.menuSessaoSair.Click += new System.EventHandler(this.menuSessaoSair_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip1.TabIndex = 4;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 16);
+            this.toolStripStatusLabel1.Text = "";
+            // 
+            // FrmPrincipal
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
+            this.MainMenuStrip = this.menuStrip1;
+            this.Name = "FrmPrincipal";
+            this.Text = "Sistema de Gestão de Chamados";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        // Variáveis de controle - Corrigidas para o nome limpo e necessário
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem chamadosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuAbrirChamado;
+        private System.Windows.Forms.ToolStripMenuItem menuChamadosConsultar;
+        private System.Windows.Forms.ToolStripMenuItem sessãoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuSessaoLogout;
+        private System.Windows.Forms.ToolStripMenuItem menuSessaoSair;
+
+        // StatusStrip
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+    }
+}

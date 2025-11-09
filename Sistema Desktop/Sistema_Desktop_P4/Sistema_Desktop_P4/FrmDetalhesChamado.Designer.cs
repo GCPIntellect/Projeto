@@ -1,0 +1,285 @@
+namespace Sistema_Desktop_P4
+{
+    partial class FrmDetalhesChamado
+    {
+        private System.ComponentModel.IContainer components = null;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            this.lblTituloChamado = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblIdValor = new System.Windows.Forms.Label();
+            this.lblTituloValor = new System.Windows.Forms.Label();
+            this.lblDescricaoValor = new System.Windows.Forms.Label();
+            this.lblStatusValor = new System.Windows.Forms.Label();
+            this.lblPrioridadeValor = new System.Windows.Forms.Label();
+            this.lblCategoriaValor = new System.Windows.Forms.Label();
+            this.lblDataAberturaValor = new System.Windows.Forms.Label();
+            this.lblUsuarioValor = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblStatusAtual = new System.Windows.Forms.Label();
+            this.cmbNovoStatus = new System.Windows.Forms.ComboBox();
+            this.txtResposta = new System.Windows.Forms.TextBox();
+            this.lblResposta = new System.Windows.Forms.Label();
+            this.btnAtualizar = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.listBoxHistorico = new System.Windows.Forms.ListBox();
+            this.btnFechar = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // lblTituloChamado
+            // 
+            this.lblTituloChamado.AutoSize = true;
+            this.lblTituloChamado.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblTituloChamado.Location = new System.Drawing.Point(20, 20);
+            this.lblTituloChamado.Name = "lblTituloChamado";
+            this.lblTituloChamado.Size = new System.Drawing.Size(246, 32);
+            this.lblTituloChamado.TabIndex = 0;
+            this.lblTituloChamado.Text = "Detalhes do Chamado";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblUsuarioValor);
+            this.groupBox1.Controls.Add(this.lblDataAberturaValor);
+            this.groupBox1.Controls.Add(this.lblCategoriaValor);
+            this.groupBox1.Controls.Add(this.lblPrioridadeValor);
+            this.groupBox1.Controls.Add(this.lblStatusValor);
+            this.groupBox1.Controls.Add(this.lblDescricaoValor);
+            this.groupBox1.Controls.Add(this.lblTituloValor);
+            this.groupBox1.Controls.Add(this.lblIdValor);
+            this.groupBox1.Location = new System.Drawing.Point(20, 70);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(750, 220);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Informações do Chamado";
+            // 
+            // lblIdValor
+            // 
+            this.lblIdValor.AutoSize = true;
+            this.lblIdValor.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblIdValor.Location = new System.Drawing.Point(15, 25);
+            this.lblIdValor.Name = "lblIdValor";
+            this.lblIdValor.Size = new System.Drawing.Size(56, 23);
+            this.lblIdValor.TabIndex = 0;
+            this.lblIdValor.Text = "ID: #1";
+            // 
+            // lblTituloValor
+            // 
+            this.lblTituloValor.AutoSize = true;
+            this.lblTituloValor.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblTituloValor.Location = new System.Drawing.Point(15, 55);
+            this.lblTituloValor.Name = "lblTituloValor";
+            this.lblTituloValor.Size = new System.Drawing.Size(100, 23);
+            this.lblTituloValor.TabIndex = 1;
+            this.lblTituloValor.Text = "Título aqui";
+            // 
+            // lblDescricaoValor
+            // 
+            this.lblDescricaoValor.Location = new System.Drawing.Point(15, 85);
+            this.lblDescricaoValor.Name = "lblDescricaoValor";
+            this.lblDescricaoValor.Size = new System.Drawing.Size(720, 50);
+            this.lblDescricaoValor.TabIndex = 2;
+            this.lblDescricaoValor.Text = "Descrição detalhada do chamado...";
+            // 
+            // lblStatusValor
+            // 
+            this.lblStatusValor.AutoSize = true;
+            this.lblStatusValor.Location = new System.Drawing.Point(15, 145);
+            this.lblStatusValor.Name = "lblStatusValor";
+            this.lblStatusValor.Size = new System.Drawing.Size(89, 16);
+            this.lblStatusValor.TabIndex = 3;
+            this.lblStatusValor.Text = "Status: Aberto";
+            // 
+            // lblPrioridadeValor
+            // 
+            this.lblPrioridadeValor.AutoSize = true;
+            this.lblPrioridadeValor.Location = new System.Drawing.Point(200, 145);
+            this.lblPrioridadeValor.Name = "lblPrioridadeValor";
+            this.lblPrioridadeValor.Size = new System.Drawing.Size(116, 16);
+            this.lblPrioridadeValor.TabIndex = 4;
+            this.lblPrioridadeValor.Text = "Prioridade: Média";
+            // 
+            // lblCategoriaValor
+            // 
+            this.lblCategoriaValor.AutoSize = true;
+            this.lblCategoriaValor.Location = new System.Drawing.Point(400, 145);
+            this.lblCategoriaValor.Name = "lblCategoriaValor";
+            this.lblCategoriaValor.Size = new System.Drawing.Size(141, 16);
+            this.lblCategoriaValor.TabIndex = 5;
+            this.lblCategoriaValor.Text = "Categoria: Bug/Erro";
+            // 
+            // lblDataAberturaValor
+            // 
+            this.lblDataAberturaValor.AutoSize = true;
+            this.lblDataAberturaValor.Location = new System.Drawing.Point(15, 175);
+            this.lblDataAberturaValor.Name = "lblDataAberturaValor";
+            this.lblDataAberturaValor.Size = new System.Drawing.Size(152, 16);
+            this.lblDataAberturaValor.TabIndex = 6;
+            this.lblDataAberturaValor.Text = "Aberto em: 01/01/2024";
+            // 
+            // lblUsuarioValor
+            // 
+            this.lblUsuarioValor.AutoSize = true;
+            this.lblUsuarioValor.Location = new System.Drawing.Point(15, 195);
+            this.lblUsuarioValor.Name = "lblUsuarioValor";
+            this.lblUsuarioValor.Size = new System.Drawing.Size(134, 16);
+            this.lblUsuarioValor.TabIndex = 7;
+            this.lblUsuarioValor.Text = "Solicitante: Usuário";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnAtualizar);
+            this.groupBox2.Controls.Add(this.lblResposta);
+            this.groupBox2.Controls.Add(this.txtResposta);
+            this.groupBox2.Controls.Add(this.cmbNovoStatus);
+            this.groupBox2.Controls.Add(this.lblStatusAtual);
+            this.groupBox2.Location = new System.Drawing.Point(20, 300);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(750, 200);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Atualizar Chamado (Técnico/Admin)";
+            // 
+            // lblStatusAtual
+            // 
+            this.lblStatusAtual.AutoSize = true;
+            this.lblStatusAtual.Location = new System.Drawing.Point(15, 30);
+            this.lblStatusAtual.Name = "lblStatusAtual";
+            this.lblStatusAtual.Size = new System.Drawing.Size(100, 16);
+            this.lblStatusAtual.TabIndex = 0;
+            this.lblStatusAtual.Text = "Alterar Status:";
+            // 
+            // cmbNovoStatus
+            // 
+            this.cmbNovoStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNovoStatus.FormattingEnabled = true;
+            this.cmbNovoStatus.Items.AddRange(new object[] {
+            "Aberto",
+            "Em Andamento",
+            "Aguardando Resposta",
+            "Resolvido",
+            "Fechado"});
+            this.cmbNovoStatus.Location = new System.Drawing.Point(120, 27);
+            this.cmbNovoStatus.Name = "cmbNovoStatus";
+            this.cmbNovoStatus.Size = new System.Drawing.Size(200, 24);
+            this.cmbNovoStatus.TabIndex = 1;
+            // 
+            // txtResposta
+            // 
+            this.txtResposta.Location = new System.Drawing.Point(18, 85);
+            this.txtResposta.Multiline = true;
+            this.txtResposta.Name = "txtResposta";
+            this.txtResposta.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtResposta.Size = new System.Drawing.Size(715, 70);
+            this.txtResposta.TabIndex = 2;
+            // 
+            // lblResposta
+            // 
+            this.lblResposta.AutoSize = true;
+            this.lblResposta.Location = new System.Drawing.Point(15, 65);
+            this.lblResposta.Name = "lblResposta";
+            this.lblResposta.Size = new System.Drawing.Size(180, 16);
+            this.lblResposta.TabIndex = 3;
+            this.lblResposta.Text = "Adicionar Resposta/Nota:";
+            // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnAtualizar.Location = new System.Drawing.Point(618, 165);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(115, 30);
+            this.btnAtualizar.TabIndex = 4;
+            this.btnAtualizar.Text = "?? Atualizar";
+            this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.listBoxHistorico);
+            this.groupBox3.Location = new System.Drawing.Point(20, 510);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(750, 150);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Histórico de Ações";
+            // 
+            // listBoxHistorico
+            // 
+            this.listBoxHistorico.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxHistorico.FormattingEnabled = true;
+            this.listBoxHistorico.ItemHeight = 16;
+            this.listBoxHistorico.Location = new System.Drawing.Point(3, 18);
+            this.listBoxHistorico.Name = "listBoxHistorico";
+            this.listBoxHistorico.Size = new System.Drawing.Size(744, 129);
+            this.listBoxHistorico.TabIndex = 0;
+            // 
+            // btnFechar
+            // 
+            this.btnFechar.Location = new System.Drawing.Point(670, 670);
+            this.btnFechar.Name = "btnFechar";
+            this.btnFechar.Size = new System.Drawing.Size(100, 30);
+            this.btnFechar.TabIndex = 4;
+            this.btnFechar.Text = "Fechar";
+            this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
+            // 
+            // FrmDetalhesChamado
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(790, 720);
+            this.Controls.Add(this.btnFechar);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.lblTituloChamado);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "FrmDetalhesChamado";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Detalhes do Chamado";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        private System.Windows.Forms.Label lblTituloChamado;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblIdValor;
+        private System.Windows.Forms.Label lblTituloValor;
+        private System.Windows.Forms.Label lblDescricaoValor;
+        private System.Windows.Forms.Label lblStatusValor;
+        private System.Windows.Forms.Label lblPrioridadeValor;
+        private System.Windows.Forms.Label lblCategoriaValor;
+        private System.Windows.Forms.Label lblDataAberturaValor;
+        private System.Windows.Forms.Label lblUsuarioValor;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblStatusAtual;
+        private System.Windows.Forms.ComboBox cmbNovoStatus;
+        private System.Windows.Forms.TextBox txtResposta;
+        private System.Windows.Forms.Label lblResposta;
+        private System.Windows.Forms.Button btnAtualizar;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ListBox listBoxHistorico;
+        private System.Windows.Forms.Button btnFechar;
+    }
+}

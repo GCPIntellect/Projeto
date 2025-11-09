@@ -1,0 +1,76 @@
+﻿using System;
+using Sistema_Desktop_P4.Domain;
+
+namespace Sistema_Desktop_P4.Infrastructure
+{
+    /// <summary>
+    /// Gerencia a sessão do usuário, incluindo token JWT e informações básicas.
+    /// </summary>
+    public static class SessionManager
+    {
+        /// <summary>
+        /// Token JWT de acesso obtido após login bem-sucedido.
+        /// </summary>
+        public static string AccessToken { get; set; }
+
+        /// <summary>
+        /// Nome do usuário logado.
+        /// </summary>
+        public static string NomeUsuario { get; set; }
+
+        /// <summary>
+        /// ID do usuário logado.
+        /// </summary>
+        public static int? UsuarioId { get; set; }
+
+        /// <summary>
+        /// Nível de acesso do usuário logado.
+        /// </summary>
+        public static NivelAcesso NivelAcessoUsuario { get; set; }
+
+        /// <summary>
+        /// Email do usuário logado.
+        /// </summary>
+        public static string Email { get; set; }
+
+        /// <summary>
+        /// Limpa todas as informações da sessão (logout).
+        /// </summary>
+        public static void LimparSessao()
+        {
+            AccessToken = null;
+            NomeUsuario = null;
+            UsuarioId = null;
+            NivelAcessoUsuario = NivelAcesso.Colaborador; // Reseta para o menor nível
+            Email = null;
+        }
+
+        /// <summary>
+        /// Verifica se existe uma sessão ativa (token presente).
+        /// </summary>
+        public static bool SessaoAtiva => !string.IsNullOrEmpty(AccessToken);
+
+        /// <summary>
+        /// Verifica se o usuário atual é Administrador.
+        /// </summary>
+        public static bool EhAdministrador => NivelAcessoUsuario == NivelAcesso.Administrador;
+
+        /// <summary>
+        /// Verifica se o usuário atual é Técnico ou superior.
+        /// </summary>
+        public static bool EhTecnico => NivelAcessoUsuario >= NivelAcesso.Tecnico;
+
+        /// <summary>
+        /// Verifica se o usuário atual é Colaborador.
+        /// </summary>
+        public static bool EhColaborador => NivelAcessoUsuario == NivelAcesso.Colaborador;
+
+        /// <summary>
+        /// Verifica se o usuário tem permissão para acessar determinado recurso.
+        /// </summary>
+        public static bool TemPermissao(NivelAcesso nivelNecessario)
+        {
+            return NivelAcessoUsuario >= nivelNecessario;
+        }
+    }
+}

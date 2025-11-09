@@ -1,0 +1,237 @@
+namespace Sistema_Desktop_P4
+{
+    partial class FrmAbrirChamado
+    {
+        /// <summary>
+       
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.txtTitulo = new System.Windows.Forms.TextBox();
+            this.lblDescricao = new System.Windows.Forms.Label();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
+            this.lblPrioridade = new System.Windows.Forms.Label();
+            this.cmbPrioridade = new System.Windows.Forms.ComboBox();
+            this.lblCategoria = new System.Windows.Forms.Label();
+            this.cmbCategoria = new System.Windows.Forms.ComboBox();
+            this.lblAnexo = new System.Windows.Forms.Label();
+            this.txtAnexo = new System.Windows.Forms.TextBox();
+            this.btnProcurarAnexo = new System.Windows.Forms.Button();
+            this.btnRemoverAnexo = new System.Windows.Forms.Button();
+            this.btnEnviar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Location = new System.Drawing.Point(30, 20);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(47, 16);
+            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Text = "Título:*";
+            // 
+            // txtTitulo
+            // 
+            this.txtTitulo.Location = new System.Drawing.Point(30, 40);
+            this.txtTitulo.MaxLength = 100;
+            this.txtTitulo.Name = "txtTitulo";
+            this.txtTitulo.Size = new System.Drawing.Size(520, 22);
+            this.txtTitulo.TabIndex = 1;
+            // 
+            // lblDescricao
+            // 
+            this.lblDescricao.AutoSize = true;
+            this.lblDescricao.Location = new System.Drawing.Point(30, 75);
+            this.lblDescricao.Name = "lblDescricao";
+            this.lblDescricao.Size = new System.Drawing.Size(77, 16);
+            this.lblDescricao.TabIndex = 2;
+            this.lblDescricao.Text = "Descrição:*";
+            // 
+            // txtDescricao
+            // 
+            this.txtDescricao.Location = new System.Drawing.Point(30, 95);
+            this.txtDescricao.MaxLength = 1000;
+            this.txtDescricao.Multiline = true;
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDescricao.Size = new System.Drawing.Size(520, 120);
+            this.txtDescricao.TabIndex = 3;
+            // 
+            // lblPrioridade
+            // 
+            this.lblPrioridade.AutoSize = true;
+            this.lblPrioridade.Location = new System.Drawing.Point(30, 230);
+            this.lblPrioridade.Name = "lblPrioridade";
+            this.lblPrioridade.Size = new System.Drawing.Size(79, 16);
+            this.lblPrioridade.TabIndex = 4;
+            this.lblPrioridade.Text = "Prioridade:*";
+            // 
+            // cmbPrioridade
+            // 
+            this.cmbPrioridade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPrioridade.FormattingEnabled = true;
+            this.cmbPrioridade.Items.AddRange(new object[] {
+            "Baixa",
+            "Média",
+            "Alta",
+            "Urgente"});
+            this.cmbPrioridade.Location = new System.Drawing.Point(30, 250);
+            this.cmbPrioridade.Name = "cmbPrioridade";
+            this.cmbPrioridade.Size = new System.Drawing.Size(250, 24);
+            this.cmbPrioridade.TabIndex = 5;
+            // 
+            // lblCategoria
+            // 
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Location = new System.Drawing.Point(300, 230);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(73, 16);
+            this.lblCategoria.TabIndex = 6;
+            this.lblCategoria.Text = "Categoria:*";
+            // 
+            // cmbCategoria
+            // 
+            this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.Items.AddRange(new object[] {
+            "Suporte Técnico",
+            "Bug/Erro",
+            "Solicitação de Recurso",
+            "Dúvida",
+            "Outro"});
+            this.cmbCategoria.Location = new System.Drawing.Point(300, 250);
+            this.cmbCategoria.Name = "cmbCategoria";
+            this.cmbCategoria.Size = new System.Drawing.Size(250, 24);
+            this.cmbCategoria.TabIndex = 7;
+            // 
+            // lblAnexo
+            // 
+            this.lblAnexo.AutoSize = true;
+            this.lblAnexo.Location = new System.Drawing.Point(30, 290);
+            this.lblAnexo.Name = "lblAnexo";
+            this.lblAnexo.Size = new System.Drawing.Size(102, 16);
+            this.lblAnexo.TabIndex = 8;
+            this.lblAnexo.Text = "Anexar Arquivo:";
+            // 
+            // txtAnexo
+            // 
+            this.txtAnexo.Location = new System.Drawing.Point(30, 310);
+            this.txtAnexo.Name = "txtAnexo";
+            this.txtAnexo.ReadOnly = true;
+            this.txtAnexo.Size = new System.Drawing.Size(350, 22);
+            this.txtAnexo.TabIndex = 9;
+            this.txtAnexo.Text = "Nenhum arquivo selecionado";
+            // 
+            // btnProcurarAnexo
+            // 
+            this.btnProcurarAnexo.Location = new System.Drawing.Point(390, 308);
+            this.btnProcurarAnexo.Name = "btnProcurarAnexo";
+            this.btnProcurarAnexo.Size = new System.Drawing.Size(80, 26);
+            this.btnProcurarAnexo.TabIndex = 10;
+            this.btnProcurarAnexo.Text = "Procurar...";
+            this.btnProcurarAnexo.UseVisualStyleBackColor = true;
+            this.btnProcurarAnexo.Click += new System.EventHandler(this.btnProcurarAnexo_Click);
+            // 
+            // btnRemoverAnexo
+            // 
+            this.btnRemoverAnexo.Enabled = false;
+            this.btnRemoverAnexo.Location = new System.Drawing.Point(476, 308);
+            this.btnRemoverAnexo.Name = "btnRemoverAnexo";
+            this.btnRemoverAnexo.Size = new System.Drawing.Size(74, 26);
+            this.btnRemoverAnexo.TabIndex = 11;
+            this.btnRemoverAnexo.Text = "Remover";
+            this.btnRemoverAnexo.UseVisualStyleBackColor = true;
+            this.btnRemoverAnexo.Click += new System.EventHandler(this.btnRemoverAnexo_Click);
+            // 
+            // btnEnviar
+            // 
+            this.btnEnviar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnviar.Location = new System.Drawing.Point(360, 360);
+            this.btnEnviar.Name = "btnEnviar";
+            this.btnEnviar.Size = new System.Drawing.Size(90, 35);
+            this.btnEnviar.TabIndex = 12;
+            this.btnEnviar.Text = "Enviar";
+            this.btnEnviar.UseVisualStyleBackColor = true;
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(460, 360);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(90, 35);
+            this.btnCancelar.TabIndex = 13;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // FrmAbrirChamado
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(580, 420);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnEnviar);
+            this.Controls.Add(this.btnRemoverAnexo);
+            this.Controls.Add(this.btnProcurarAnexo);
+            this.Controls.Add(this.txtAnexo);
+            this.Controls.Add(this.lblAnexo);
+            this.Controls.Add(this.cmbCategoria);
+            this.Controls.Add(this.lblCategoria);
+            this.Controls.Add(this.cmbPrioridade);
+            this.Controls.Add(this.lblPrioridade);
+            this.Controls.Add(this.txtDescricao);
+            this.Controls.Add(this.lblDescricao);
+            this.Controls.Add(this.txtTitulo);
+            this.Controls.Add(this.lblTitulo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "FrmAbrirChamado";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Abrir Novo Chamado";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.TextBox txtTitulo;
+        private System.Windows.Forms.Label lblDescricao;
+        private System.Windows.Forms.TextBox txtDescricao;
+        private System.Windows.Forms.Label lblPrioridade;
+        private System.Windows.Forms.ComboBox cmbPrioridade;
+        private System.Windows.Forms.Label lblCategoria;
+        private System.Windows.Forms.ComboBox cmbCategoria;
+        private System.Windows.Forms.Label lblAnexo;
+        private System.Windows.Forms.TextBox txtAnexo;
+        private System.Windows.Forms.Button btnProcurarAnexo;
+        private System.Windows.Forms.Button btnRemoverAnexo;
+        private System.Windows.Forms.Button btnEnviar;
+        private System.Windows.Forms.Button btnCancelar;
+    }
+}

@@ -1,0 +1,201 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Sistema_Desktop_P4.Infrastructure;
+using Sistema_Desktop_P4.Domain;
+
+namespace Sistema_Desktop_P4
+{
+    // A palavra 'partial' é essencial.
+    public partial class FrmPrincipal : Form
+    {
+        // CONSTRUTOR
+        public FrmPrincipal()
+        {
+            InitializeComponent();
+
+            // Aplica o tema escuro
+            ThemeManager.AplicarTema(this);
+
+            this.IsMdiContainer = true;
+            this.WindowState = FormWindowState.Maximized;
+
+            // VINCULAÇÕES DE EVENTOS - ESSENCIAL PARA O CÓDIGO DE TRÁS
+            this.menuAbrirChamado.Click += this.menuAbrirChamado_Click;
+            this.menuChamadosConsultar.Click += this.menuConsultarChamados_Click;
+            this.menuSessaoLogout.Click += this.menuSessaoLogout_Click;
+            this.menuSessaoSair.Click += this.menuSessaoSair_Click;
+            this.Load += FrmPrincipal_Load;
+
+            // Configura visibilidade dos menus baseado no nível de acesso
+            ConfigurarMenusPorNivelAcesso();
+
+            // Atualiza status da sessão
+            CarregarStatusDaSessao();
+        }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            CarregarStatusDaSessao();
+            
+            // Mensagem de boas-vindas personalizada
+            string mensagemBemVindo = $"Bem-vindo ao Sistema, {SessionManager.NomeUsuario}!\n\n" +
+                                     $"Nível de acesso: {SessionManager.NivelAcessoUsuario.ObterDescricao()}\n" +
+                                     $"Permissões: {SessionManager.NivelAcessoUsuario.ObterPermissoes()}";
+            
+            // Opcional: descomentar para mostrar ao carregar
+            // MessageBox.Show(mensagemBemVindo, "Sistema de Chamados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        /// <summary>
+        /// Configura a visibilidade e habilitação dos menus baseado no nível de acesso do usuário.
+        /// </summary>
+        private void ConfigurarMenusPorNivelAcesso()
+        {
+            // Todos podem abrir chamados
+            menuAbrirChamado.Enabled = true;
+
+            // Apenas Técnicos e Administradores podem consultar todos os chamados
+            if (SessionManager.EhColaborador)
+            {
+                menuChamadosConsultar.Text = "Meus Chamados";
+                menuChamadosConsultar.Enabled = true;
+            }
+            else
+            {
+                menuChamadosConsultar.Text = "Consultar Chamados";
+                menuChamadosConsultar.Enabled = true;
+            }
+
+            // TODO: Adicionar menu de Administração (apenas para Administradores)
+            // Se você adicionar um menu "Administração" no designer, faça:
+            // if (this.Controls.Find("menuAdministracao", true).Length > 0)
+            // {
+            //     var menuAdmin = this.Controls.Find("menuAdministracao", true)[0] as ToolStripMenuItem;
+            //     menuAdmin.Visible = SessionManager.EhAdministrador;
+            // }
+        }
+
+        /// <summary>
+        /// Atualiza o ToolStripStatusLabel com informações da sessão.
+        /// </summary>
+        public void CarregarStatusDaSessao()
+        {
+            bool tokenValido = SessionManager.SessaoAtiva;
+            string status = tokenValido ? "CONECTADO" : "OFFLINE";
+            string usuarioExibido = tokenValido ? SessionManager.NomeUsuario : "N/A";
+            string nivelAcesso = tokenValido ? SessionManager.NivelAcessoUsuario.ObterDescricao() : "N/A";
+
+            if (this.toolStripStatusLabel1 != null)
+            {
+                this.toolStripStatusLabel1.Text =
+                    $"Usuário: {usuarioExibido} | Perfil: {nivelAcesso} | Status: {status}";
+
+                // Cor de fundo do label baseado no nível de acesso
+                if (tokenValido)
+                {
+                    if (SessionManager.EhAdministrador)
+                        this.toolStripStatusLabel1.BackColor = ThemeManager.CorPrimaria; // Azul
+                    else if (SessionManager.EhTecnico)
+                        this.toolStripStatusLabel1.BackColor = ThemeManager.CorSucesso; // Verde
+                    else
+                        this.toolStripStatusLabel1.BackColor = ThemeManager.CorAlerta; // Amarelo
+                }
+                else
+                {
+                    this.toolStripStatusLabel1.BackColor = ThemeManager.CorErro; // Vermelho
+                }
+            }
+        }
+
+        /* ----------------------------------------------------
+           MÉTODO AUXILIAR PARA NAVEGAÇÃO (RESOLVE CS0103)
+           ---------------------------------------------------- */
+
+        /// <summary>
+        /// Abre um formulário como uma janela filha (MDI) dentro do FrmPrincipal, prevenindo duplicatas.
+        /// </summary>
+        private void AbrirFormularioFilho(Form formFilho)
+        {
+            foreach (Form form in this.MdiChildren)
+            {
+                if (form.GetType() == formFilho.GetType())
+                {
+                    form.Activate();
+                    return;
+                }
+            }
+            formFilho.MdiParent = this;
+            formFilho.WindowState = FormWindowState.Maximized;
+            formFilho.Show();
+        }
+
+        /* ----------------------------------------------------
+           EVENTOS DE NAVEGAÇÃO (Implementação)
+           ---------------------------------------------------- */
+
+        private void menuAbrirChamado_Click(object sender, EventArgs e)
+        {
+            // Verifica permissão (todos podem abrir chamados)
+            if (!SessionManager.SessaoAtiva)
+            {
+                MessageBox.Show("Sua sessão expirou. Por favor, faça login novamente.", "Sessão Expirada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Cria a instância da tela de Abrir Chamado (ACÓPLAMENTO FORTE)
+            FrmAbrirChamado frmAbrir = new FrmAbrirChamado();
+            AbrirFormularioFilho(frmAbrir);
+        }
+
+        private void menuConsultarChamados_Click(object sender, EventArgs e)
+        {
+            // Verifica permissão
+            if (!SessionManager.SessaoAtiva)
+            {
+                MessageBox.Show("Sua sessão expirou. Por favor, faça login novamente.", "Sessão Expirada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Abre a tela de consulta (ela mesma filtrará baseado no nível de acesso)
+            FrmConsultarChamados frmConsultar = new FrmConsultarChamados();
+            AbrirFormularioFilho(frmConsultar);
+        }
+
+        private void menuSessaoLogout_Click(object sender, EventArgs e)
+        {
+            var resultado = MessageBox.Show(
+                $"Deseja realmente sair da sessão de {SessionManager.NomeUsuario} ?",
+                "Confirmar Logout",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                SessionManager.LimparSessao();
+                MessageBox.Show("Você foi desconectado com sucesso.", "Logout", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Volta para tela de login
+                this.Close();
+                var loginForm = new login();
+                loginForm.ShowDialog();
+            }
+        }
+
+        private void menuSessaoSair_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja realmente sair do sistema?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        // Coloque outros métodos aqui.
+    }
+}

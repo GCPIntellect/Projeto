@@ -1,0 +1,125 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Sistema_Desktop_P4.Infrastructure;
+
+namespace Sistema_Desktop_P4
+{
+    // A palavra 'partial' é essencial.
+    public partial class FrmPrincipal : Form
+    {
+        // CONSTRUTOR
+        public FrmPrincipal()
+        {
+            InitializeComponent();
+
+            // Aplica o tema escuro
+            ThemeManager.AplicarTema(this);
+
+            this.IsMdiContainer = true;
+            this.WindowState = FormWindowState.Maximized;
+
+            // VINCULAÇÕES DE EVENTOS - ESSENCIAL PARA O CÓDIGO DE TRÁS
+            this.menuAbrirChamado.Click += this.menuAbrirChamado_Click;
+            this.menuChamadosConsultar.Click += this.menuConsultarChamados_Click;
+            this.menuSessaoLogout.Click += this.menuSessaoLogout_Click;
+            this.menuSessaoSair.Click += this.menuSessaoSair_Click;
+            this.Load += FrmPrincipal_Load;
+
+            // Atualiza status da sessão
+            CarregarStatusDaSessao();
+        }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            CarregarStatusDaSessao();
+        }
+
+        /// <summary>
+        /// Atualiza o ToolStripStatusLabel com informações da sessão.
+        /// </summary>
+        public void CarregarStatusDaSessao()
+        {
+            bool tokenValido = SessionManager.SessaoAtiva;
+            string status = tokenValido ? "CONECTADO" : "OFFLINE";
+            string usuarioExibido = tokenValido ? SessionManager.NomeUsuario : "N/A";
+
+            if (this.toolStripStatusLabel1 != null)
+            {
+                this.toolStripStatusLabel1.Text =
+                    $"Usuário: {usuarioExibido} | Status: {status} | Token: {(tokenValido ? "ATIVO" : "INEXISTENTE")} CDL²";
+
+                // Cor de fundo do label
+                this.toolStripStatusLabel1.BackColor = tokenValido ? System.Drawing.Color.LightGreen : System.Drawing.Color.LightCoral;
+            }
+        }
+
+        /* ----------------------------------------------------
+           MÉTODO AUXILIAR PARA NAVEGAÇÃO (RESOLVE CS0103)
+           ---------------------------------------------------- */
+
+        /// <summary>
+        /// Abre um formulário como uma janela filha (MDI) dentro do FrmPrincipal, prevenindo duplicatas.
+        /// </summary>
+        private void AbrirFormularioFilho(Form formFilho)
+        {
+            foreach (Form form in this.MdiChildren)
+            {
+                if (form.GetType() == formFilho.GetType())
+                {
+                    form.Activate();
+                    return;
+                }
+            }
+            formFilho.MdiParent = this;
+            formFilho.WindowState = FormWindowState.Maximized;
+            formFilho.Show();
+        }
+
+        /* ----------------------------------------------------
+           EVENTOS DE NAVEGAÇÃO (Implementação)
+           ---------------------------------------------------- */
+
+        private void menuAbrirChamado_Click(object sender, EventArgs e)
+        {
+            // Cria a instância da tela de Abrir Chamado (ACÓPLAMENTO FORTE)
+            FrmAbrirChamado frmAbrir = new FrmAbrirChamado();
+            AbrirFormularioFilho(frmAbrir);
+        }
+
+        private void menuConsultarChamados_Click(object sender, EventArgs e)
+        {
+            // Cria a instância da tela de Consulta (ACÓPLAMENTO FORTE)
+            FrmConsultarChamados frmConsultar = new FrmConsultarChamados();
+            AbrirFormularioFilho(frmConsultar);
+        }
+
+        private void menuSessaoLogout_Click(object sender, EventArgs e)
+        {
+            SessionManager.LimparSessao();
+            MessageBox.Show("Você foi desconectado.", "Logout", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            CarregarStatusDaSessao();
+
+            // Volta para tela de login
+            this.Close();
+            var loginForm = new login();
+            loginForm.ShowDialog();
+        }
+
+        private void menuSessaoSair_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja realmente sair do sistema?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        // Coloque outros métodos aqui.
+    }
+}

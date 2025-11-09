@@ -1,8 +1,8 @@
 /* ==========================================================================
-   CONFIGURAÇÕES GLOBAIS E VARIÁVEIS (ROOT)
-   ========================================================================== */
+    CONFIGURAÇÕES GLOBAIS E VARIÁVEIS (ROOT)
+    ========================================================================== */
 :root {
-    /* Paleta de Cores */
+   /* Paleta de Cores */
     --cor-primaria: #0d6efd;
     --cor-sucesso: #10b981;
     --cor-alerta: #f59e0b;
@@ -23,8 +23,8 @@
 }
 
 /* ==========================================================================
-   RESET E ESTILOS DE BASE
-   ========================================================================== */
+    RESET E ESTILOS DE BASE
+    ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -44,9 +44,36 @@ body {
     line-height: 1.6;
 }
 
+/* Botão de Logout */
+.btn-logout {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: var(--cor-erro);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: #dc2626;
+}
+
+.btn-logout svg {
+    width: 18px;
+    height: 18px;
+}
+
 /* ==========================================================================
-   COMPONENTES DE AUTENTICAÇÃO (LOGIN / CADASTRO)
-   ========================================================================== */
+    COMPONENTES DE AUTENTICAÇÃO (LOGIN / CADASTRO)
+    ========================================================================== */
 .auth-container {
     display: flex;
     justify-content: center;
@@ -111,8 +138,8 @@ body {
 }
 
 /* ==========================================================================
-   COMPONENTES GERAIS E DE FORMULÁRIO
-   ========================================================================== */
+    COMPONENTES GERAIS E DE FORMULÁRIO
+    ========================================================================== */
 
 .form-group {
     margin-bottom: 1.5rem;
@@ -138,6 +165,15 @@ body {
     font-family: var(--font-principal);
     transition: all 0.2s ease-in-out;
 }
+/* Estilo para campos desabilitados */
+.form-group input:disabled,
+.form-group select:disabled,
+.form-group textarea:disabled {
+    background-color: var(--cor-fundo-escuro-1);
+    color: var(--cor-texto-secundario);
+    cursor: not-allowed;
+}
+
 
 .form-group input:focus,
 .form-group select:focus,
@@ -147,19 +183,27 @@ body {
     box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.3);
 }
 
-.form-group input[readonly] {
-    background-color: #2a2a2a;
-    cursor: not-allowed;
+.form-group textarea {
+    resize: vertical; 
+    min-height: 120px; 
+    max-height: 350px; 
 }
 
-.form-group textarea {
-    resize: vertical;
-    min-height: 120px;
+
+/* --- Grid para formulários (como na página de chamado) --- */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajustado para caber mais filtros */
+    gap: 1.5rem;
 }
+
 
 /* --- Botões --- */
 .btn {
-    display: inline-block;
+    display: inline-flex; /* Alterado para alinhar ícones */
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; /* Espaço entre texto e ícone */
     width: auto;
     padding: 0.9rem 1.5rem;
     border: 1px solid transparent;
@@ -171,13 +215,18 @@ body {
     text-decoration: none;
     transition: all 0.2s ease-in-out;
 }
+/* Estilo para botões desabilitados */
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
 
 .btn-primary {
     background-color: var(--cor-primaria);
     color: white;
 }
 
-.btn-primary:hover {
+.btn-primary:not(:disabled):hover {
     opacity: 0.9;
 }
 
@@ -187,11 +236,11 @@ body {
     border-color: var(--cor-borda);
 }
 
-.btn-secondary:hover {
+.btn-secondary:not(:disabled):hover {
     background-color: var(--cor-fundo-escuro-3);
 }
 
-/* CORREÇÃO: Estilo específico para o botão principal em formulários de autenticação */
+/* Estilo para botões em formulários de autenticação ocuparem 100% */
 .auth-card form .btn {
     width: 100%;
     margin-top: 1rem;
@@ -199,19 +248,20 @@ body {
 
 .form-actions {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center; /* Botões centralizados */
     gap: 1rem;
     margin-top: 1.5rem;
 }
 
 
 /* ==========================================================================
-   LAYOUT PRINCIPAL DA APLICAÇÃO (DASHBOARD)
-   ========================================================================== */
+    LAYOUT PRINCIPAL DA APLICAÇÃO (DASHBOARD)
+    ========================================================================== */
 
 .app-container {
     display: flex;
     height: 100vh;
+    overflow: hidden;
 }
 
 .sidebar {
@@ -222,6 +272,7 @@ body {
     display: flex;
     flex-direction: column;
     transition: width 0.3s ease;
+    flex-shrink: 0;
 }
 
 .sidebar-header {
@@ -283,16 +334,7 @@ body {
     align-items: center;
     justify-content: center;
     font-weight: 600;
-}
-
-.user-profile .user-info p {
-    font-weight: 500;
-    line-height: 1.2;
-}
-
-.user-profile .user-info span {
-    font-size: 0.8rem;
-    color: var(--cor-texto-secundario);
+    flex-shrink: 0;
 }
 
 .main-content {
@@ -308,20 +350,27 @@ body {
     margin-bottom: 2rem;
 }
 
-/* Estilo específico para o botão no cabeçalho */
 .main-header .btn-primary {
     padding: 0.8rem 1.2rem;
 }
 
 /* ==========================================================================
-   COMPONENTES REUTILIZÁVEIS (CARDS, TABELAS)
-   ========================================================================== */
+    COMPONENTES REUTILIZÁVEIS (CARDS, TABELAS)
+    ========================================================================== */
 .card {
     background-color: var(--cor-fundo-escuro-2);
     border: 1px solid var(--cor-borda);
     border-radius: 12px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
+}
+
+.form-section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--cor-borda);
 }
 
 /* --- Estilos de Tabela --- */
@@ -370,15 +419,18 @@ body {
     font-size: 0.8rem;
     font-weight: 600;
     display: inline-block;
+    white-space: nowrap;
 }
 
-.status-aberto { background-color: rgba(13, 110, 253, 0.2); color: #3b82f6; }
-.status-andamento { background-color: rgba(245, 158, 11, 0.2); color: #f59e0b; }
-.status-concluido, .status-resolvido { background-color: rgba(16, 185, 129, 0.2); color: #10b981; }
-.status-fechado, .status-cancelado { background-color: rgba(107, 114, 128, 0.2); color: #A9A9A9; }
-.status-critico { background-color: rgba(239, 68, 68, 0.2); color: var(--cor-erro); }
+.status-aberto { background-color: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+.status-em-andamento { background-color: rgba(245, 158, 11, 0.2); color: #facc15; }
+.status-resolvido { background-color: rgba(16, 185, 129, 0.2); color: #34d399; }
+.status-fechado, .status-cancelado { background-color: rgba(107, 114, 128, 0.2); color: #9ca3af; }
+.status-crítico { background-color: rgba(239, 68, 68, 0.2); color: var(--cor-erro); }
 
-
+.action-buttons {
+    white-space: nowrap;
+}
 .action-buttons a, .action-buttons button {
     text-decoration: none;
     color: var(--cor-texto-secundario);
@@ -386,16 +438,402 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 1.2rem;
     padding: 0;
 }
 .action-buttons a:hover, .action-buttons button:hover {
     color: var(--cor-primaria);
 }
+.action-buttons i {
+    width: 20px;
+    height: 20px;
+}
 
 /* ==========================================================================
-   RESPONSIVIDADE
+    --- NOVO ESTILO: RODAPÉ DO CARD (PAGINAÇÃO) ---
+    ========================================================================== */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem; /* Adiciona espaço acima */
+    border-top: 1px solid var(--cor-borda);
+}
+
+.card-footer .btn {
+    padding: 0.6rem 1rem; /* Botões de paginação menores */
+    font-size: 0.9rem;
+}
+
+.card-footer .btn i {
+    width: 18px; /* Ícones menores */
+    height: 18px;
+}
+
+.card-footer .text-muted {
+    font-style: normal; /* Remove itálico do contador */
+}
+
+
+/* ==========================================================================
+    Página de Chamado e Chat
    ========================================================================== */
+.chamado-header {
+    margin-bottom: 2rem;
+}
+
+.chamado-header h1 {
+    margin-bottom: 0.5rem;
+    word-wrap: break-word; /* Garante que títulos longos quebrem */
+}
+
+.chamado-meta {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem em telas menores */
+    gap: 1.5rem;
+    align-items: center;
+    color: var(--cor-texto-secundario);
+    font-size: 0.9rem;
+}
+
+.chamado-conversa {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.conversa-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+/* Estilo do Avatar (agora será usado) */
+.conversa-item .avatar {
+    width: 40px;
+    height: 40px;
+    background-color: var(--cor-fundo-escuro-3);
+    border: 1px solid var(--cor-borda);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 2px; /* Alinha o avatar com a primeira linha do nome */
+}
+
+.conversa-conteudo {
+    flex-grow: 1;
+}
+
+.conversa-conteudo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.25rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.conversa-conteudo-header strong {
+    color: var(--cor-texto-claro);
+    font-weight: 600;
+}
+
+.conversa-conteudo-header span {
+    font-size: 0.8rem;
+    color: var(--cor-texto-secundario);
+}
+
+.conversa-conteudo p {
+    color: var(--cor-texto-secundario);
+    line-height: 1.6;
+    word-wrap: break-word; /* Garante que o texto da mensagem quebre */
+    white-space: pre-wrap; /* Respeita as quebras de linha do <br> */
+}
+
+/* ==========================================================================
+    --- ESTILOS DE TÉCNICOS E ANEXOS ---
+   ========================================================================== */
+.text-muted {
+    color: var(--cor-texto-secundario);
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.tecnico-list-items {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.tecnico-list-items li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--cor-fundo-escuro-3);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--cor-borda);
+}
+
+.tecnico-list-items .avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+    background-color: var(--cor-primaria);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+/* --- Estilos para Lista de Anexos (Página de Detalhes) --- */
+.anexo-list-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column; /* Lista vertical */
+    gap: 1rem;
+}
+
+.anexo-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--cor-fundo-escuro-3);
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    border: 1px solid var(--cor-borda);
+}
+
+.anexo-item > i { /* Ícone 'file-text' */
+    color: var(--cor-texto-secundario);
+    flex-shrink: 0;
+}
+
+.anexo-item > span { /* Nome do arquivo */
+    flex-grow: 1; /* Ocupa o espaço */
+    color: var(--cor-texto-claro);
+    word-break: break-all; /* Quebra nomes longos */
+}
+
+.anexo-item .btn-download-anexo {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+/* --- Estilos para Upload de Anexos (Página de Abrir) --- */
+.form-upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border: 2px dashed var(--cor-borda);
+    border-radius: 8px;
+    background-color: var(--cor-fundo-escuro-3);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.form-upload-label:hover {
+    border-color: var(--cor-primaria);
+    background-color: #444;
+}
+.form-upload-label i {
+    width: 32px;
+    height: 32px;
+    color: var(--cor-texto-secundario);
+    margin-bottom: 0.5rem;
+}
+.form-upload-label span {
+    color: var(--cor-texto-secundario);
+}
+.form-upload-input {
+    display: none; /* O input real fica escondido */
+}
+
+/* Preview dos arquivos selecionados */
+.anexos-preview-list {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.anexo-preview-item {
+    font-size: 0.9rem;
+    color: var(--cor-texto-secundario);
+    padding: 0.5rem;
+    background-color: var(--cor-fundo-escuro-3);
+    border-radius: 4px;
+}
+
+
+/* ==========================================================================
+    COMPONENTES DO CHAT DE IA 
+    ========================================================================== */
+
+/* --- Botão Flutuante (FAB) para IA --- */
+.fab-ai {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: var(--cor-primaria);
+    color: white;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    z-index: 999;
+    transition: transform 0.2s ease;
+}
+
+.fab-ai:hover {
+    transform: scale(1.1);
+}
+.fab-ai i {
+    width: 32px;
+    height: 32px;
+}
+
+/* --- Overlay e Container do Chat --- */
+.chat-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none; /* Alterado por JS para 'flex' */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.chat-container {
+    width: 90%;
+    max-width: 600px;
+    height: 80vh;
+    background-color: var(--cor-fundo-escuro-2);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3);
+    border: 1px solid var(--cor-borda);
+}
+
+.chat-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--cor-borda);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.chat-header h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#close-chat {
+    background: none;
+    border: none;
+    color: var(--cor-texto-secundario);
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+#close-chat i {
+    width: 28px;
+    height: 28px;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.message {
+    padding: 0.8rem 1.2rem;
+    border-radius: 18px;
+    max-width: 80%;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.message.bot {
+    background-color: var(--cor-fundo-escuro-3);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.message.user {
+    background-color: var(--cor-primaria);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+.chat-input {
+    padding: 1rem;
+    border-top: 1px solid var(--cor-borda);
+    display: flex;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.chat-input input {
+    width: 100%;
+    background-color: var(--cor-fundo-escuro-3);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    color: var(--cor-texto-claro);
+    font-size: 1rem;
+}
+.chat-input input:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+}
+
+.chat-input button {
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.2rem;
+}
+.chat-input button i {
+    width: 24px;
+    height: 24px;
+}
+
+
+/* ==========================================================================
+    RESPONSIVIDADE
+    ========================================================================== */
 @media (max-width: 768px) {
     .sidebar {
         position: fixed;
@@ -435,10 +873,123 @@ body {
     .form-actions {
         flex-direction: column;
     }
+    
+    /* Na página de chamado, melhora o espaçamento dos metadados */
+    .chamado-meta {
+        gap: 0.5rem 1rem; /* Menos espaço vertical, mais horizontal */
+    }
+
+    /* Melhora o layout do chat em telas pequenas */
+    .conversa-conteudo-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Ajusta a paginação para telas menores */
+    .card-footer {
+        flex-direction: column;
+        gap: 1rem;
+    }
 }
 
 @media (min-width: 769px) {
     .menu-toggle {
         display: none; /* Esconde o botão em telas maiores */
     }
+}
+
+/* ==========================================================================
+    PÁGINA DE FAQ (NOVOS ESTILOS)
+    ========================================================================== */
+
+/* --- Card de Busca --- */
+.faq-search-card {
+    background-color: var(--cor-fundo-escuro-3); /* Cor mais escura para destaque */
+}
+.faq-search-bar {
+    position: relative;
+}
+.faq-search-bar i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--cor-texto-secundario);
+}
+.faq-search-bar input {
+    padding-left: 3rem; /* Espaço para o ícone */
+    background-color: var(--cor-fundo-escuro-1);
+}
+
+/* --- Lista de Itens do FAQ --- */
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Um pequeno espaço entre os itens */
+}
+
+.faq-item {
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+.faq-item:hover {
+    background-color: var(--cor-fundo-escuro-3);
+}
+
+.faq-item summary {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    list-style: none; /* Remove o marcador padrão */
+}
+/* Esconde o marcador em todos os navegadores */
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::marker { display: none; }
+
+.faq-icon {
+    color: var(--cor-primaria);
+    transition: transform 0.2s ease-in-out;
+    flex-shrink: 0;
+}
+
+/* Gira o ícone quando o <details> estiver aberto */
+.faq-item[open] summary .faq-icon {
+    transform: rotate(90deg);
+}
+
+/* --- Conteúdo da Resposta --- */
+.faq-item p {
+    padding: 1.25rem;
+    color: var(--cor-texto-secundario);
+    line-height: 1.7;
+    margin: 0;
+    border-top: 1px solid var(--cor-borda);
+}
+/* Corrige o parágrafo duplicado de "Incidente/Requisição" */
+.faq-item p + p {
+    padding-top: 0;
+    border-top: none;
+}
+
+
+/* --- Botão de Expandir (Novo) --- */
+.faq-actions {
+    margin-bottom: 1rem;
+    text-align: right;
+}
+.faq-actions .btn-link {
+    background: none;
+    border: none;
+    color: var(--cor-primaria);
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+.faq-actions .btn-link:hover {
+    text-decoration: underline;
 }

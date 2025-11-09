@@ -1,59 +1,110 @@
 using GCPIntellect.API.Data;
-using GCPIntellect.API.Services; // <-- 1. ADICIONADO: using para encontrar o GeminiService
+using GCPIntellect.API.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using GCPIntellect.API.Services.Interfaces; // Importa as interfaces
 
-// --- 1. Configuração dos Serviços ---
+// --- 1. Configuração dos Serviços (Dependências) ---
 var builder = WebApplication.CreateBuilder(args);
 
-// Adiciona o serviço de CORS
+// Configuração do CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAllOrigins",
-        policy =>
-        {
-            policy.AllowAnyOrigin()
-                  .AllowAnyHeader()
-                  .AllowAnyMethod();
-        });
+    options.AddPolicy("AllowAll",
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
 });
 
-// Pega a string de conexão
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 // Registra o DbContext
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<ContextoBD>(options =>
+    options.UseSqlServer(connectionString));
 
-// Registra o GeminiService (para Injeção de Dependência)
-builder.Services.AddScoped<GeminiService>(); // <-- 2. ADICIONADO: Registra o serviço da IA
+// Registra os Serviços customizados
+builder.Services.AddScoped<ServicoGemini>();
+builder.Services.AddScoped<IServicoEmail, ServicoEmail>();
+builder.Services.AddScoped<IServicoNotificacao, ServicoNotificacao>();
 
-// Adiciona os serviços do Swagger
+// --- Configuração da Autenticação JWT ---
+var jwtSettings = builder.Configuration.GetSection("JwtSettings");
+var secretKey = jwtSettings["Secret"];
+if (string.IsNullOrEmpty(secretKey))
+{
+    throw new InvalidOperationException("A chave secreta do JWT (JwtSettings:Secret) não está configurada.");
+}
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtSettings["Issuer"],
+        ValidAudience = jwtSettings["Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+    };
+});
+builder.Services.AddAuthorization();
+// --- FIM DA AUTENTICAÇÃO ---
+
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-// Adiciona o serviço dos Controllers
-builder.Services.AddControllers();
-
 
 // --- 2. Construção da Aplicação ---
 var app = builder.Build();
 
-
 // --- 3. Configuração do Pipeline de Requisições HTTP ---
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection(); // Cuidado com HTTPS em desenvolvimento local se não tiver certificado confiável
+app.UseHttpsRedirection();
 
-app.UseCors("AllowAllOrigins");
+// --- CORREÇÃO (ADICIONADO) ---
+// Habilita o servidor para entregar arquivos estáticos (CSS, JS, e seus UPLOADS)
+// da pasta wwwroot.
+app.UseStaticFiles();
+// --- FIM DA CORREÇÃO ---
 
+// Aplica a política de CORS
+app.UseCors("AllowAll");
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
 
+// --- 4. Inicialização do Banco de Dados (Seed) ---
+try
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var services = scope.ServiceProvider;
+        var context = services.GetRequiredService<ContextoBD>();
+        SeedData.Initialize(context); // Garante que o usuário 'admin' exista
+    }
+}
+catch (Exception ex)
+{
+    var logger = app.Services.GetRequiredService<ILogger<Program>>();
+    logger.LogError(ex, "Ocorreu um erro durante a inicialização (Seed) do banco de dados.");
+}
 
-// --- 4. Execução da Aplicação ---
+// --- 5. Execução da Aplicação ---
 app.Run();

@@ -1,21 +1,22 @@
+using GCPIntellect.API.Models.Enums;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema; // 1. ADICIONADO: Necessário para o [ForeignKey]
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GCPIntellect.API.Models
 {
+    [Table("NotificacaoFila")]
     public class NotificacaoFila
     {
         [Key]
         public int Id { get; set; }
 
-        // 2. ADICIONADO: Atributo [ForeignKey] 
-        [ForeignKey("Chamado")]
         public int? IdChamado { get; set; }
 
-        [Required, StringLength(5)]
-        public string TipoNotificacao { get; set; } = string.Empty;
+        [Required]
+        public TipoNotificacao TipoNotificacao { get; set; }
 
-        [Required, StringLength(255)]
+        [Required]
+        [StringLength(255)]
         public string Destinatario { get; set; } = string.Empty;
 
         [StringLength(300)]
@@ -24,20 +25,20 @@ namespace GCPIntellect.API.Models
         [Required]
         public string Conteudo { get; set; } = string.Empty;
 
-        [Required, StringLength(15)]
-        public string Status { get; set; } = "Pendente";
+        [Required]
+        public StatusNotificacao Status { get; set; } = StatusNotificacao.Pendente;
 
-        // 3. ADICIONADO: Valor padrão para consistência
+        [Required]
         public DateTime DataCriacao { get; set; } = DateTime.UtcNow;
 
         public DateTime? DataEnvio { get; set; }
 
-        // 4. ADICIONADO: Valor padrão para consistência
+        [Required]
         public int Tentativas { get; set; } = 0;
 
         public string? MensagemErro { get; set; }
 
-        // Propriedade de Navegação
+        [ForeignKey("IdChamado")]
         public virtual Chamado? Chamado { get; set; }
     }
 }

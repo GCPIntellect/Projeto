@@ -1,5 +1,8 @@
+// ARQUIVO: Models/BaseConhecimento.cs (VERSÃO CORRIGIDA)
+
 using System.ComponentModel.DataAnnotations;
-using System.Collections.Generic; // Necessário para ICollection
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace GCPIntellect.API.Models
 {
@@ -14,20 +17,20 @@ namespace GCPIntellect.API.Models
         [Required]
         public string Resposta { get; set; } = string.Empty;
 
+        [ForeignKey("Categoria")]
         public int? IdCategoria { get; set; }
         
+        [ForeignKey("UsuarioCriador")]
         public int IdUsuarioCriador { get; set; }
         
-        public DateTime DataCriacao { get; set; }
+        public DateTime DataCriacao { get; set; } = DateTime.UtcNow;
         
-        public DateTime DataUltimaAtualizacao { get; set; }
+        public DateTime DataUltimaAtualizacao { get; set; } = DateTime.UtcNow;
 
-        // Propriedades de Navegação
+        // --- Propriedades de Navegação ---
         public virtual Categoria? Categoria { get; set; }
-        public virtual Usuario? UsuarioCriador { get; set; }
+        public virtual UsuarioBase? UsuarioCriador { get; set; } // <-- CORREÇÃO
 
-        // --- CORREÇÃO ADICIONADA ---
-        // Lista que representa a relação com a tabela de junção
-        public virtual ICollection<BaseConhecimento_PalavraChave> PalavrasChave { get; set; } = new List<BaseConhecimento_PalavraChave>();
+        public virtual ICollection<BaseConhecimentoPalavraChave> PalavrasChave { get; set; } = new List<BaseConhecimentoPalavraChave>();
     }
 }

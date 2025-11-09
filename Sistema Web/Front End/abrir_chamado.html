@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GCPIntellect</title>
+    <title>Novo Chamado - GCPIntellect</title>
     <meta name="description" content="Sistema de chamados da Empresa GCPIntellect"> 
     <link rel="icon" href="https://raw.githubusercontent.com/GCPIntellect/Projeto/refs/heads/main/Documenta%C3%A7%C3%A3o/img/Imagem%20Logo.png">
     <link rel="stylesheet" href="style.css">
@@ -17,20 +17,15 @@
             <div class="sidebar-header">
                 <h2><i data-feather="box"></i> GCPIntellect</h2>
             </div>
-            <nav class="sidebar-nav">
-                <ul>
-                    <li><a href="dashboard_admin.html"><i data-feather="home"></i> Dashboard</a></li>
-                    <li><a href="gerenciar_usuarios.html"><i data-feather="users"></i> Gerenciar Usuários</a></li>
-                    <li><a href="relatorios.html"><i data-feather="bar-chart-2"></i> Relatórios</a></li>
-                    <li><a href="configuracoes.html"><i data-feather="settings"></i> Configurações</a></li>
-                </ul>
+            <nav class="sidebar-nav" id="sidebar-nav">
+                <ul><li><a href="#"><i data-feather="loader"></i> Carregando...</a></li></ul>
             </nav>
             <footer class="sidebar-footer">
                 <div class="user-profile">
-                    <div class="avatar">AD</div>
+                    <div class="avatar" id="user-avatar">...</div>
                     <div class="user-info">
-                        <p>Admin</p>
-                        <span>Administrador</span>
+                        <p id="user-name">Carregando...</p>
+                        <span id="user-role">...</span>
                     </div>
                 </div>
             </footer>
@@ -41,7 +36,7 @@
                 <h1>Novo Chamado</h1>
             </header>
 
-            <form id="form-abrir-chamado" action="salvar_chamado.php" method="POST" enctype="multipart/form-data">
+            <form id="form-abrir-chamado" enctype="multipart/form-data">
 
                 <section class="card" aria-labelledby="detalhes-titulo">
                     <h2 id="detalhes-titulo" class="form-section-title">Detalhes do Chamado</h2>
@@ -56,37 +51,31 @@
                 </section>
 
                 <section class="card" aria-labelledby="classificacao-titulo">
-                    <h2 id="classificacao-titulo" class="form-section-title">Classificação e Atribuição</h2>
+                    <h2 id="classificacao-titulo" class="form-section-title">Classificação</h2>
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="tipo">Tipo</label>
                             <select id="tipo" name="tipo" required>
-                                <option value="" disabled selected>Selecione o tipo</option>
-                                <option value="incidente">Incidente</option>
-                                <option value="requisicao">Requisição</option>
+                                <option value="" disabled selected>Carregando...</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="categoria">Categoria</label>
                             <select id="categoria" name="categoria_id" required>
-                                <option value="" disabled selected>Selecione a categoria</option>
-                                <option value="1">Configurar Impressora</option>
-                                <option value="2">Máquina com Lentidão</option>
-                                <option value="3">Ajuste de Áudio/Vídeo</option>
-                                <option value="4">Problema de Rede</option>
-                                <option value="5">Acesso a Sistema</option>
+                                <option value="" disabled selected>Carregando...</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="requerente">Requerente</label>
-                            <input type="text" id="requerente" name="requerente_id" value="Admin (preenchido automaticamente)" readonly>
+
+                        <div class="form-group" id="group-prioridade" style="display: none;">
+                            <label for="prioridade">Prioridade</label>
+                            <select id="prioridade" name="prioridade_id">
+                                <option value="">Padrão (Baixo)</option>
+                            </select>
                         </div>
-                        <div class="form-group">
-                            <label for="tecnico">Atribuir Técnico </label>
-                            <select id="tecnico" name="tecnico_id">
-                                <option value="" selected>Atribuir depois</option>
-                                <option value="101">Mariana</option>
-                                <option value="102">João</option>
+                        <div class="form-group" id="group-status" style="display: none;">
+                            <label for="status">Status Inicial</label>
+                            <select id="status" name="status_id">
+                                <option value="">Padrão (Em Andamento)</option>
                             </select>
                         </div>
                     </div>
@@ -95,24 +84,25 @@
                 <section class="card" aria-labelledby="anexos-titulo">
                     <h2 id="anexos-titulo" class="form-section-title">Anexos</h2>
                     <div class="form-group">
-                        <label for="anexos" class="form-upload-label">
+                        <label for="anexos" class="form-upload-label" id="anexos-label">
                             <i data-feather="upload"></i>
                             <span>Clique para carregar arquivos (imagens, logs, etc.)</span>
                         </label>
-                        <input type="file" id="anexos" name="anexos[]" class="form-upload-input" multiple>
+                        <input type="file" id="anexos" name="anexos" class="form-upload-input" multiple>
+                        <div id="anexos-preview" class="anexos-preview-list"></div>
                     </div>
                 </section>
                 
+                <div id="message-container" style="min-height: 24px;"></div>
+                
                 <footer class="form-actions">
-                    <button type="submit" class="btn btn-primary">Criar Chamado</button>
-                    <a href="dashboard_admin.html" class="btn btn-secondary" role="button">Cancelar</a>
+                    <button type="submit" class="btn btn-primary" id="btn-submit">Criar Chamado</button>
+                    <a href="dashboard.html" class="btn btn-secondary" role="button">Cancelar</a>
                 </footer>
             </form>
         </main>
     </div>
 
-    <script>
-      feather.replace();
-    </script>
+    <script src="abrir_chamado.js"></script>
 </body>
 </html>

@@ -68,7 +68,13 @@
                 localStorage.setItem('jwt_token', data.token);
                 
                 alert("Login bem-sucedido! Redirecionando...");
-                window.location.href = 'dashboard_admin.html';
+                
+                // ==========================================================
+                // --- CORRIGIDO ---
+                // Aponta para o novo dashboard unificado.
+                window.location.href = 'dashboard.html';
+                // ==========================================================
+                
             } else {
                 errorMessageDiv.textContent = 'Usuário ou senha inválidos.';
             }

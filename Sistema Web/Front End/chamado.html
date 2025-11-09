@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GCPIntellect</title>
+    <title>Chamado - GCPIntellect</title>
     <meta name="description" content="Sistema de chamados da Empresa GCPIntellect"> 
     <link rel="icon" href="https://raw.githubusercontent.com/GCPIntellect/Projeto/refs/heads/main/Documenta%C3%A7%C3%A3o/img/Imagem%20Logo.png">
     <link rel="stylesheet" href="style.css">
@@ -11,90 +11,119 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/feather-icons"></script>
-</head>
+<body>
 <body>
     <div class="app-container">
-        <!-- A sidebar aqui seria dinâmica, mostrando a do usuário logado. Exemplo com a de admin -->
         <aside class="sidebar" role="navigation">
             <div class="sidebar-header">
                 <h2><i data-feather="box"></i> GCPIntellect</h2>
             </div>
-            <nav class="sidebar-nav">
-                <ul>
-                    <li><a href="dashboard_admin.html"><i data-feather="home"></i> Dashboard</a></li>
-                    <li><a href="gerenciar_usuarios.html"><i data-feather="users"></i> Gerenciar Usuários</a></li>
-                    <li><a href="relatorios.html"><i data-feather="bar-chart-2"></i> Relatórios</a></li>
-                    <li><a href="configuracoes.html"><i data-feather="settings"></i> Configurações</a></li>
-                </ul>
+            <nav class="sidebar-nav" id="sidebar-nav">
+                <ul><li><a href="#"><i data-feather="loader"></i> Carregando...</a></li></ul>
             </nav>
             <footer class="sidebar-footer">
                 <div class="user-profile">
-                    <div class="avatar">AD</div>
+                    <div class="avatar" id="user-avatar">...</div> 
                     <div class="user-info">
-                        <p>Admin</p>
-                        <span>Administrador</span>
+                        <p id="user-name">Carregando...</p>
+                        <span id="user-role">...</span>
                     </div>
                 </div>
             </footer>
         </aside>
 
-        <!-- Conteúdo do Chamado -->
         <main class="main-content" role="main">
-            <button class="menu-toggle" aria-label="Abrir menu"><i data-feather="menu"></i></button>
             <header class="chamado-header">
-                <h1>Problema com impressora Fiscal <span class="status status-aberto">Aberto</span></h1>
+                <h1 id="chamado-titulo">Carregando detalhes do chamado...</h1>
                 <div class="chamado-meta">
-                    <span>ID: #1205</span>
-                    <span>Aberto por: Carlos (Supervisor)</span>
-                    <span>Data: 16/09/2025</span>
+                    <span>Aberto por <strong id="chamado-requerente">...</strong></span>
+                    <span>em <span id="chamado-data">...</span></span>
+                    <span id="chamado-status-badge" class="status status-aberto">...</span>
                 </div>
             </header>
 
-            <section class="chamado-conversa">
-                <article class="conversa-item">
-                    <div class="avatar">CA</div>
-                    <div class="conversa-conteudo">
-                        <header class="conversa-conteudo-header">
-                            <strong>Carlos (Supervisor)</strong>
-                            <span>16/09/2025 às 09:30</span>
-                        </header>
-                        <p>Bom dia, a impressora fiscal do setor de vendas parou de funcionar. Ela liga, mas não imprime as notas. Já reiniciei o computador e a impressora, mas o problema persiste. Precisamos de ajuda urgente.</p>
-                    </div>
-                </article>
-
-                <article class="conversa-item">
-                    <div class="avatar">TE</div>
-                    <div class="conversa-conteudo">
-                        <header class="conversa-conteudo-header">
-                            <strong>Mariana (Técnico)</strong>
-                            <span>16/09/2025 às 09:45</span>
-                        </header>
-                        <p>Olá, Carlos. Recebi seu chamado. Você pode verificar se há alguma luz piscando na impressora? Estou a caminho para verificar o problema pessoalmente.</p>
-                    </div>
-                </article>
-            </section>
-            
-            <section class="card nova-mensagem" style="margin-top: 2rem;">
-                <h2>Adicionar uma atualização</h2>
-                <form>
+            <form id="form-detalhes-chamado">
+                <section class="card">
+                    <h2 class="form-section-title">Detalhes do Chamado</h2>
+                    
                     <div class="form-group">
-                        <label for="mensagem">Sua mensagem</label>
-                        <textarea id="mensagem" placeholder="Digite sua resposta ou atualização aqui..."></textarea>
+                        <label for="assunto">Assunto</label>
+                        <input type="text" id="assunto" name="assunto" required>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: auto;">Enviar Atualização</button>
+                    <div class="form-group">
+                        <label for="descricao">Descrição Detalhada</label>
+                        <textarea id="descricao" name="descricao" rows="6" required></textarea>
+                    </div>
+                </section>
+
+                <section class="card">
+                    <h2 class="form-section-title">Classificação</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="tipo">Tipo</label>
+                            <select id="tipo" name="tipo" required>
+                                <option value="" disabled selected>Carregando...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="categoria">Categoria</label>
+                            <select id="categoria" name="categoria_id" required>
+                                <option value="" disabled selected>Carregando...</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="group-prioridade">
+                            <label for="prioridade">Prioridade</label>
+                            <select id="prioridade" name="prioridade_id"></select>
+                        </div>
+                        <div class="form-group" id="group-status">
+                            <label for="status">Status</label>
+                            <select id="status" name="status_id"></select>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="card" id="secao-tecnicos">
+                    <h2 class="form-section-title">Técnicos Responsáveis</h2>
+                    <div class="tecnico-list" id="tecnico-list-container">
+                        </div>
+                </section>
+
+                <section class="card" id="secao-anexos">
+                    <h2 class="form-section-title">Anexos</h2>
+                    <div class="anexo-list" id="anexo-list-container">
+                        </div>
+                </section>
+                <div id="message-container" style="min-height: 24px;"></div>
+                
+                <footer class="form-actions" id="form-actions-footer" style="display:none;">
+                    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                    <a href="dashboard.html" class="btn btn-secondary" role="button">Voltar</a>
+                </footer>
+            </form>
+            
+            <section class="card" aria-labelledby="conversa-titulo">
+                <h2 id="conversa-titulo" class="form-section-title">Histórico de Ações (Conversa)</h2>
+                <div class="chamado-conversa" id="conversa-container">
+                    </div>
+            </section>
+
+            <section class="card" aria-labelledby="resposta-titulo">
+                <h2 id="resposta-titulo" class="form-section-title">Adicionar Acompanhamento (Chat)</h2>
+                <form id="form-nova-mensagem">
+                    <div class="form-group">
+                        <label for="nova-mensagem" style="display:none;">Sua mensagem</label>
+                        <textarea id="nova-mensagem" rows="5" placeholder="Digite sua resposta ou atualização aqui..." required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                    </div>
                 </form>
             </section>
         </main>
     </div>
-    
-    <script>
-      feather.replace();
-      // Script para Sidebar Mobile
-      const menuToggle = document.querySelector('.menu-toggle');
-      const sidebar = document.querySelector('.sidebar');
-      menuToggle.addEventListener('click', () => {
-        sidebar.classList.toggle('open');
-      });
-    </script>
+
+<script src="chamado.js"></script>
+
 </body>
 </html>

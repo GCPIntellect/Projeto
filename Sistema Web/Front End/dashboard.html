@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - GCPIntellect</title>
+    <meta name="description" content="Sistema de chamados da Empresa GCPIntellect"> 
+    <link rel="icon" href="https://raw.githubusercontent.com/GCPIntellect/Projeto/refs/heads/main/Documenta%C3%A7%C3%A3o/img/Imagem%20Logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar" role="navigation">
+            <div class="sidebar-header">
+                <h2><i data-feather="box"></i> GCPIntellect</h2>
+            </div>
+            
+            <nav class="sidebar-nav" id="sidebar-nav">
+                <ul>
+                    <li><a href="#"><i data-feather="loader"></i> Carregando...</a></li>
+                </ul>
+            </nav>
+
+            <footer class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="avatar" id="user-avatar">...</div> 
+                    <div class="user-info">
+                        <p id="user-name">Carregando...</p>
+                        <span id="user-role">...</span>
+                    </div>
+                </div>
+            </footer>
+        </aside>
+
+        <main class="main-content" role="main">
+            <button class="menu-toggle" aria-label="Abrir menu"><i data-feather="menu"></i></button>
+            <header class="main-header">
+                <h1 id="main-title">Dashboard</h1> 
+                <a href="abrir_chamado.html" class="btn btn-primary main-header-action" role="button">Abrir Chamado</a>
+            </header>
+            
+            <section class="card" id="card-filtros">
+                <form id="form-filtros">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="filtro-status">Status</label>
+                            <select id="filtro-status">
+                                <option value="">Todos</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="filtro-prioridade">Prioridade</label>
+                            <select id="filtro-prioridade">
+                                <option value="">Todas</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="filtro-tipo">Tipo</label>
+                            <select id="filtro-tipo">
+                                <option value="">Todos</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="filtro-data-inicio">De</label>
+                            <input type="date" id="filtro-data-inicio">
+                        </div>
+                        <div class="form-group">
+                            <label for="filtro-data-fim">Até</label>
+                            <input type="date" id="filtro-data-fim">
+                        </div>
+                    </div>
+                    <div class="form-actions" style="justify-content: flex-end;">
+                        <button type="button" class="btn btn-secondary" id="btn-limpar-filtros">Limpar</button>
+                        <button type="button" class="btn btn-primary" id="btn-filtrar">Filtrar</button>
+                    </div>
+                </form>
+            </section>
+            
+            <section class="card" id="chamados-recentes">
+                <h2 id="table-title">Chamados</h2>
+                <div class="table-container">
+                    <table class="styled-table" aria-label="Tabela de chamados">
+                        <thead>
+                            <tr id="table-header-row"></tr>
+                        </thead>
+                        <tbody id="tabela-chamados-corpo">
+                            </tbody>
+                    </table>
+                </div>
+                
+                <footer class="card-footer" id="pagination-controls" style="display: none;">
+                    <button class="btn btn-secondary" id="btn-pagina-anterior" disabled>
+                        <i data-feather="chevron-left"></i> Anterior
+                    </button>
+                    <span id="info-paginacao" class="text-muted">Página 1 de 1</span>
+                    <button class="btn btn-secondary" id="btn-pagina-proxima" disabled>
+                        Próxima <i data-feather="chevron-right"></i>
+                    </button>
+                </footer>
+                </section>
+        </main>
+    </div>
+
+    <button class="fab-ai" id="open-chat" aria-label="Abrir chat com IA"><i data-feather="cpu"></i></button>
+    <div class="chat-overlay" id="chat-overlay" role="dialog" aria-modal="true">
+        <div class="chat-container">
+            <header class="chat-header">
+                <h3><i data-feather="cpu"></i> Assistente Virtual</h3>
+                <button id="close-chat" aria-label="Fechar chat"><i data-feather="x"></i></button>
+            </header>
+            <section class="chat-messages"></section>
+            <footer class="chat-input">
+                <input type="text" id="chat-input-text" placeholder="Digite seu problema aqui...">
+                <button id="chat-send-btn"><i data-feather="send"></i></button>
+            </footer>
+        </div>
+    </div>
+    
+    <script src="dashboard.js"></script>
+</body>
+</html>

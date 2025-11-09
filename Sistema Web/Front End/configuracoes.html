@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GCPIntellect</title>
+    <title>Configurações - GCPIntellect</title>
     <meta name="description" content="Sistema de chamados da Empresa GCPIntellect"> 
     <link rel="icon" href="https://raw.githubusercontent.com/GCPIntellect/Projeto/refs/heads/main/Documenta%C3%A7%C3%A3o/img/Imagem%20Logo.png">
     <link rel="stylesheet" href="style.css">
@@ -14,63 +14,66 @@
 </head>
 <body>
     <div class="app-container">
-        <!-- A sidebar aqui seria dinâmica, mostrando a do usuário logado. Exemplo com a de admin -->
         <aside class="sidebar" role="navigation">
             <div class="sidebar-header">
                 <h2><i data-feather="box"></i> GCPIntellect</h2>
             </div>
-            <nav class="sidebar-nav">
-                <ul>
-                    <li><a href="dashboard_admin.html"><i data-feather="home"></i> Dashboard</a></li>
-                    <li><a href="gerenciar_usuarios.html"><i data-feather="users"></i> Gerenciar Usuários</a></li>
-                    <li><a href="relatorios.html"><i data-feather="bar-chart-2"></i> Relatórios</a></li>
-                    <li><a href="configuracoes.html" class="active"><i data-feather="settings"></i> Configurações</a></li>
-                </ul>
+            <nav class="sidebar-nav" id="sidebar-nav">
+                <ul><li><a href="#"><i data-feather="loader"></i> Carregando...</a></li></ul>
             </nav>
             <footer class="sidebar-footer">
                 <div class="user-profile">
-                    <div class="avatar">AD</div>
+                    <div class="avatar" id="user-avatar">...</div>
                     <div class="user-info">
-                        <p>Admin</p>
-                        <span>Administrador</span>
+                        <p id="user-name">Carregando...</p>
+                        <span id="user-role">...</span>
                     </div>
                 </div>
             </footer>
         </aside>
 
-        <!-- Conteúdo Principal -->
         <main class="main-content" role="main">
             <button class="menu-toggle" aria-label="Abrir menu"><i data-feather="menu"></i></button>
-            <header class="main-header">
+            <header classs="main-header">
                 <h1>Configurações da Conta</h1>
             </header>
             
             <section class="card">
                 <h2>Meu Perfil</h2>
-                 <form>
-                    <div class="form-group">
-                        <label for="name">Nome</label>
-                        <input type="text" id="name" value="Admin">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" value="admin@empresa.com">
-                    </div>
-                     <button type="submit" class="btn btn-primary" style="width: auto;">Salvar Alterações</button>
-                </form>
+                   <form>
+                       <div class="form-group">
+                           <label for="name">Nome (Login)</label>
+                           <input type="text" id="name" value="" disabled>
+                       </div>
+                       <div class="form-group">
+                           <label for="email">E-mail</label>
+                           <input type="email" id="email" value="" disabled>
+                       </div>
+                       <p class="text-muted">A edição de perfil (Nome, E-mail) será implementada futuramente.</p>
+                       </form>
             </section>
-
         </main>
     </div>
     
+    <script src="layout.js"></script>
+    
     <script>
-      feather.replace();
-      // Script para Sidebar Mobile
-      const menuToggle = document.querySelector('.menu-toggle');
-      const sidebar = document.querySelector('.sidebar');
-      menuToggle.addEventListener('click', () => {
-        sidebar.classList.toggle('open');
-      });
+        // Adiciona um script rápido para preencher o nome e email (somente leitura)
+        // Isso é opcional, mas melhora a experiência
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('jwt_token');
+            if (token) {
+                try {
+                    const payload = JSON.parse(atob(token.split('.')[1]));
+                    // Assumindo que o login é o 'sub' e o email está no token
+                    document.getElementById('name').value = payload.sub || "Usuário";
+                    // Tenta encontrar o email, se não existir, deixa em branco
+                    document.getElementById('email').value = payload.email || ""; 
+                } catch(e) {
+                    console.error('Falha ao preencher dados do perfil:', e);
+                }
+            }
+        });
     </script>
 </body>
 </html>
